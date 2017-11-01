@@ -3850,13 +3850,24 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 101 "mcc_generated_files/pwm3.h"
+# 12 "C:\Microchip\xc8\include\stdbool.h"
+typedef unsigned char bool;
+
+# 102 "mcc_generated_files/pwm3.h"
 void PWM3_Initialize(void);
 
-# 128
+# 129
 void PWM3_LoadDutyValue(uint16_t dutyValue);
 
-# 57 "mcc_generated_files/pwm3.c"
+
+void PWM3_StepDutyValue(bool direction);
+
+# 30 "mcc_generated_files/../user.h"
+void InitApp(void);
+
+# 54 "mcc_generated_files/pwm3.c"
+static uint16_t pwm3_current_duty_cycle;
+
 void PWM3_Initialize(void)
 {
 
@@ -3869,14 +3880,32 @@ PWM3DCH = 0x02;
 
 PWM3DCL = 0x40;
 
+
+PWM3_LoadDutyValue(9);
 }
 
 void PWM3_LoadDutyValue(uint16_t dutyValue)
 {
 
+if(dutyValue > 20){
+dutyValue = 20;
+}else if(dutyValue < 0){
+
+dutyValue = 0;
+}
+
 PWM3DCH = (dutyValue & 0x03FC)>>2;
 
 
 PWM3DCL = (dutyValue & 0x0003)<<6;
+
+pwm3_current_duty_cycle = dutyValue;
 }
 
+void PWM3_StepDutyValue(bool direction){
+if(direction == 1){
+PWM3_LoadDutyValue(pwm3_current_duty_cycle + 1);
+}else{
+PWM3_LoadDutyValue(pwm3_current_duty_cycle - 1);
+}
+}

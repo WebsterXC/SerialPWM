@@ -49,10 +49,9 @@
 
  #include <xc.h>
  #include "pwm4.h"
+ #include "../user.h"
 
- /**
-   Section: PWM Module APIs
- */
+ static uint16_t pwm4_current_duty_cycle;
 
  void PWM4_Initialize(void)
  {
@@ -66,16 +65,32 @@
      // PWM4DCL 1; 
      PWM4DCL = 0x40;
      
+     // Load the default 50% duty cycle.
+     PWM4_LoadDutyValue(PWM4_INITIALIZE_DUTY_VALUE);
  }
 
  void PWM4_LoadDutyValue(uint16_t dutyValue)
  {
+     // Control which values we can write to the duty cycle register.
+     if(dutyValue > DUTY_CYCLE_MAX){
+         dutyValue = DUTY_CYCLE_MAX;
+     }else if(dutyValue < DUTY_CYCLE_MIN){
+         // This is technically not possible but we include it for good measure.
+         dutyValue = DUTY_CYCLE_MIN;
+     }
      // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
      PWM4DCH = (dutyValue & 0x03FC)>>2;
      
      // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
      PWM4DCL = (dutyValue & 0x0003)<<6;
+     
+     pwm4_current_duty_cycle = dutyValue;
  }
- /**
-  End of File
- */
+ 
+ void PWM4_StepDutyValue(bool direction){
+     if(direction == true){
+         PWM4_LoadDutyValue(pwm4_current_duty_cycle + 1);
+     }else{
+         PWM4_LoadDutyValue(pwm4_current_duty_cycle - 1);
+     }
+ }

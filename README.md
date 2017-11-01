@@ -51,6 +51,7 @@ are used in the master branch release:
 * Target MCU Pinout: PIC16LF1503
 * MCU System Clock: Internal FRC, 500kHz
 * PWM Frequency: 25kHz (Target frequency for ATX PC Fans)
+* PWM Granularity: +/- 5% (Adjusted using the system clock)
 
 ## Programming ##
 #### So you're ready to use SerialPWM? Here's how! ####

@@ -3853,25 +3853,116 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Microchip\xc8\include\stdbool.h"
 typedef unsigned char bool;
 
-# 19 "system.h"
-void ConfigureOscillator(void);
+# 182 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
 
-# 13 "user.h"
-void InitApp(void);
+# 194
+void PIN_MANAGER_IOC(void);
 
-# 26 "main.c"
+# 207
+void IOCAF4_ISR(void);
+
+# 230
+void IOCAF4_SetInterruptHandler(void* InterruptHandler);
+
+# 254
+extern void (*IOCAF4_InterruptHandler)(void);
+
+# 278
+void IOCAF4_DefaultInterruptHandler(void);
+
+# 291
+void IOCAF5_ISR(void);
+
+# 314
+void IOCAF5_SetInterruptHandler(void* InterruptHandler);
+
+# 338
+extern void (*IOCAF5_InterruptHandler)(void);
+
+# 362
+void IOCAF5_DefaultInterruptHandler(void);
+
+# 110 "mcc_generated_files/interrupt_manager.h"
+void interrupt INTERRUPT_InterruptManager(void);
+
+# 102 "mcc_generated_files/pwm4.h"
+void PWM4_Initialize(void);
+
+# 129
+void PWM4_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM4_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/pwm3.h"
+void PWM3_Initialize(void);
+
+# 129
+void PWM3_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM3_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/tmr2.h"
+void TMR2_Initialize(void);
+
+# 131
+void TMR2_StartTimer(void);
+
+# 163
+void TMR2_StopTimer(void);
+
+# 198
+uint8_t TMR2_ReadTimer(void);
+
+# 237
+void TMR2_WriteTimer(uint8_t timerVal);
+
+# 289
+void TMR2_LoadPeriodRegister(uint8_t periodVal);
+
+# 324
+bool TMR2_HasOverflowOccured(void);
+
+# 102 "mcc_generated_files/pwm2.h"
+void PWM2_Initialize(void);
+
+# 129
+void PWM2_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM2_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/pwm1.h"
+void PWM1_Initialize(void);
+
+# 129
+void PWM1_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM1_StepDutyValue(bool direction);
+
+# 73 "mcc_generated_files/mcc.h"
+void SYSTEM_Initialize(void);
+
+# 86
+void OSCILLATOR_Initialize(void);
+
+# 99
+void WDT_Initialize(void);
+
+# 24 "main.c"
 void main(void)
 {
 
-ConfigureOscillator();
-
-
-InitApp();
-
+# 35
+SYSTEM_Initialize();
 
 while(1)
 {
 
+# 47
 }
 
 }

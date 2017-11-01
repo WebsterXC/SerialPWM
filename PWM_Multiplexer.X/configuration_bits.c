@@ -30,4 +30,4 @@
 /*                                                                            */
 /******************************************************************************/
 
-/* TODO Fill in your config bits here.  Use the configuration bits generator/ */
+/* Refer to "MCC Generated Files/mcc.c" for configuration bits. */

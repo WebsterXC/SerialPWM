@@ -5,6 +5,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PWM1DCH `Vuc ~T0 @X0 0 e@1554 ]
 "3912
 [v _PWM1DCL `Vuc ~T0 @X0 0 e@1553 ]
+"129 mcc_generated_files/pwm1.h
+[v _PWM1_LoadDutyValue `(v ~T0 @X0 0 ef1`ui ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2810,47 +2812,112 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;pwm1.h: 101: void PWM1_Initialize(void);
-[; ;pwm1.h: 128: void PWM1_LoadDutyValue(uint16_t dutyValue);
-"57 mcc_generated_files/pwm1.c
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;pwm1.h: 102: void PWM1_Initialize(void);
+[; ;pwm1.h: 129: void PWM1_LoadDutyValue(uint16_t dutyValue);
+[; ;pwm1.h: 132: void PWM1_StepDutyValue(bool direction);
+[; ;user.h: 30: void InitApp(void);
+"54 mcc_generated_files/pwm1.c
+[v _pwm1_current_duty_cycle `ui ~T0 @X0 1 s ]
+[; ;pwm1.c: 54: static uint16_t pwm1_current_duty_cycle;
+"56
 [v _PWM1_Initialize `(v ~T0 @X0 1 ef ]
-"58
+"57
 {
-[; ;pwm1.c: 57: void PWM1_Initialize(void)
-[; ;pwm1.c: 58: {
+[; ;pwm1.c: 56: void PWM1_Initialize(void)
+[; ;pwm1.c: 57: {
 [e :U _PWM1_Initialize ]
 [f ]
-[; ;pwm1.c: 61: PWM1CON = 0xC0;
-"61
+[; ;pwm1.c: 60: PWM1CON = 0xC0;
+"60
 [e = _PWM1CON -> -> 192 `i `uc ]
-[; ;pwm1.c: 64: PWM1DCH = 0x02;
-"64
+[; ;pwm1.c: 63: PWM1DCH = 0x02;
+"63
 [e = _PWM1DCH -> -> 2 `i `uc ]
-[; ;pwm1.c: 67: PWM1DCL = 0x40;
-"67
+[; ;pwm1.c: 66: PWM1DCL = 0x40;
+"66
 [e = _PWM1DCL -> -> 64 `i `uc ]
-[; ;pwm1.c: 69: }
+[; ;pwm1.c: 69: PWM1_LoadDutyValue(9);
 "69
+[e ( _PWM1_LoadDutyValue (1 -> -> 9 `i `ui ]
+[; ;pwm1.c: 70: }
+"70
 [e :UE 334 ]
 }
-"71
+"72
 [v _PWM1_LoadDutyValue `(v ~T0 @X0 1 ef1`ui ]
-"72
+"73
 {
-[; ;pwm1.c: 71: void PWM1_LoadDutyValue(uint16_t dutyValue)
-[; ;pwm1.c: 72: {
+[; ;pwm1.c: 72: void PWM1_LoadDutyValue(uint16_t dutyValue)
+[; ;pwm1.c: 73: {
 [e :U _PWM1_LoadDutyValue ]
-"71
-[v _dutyValue `ui ~T0 @X0 1 r1 ]
 "72
+[v _dutyValue `ui ~T0 @X0 1 r1 ]
+"73
 [f ]
-[; ;pwm1.c: 74: PWM1DCH = (dutyValue & 0x03FC)>>2;
-"74
-[e = _PWM1DCH -> >> & _dutyValue -> -> 1020 `i `ui -> 2 `i `uc ]
-[; ;pwm1.c: 77: PWM1DCL = (dutyValue & 0x0003)<<6;
+[; ;pwm1.c: 75: if(dutyValue > 20){
+"75
+[e $ ! > _dutyValue -> -> 20 `i `ui 336  ]
+{
+[; ;pwm1.c: 76: dutyValue = 20;
+"76
+[e = _dutyValue -> -> 20 `i `ui ]
 "77
+}
+[; ;pwm1.c: 77: }else if(dutyValue < 0){
+[e $U 337  ]
+[e :U 336 ]
+[e $ ! < _dutyValue -> -> 0 `i `ui 338  ]
+{
+[; ;pwm1.c: 79: dutyValue = 0;
+"79
+[e = _dutyValue -> -> 0 `i `ui ]
+"80
+}
+[e :U 338 ]
+"82
+[e :U 337 ]
+[; ;pwm1.c: 80: }
+[; ;pwm1.c: 82: PWM1DCH = (dutyValue & 0x03FC)>>2;
+[e = _PWM1DCH -> >> & _dutyValue -> -> 1020 `i `ui -> 2 `i `uc ]
+[; ;pwm1.c: 85: PWM1DCL = (dutyValue & 0x0003)<<6;
+"85
 [e = _PWM1DCL -> << & _dutyValue -> -> 3 `i `ui -> 6 `i `uc ]
-[; ;pwm1.c: 78: }
-"78
+[; ;pwm1.c: 87: pwm1_current_duty_cycle = dutyValue;
+"87
+[e = _pwm1_current_duty_cycle _dutyValue ]
+[; ;pwm1.c: 88: }
+"88
 [e :UE 335 ]
+}
+"90
+[v _PWM1_StepDutyValue `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;pwm1.c: 90: void PWM1_StepDutyValue(bool direction){
+[e :U _PWM1_StepDutyValue ]
+[v _direction `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;pwm1.c: 91: if(direction == 1){
+"91
+[e $ ! == -> _direction `i -> 1 `i 340  ]
+{
+[; ;pwm1.c: 92: PWM1_LoadDutyValue(pwm1_current_duty_cycle + 1);
+"92
+[e ( _PWM1_LoadDutyValue (1 + _pwm1_current_duty_cycle -> -> 1 `i `ui ]
+"93
+}
+[; ;pwm1.c: 93: }else{
+[e $U 341  ]
+[e :U 340 ]
+{
+[; ;pwm1.c: 94: PWM1_LoadDutyValue(pwm1_current_duty_cycle - 1);
+"94
+[e ( _PWM1_LoadDutyValue (1 - _pwm1_current_duty_cycle -> -> 1 `i `ui ]
+"95
+}
+[e :U 341 ]
+[; ;pwm1.c: 95: }
+[; ;pwm1.c: 96: }
+"96
+[e :UE 339 ]
 }

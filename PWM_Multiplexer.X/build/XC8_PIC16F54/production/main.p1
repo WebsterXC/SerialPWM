@@ -1,9 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"19 system.h
-[v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"13 user.h
-[v _InitApp `(v ~T0 @X0 0 ef ]
+"73 mcc_generated_files/mcc.h
+[v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2810,37 +2808,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 19: void ConfigureOscillator(void);
-[; ;user.h: 13: void InitApp(void);
+[; ;pin_manager.h: 182: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 194: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 207: void IOCAF4_ISR(void);
+[; ;pin_manager.h: 230: void IOCAF4_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 254: extern void (*IOCAF4_InterruptHandler)(void);
+[; ;pin_manager.h: 278: void IOCAF4_DefaultInterruptHandler(void);
+[; ;pin_manager.h: 291: void IOCAF5_ISR(void);
+[; ;pin_manager.h: 314: void IOCAF5_SetInterruptHandler(void* InterruptHandler);
+[; ;pin_manager.h: 338: extern void (*IOCAF5_InterruptHandler)(void);
+[; ;pin_manager.h: 362: void IOCAF5_DefaultInterruptHandler(void);
+[; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
+[; ;pwm4.h: 102: void PWM4_Initialize(void);
+[; ;pwm4.h: 129: void PWM4_LoadDutyValue(uint16_t dutyValue);
+[; ;pwm4.h: 132: void PWM4_StepDutyValue(bool direction);
+[; ;pwm3.h: 102: void PWM3_Initialize(void);
+[; ;pwm3.h: 129: void PWM3_LoadDutyValue(uint16_t dutyValue);
+[; ;pwm3.h: 132: void PWM3_StepDutyValue(bool direction);
+[; ;tmr2.h: 102: void TMR2_Initialize(void);
+[; ;tmr2.h: 131: void TMR2_StartTimer(void);
+[; ;tmr2.h: 163: void TMR2_StopTimer(void);
+[; ;tmr2.h: 198: uint8_t TMR2_ReadTimer(void);
+[; ;tmr2.h: 237: void TMR2_WriteTimer(uint8_t timerVal);
+[; ;tmr2.h: 289: void TMR2_LoadPeriodRegister(uint8_t periodVal);
+[; ;tmr2.h: 324: bool TMR2_HasOverflowOccured(void);
+[; ;pwm2.h: 102: void PWM2_Initialize(void);
+[; ;pwm2.h: 129: void PWM2_LoadDutyValue(uint16_t dutyValue);
+[; ;pwm2.h: 132: void PWM2_StepDutyValue(bool direction);
+[; ;pwm1.h: 102: void PWM1_Initialize(void);
+[; ;pwm1.h: 129: void PWM1_LoadDutyValue(uint16_t dutyValue);
+[; ;pwm1.h: 132: void PWM1_StepDutyValue(bool direction);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 99: void WDT_Initialize(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"26 main.c
+"24 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"27
+"25
 {
-[; ;main.c: 26: void main(void)
-[; ;main.c: 27: {
+[; ;main.c: 24: void main(void)
+[; ;main.c: 25: {
 [e :U _main ]
 [f ]
-[; ;main.c: 29: ConfigureOscillator();
-"29
-[e ( _ConfigureOscillator ..  ]
-[; ;main.c: 32: InitApp();
-"32
-[e ( _InitApp ..  ]
-[; ;main.c: 35: while(1)
+[; ;main.c: 35: SYSTEM_Initialize();
 "35
+[e ( _SYSTEM_Initialize ..  ]
+[; ;main.c: 37: while(1)
+"37
 [e :U 336 ]
-[; ;main.c: 36: {
-"36
-{
+[; ;main.c: 38: {
 "38
+{
+"47
 }
 [e :U 335 ]
-"35
+"37
 [e $U 336  ]
 [e :U 337 ]
-[; ;main.c: 38: }
-[; ;main.c: 40: }
-"40
+[; ;main.c: 47: }
+[; ;main.c: 49: }
+"49
 [e :UE 334 ]
 }

@@ -17,12 +17,12 @@
          <string>class com.microchip.mcc.mcu8.modules.pwm.PWM</string>
       </entry>
       <entry>
-         <string>Pin Module</string>
-         <string>class com.microchip.mcc.mcu8.pinManager.PinManager</string>
-      </entry>
-      <entry>
          <string>PWM2</string>
          <string>class com.microchip.mcc.mcu8.modules.pwm.PWM</string>
+      </entry>
+      <entry>
+         <string>Pin Module</string>
+         <string>class com.microchip.mcc.mcu8.pinManager.PinManager</string>
       </entry>
       <entry>
          <string>PWM4</string>
@@ -767,7 +767,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="anselUserSetRC3"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ioc RC4"/>
@@ -1042,12 +1042,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="PWM1" registerAlias="PWMCON" settingAlias="PWMOE" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="PWM3" name="pwmPeriod"/>
          <value>4.0E-5</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="PWM1" registerAlias="PWMCON" settingAlias="PWMOE" alias="enabled"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELC" settingAlias="ANSC1" alias="digital"/>
@@ -1194,12 +1194,12 @@
          <value>3</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR2" registerAlias="TCON" settingAlias="TOUTPS" alias="1:3"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="PWM2" name="pwmPeriod"/>
          <value>4.0E-5</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR2" registerAlias="TCON" settingAlias="TOUTPS" alias="1:3"/>
+         <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR2" registerAlias="TCON" settingAlias="TOUTPS" alias="1:2"/>
@@ -2055,7 +2055,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="PWM1" name="dutyCycle"/>
-         <value>50</value>
+         <value>50.0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="SCS" alias="FOSC"/>
@@ -2232,12 +2232,12 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>646c2b9d662050c14c4cf1f8352e77b2d9f50a28a94827bc3ca9f2cc95abb879</hash>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>2bccee9fcbde6681a72a5b631c18f13ad5bb87894a524bfbbb65ecf6a3022c43</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>04154b987e2c4905b08026efd7f9eabed237cb1b83eb7abebc1dbfbe15c9ff90</hash>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>646c2b9d662050c14c4cf1f8352e77b2d9f50a28a94827bc3ca9f2cc95abb879</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr2.h</file>
@@ -2272,16 +2272,16 @@
          <hash>435fc0c65cd9cfa52f0a39cfd520a207e07fea12620449e62c763574a8708000</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>3c1411e47d1220d2d894934196178107bc5cfcbb9d0d711bb82a98380e50c3fb</hash>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>ac28cb75bdb039b9ad2fca3a1d43eb30126963417319befda2e446b53fa3b535</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pwm4.h</file>
          <hash>d7012c5c6fe86d43da43a2ac363f269cbf58fea4650badc26b56216a882cbe89</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>ac28cb75bdb039b9ad2fca3a1d43eb30126963417319befda2e446b53fa3b535</hash>
+         <file>mcc_generated_files\interrupt_manager.c</file>
+         <hash>3c1411e47d1220d2d894934196178107bc5cfcbb9d0d711bb82a98380e50c3fb</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pwm2.c</file>

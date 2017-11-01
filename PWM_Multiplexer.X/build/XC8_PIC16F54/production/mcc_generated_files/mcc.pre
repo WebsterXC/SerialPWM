@@ -3903,6 +3903,24 @@ typedef unsigned char bool;
 # 110 "mcc_generated_files/interrupt_manager.h"
 void interrupt INTERRUPT_InterruptManager(void);
 
+# 102 "mcc_generated_files/pwm4.h"
+void PWM4_Initialize(void);
+
+# 129
+void PWM4_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM4_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/pwm3.h"
+void PWM3_Initialize(void);
+
+# 129
+void PWM3_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM3_StepDutyValue(bool direction);
+
 # 102 "mcc_generated_files/tmr2.h"
 void TMR2_Initialize(void);
 
@@ -3924,29 +3942,23 @@ void TMR2_LoadPeriodRegister(uint8_t periodVal);
 # 324
 bool TMR2_HasOverflowOccured(void);
 
-# 101 "mcc_generated_files/pwm4.h"
-void PWM4_Initialize(void);
-
-# 128
-void PWM4_LoadDutyValue(uint16_t dutyValue);
-
-# 101 "mcc_generated_files/pwm1.h"
-void PWM1_Initialize(void);
-
-# 128
-void PWM1_LoadDutyValue(uint16_t dutyValue);
-
-# 101 "mcc_generated_files/pwm2.h"
+# 102 "mcc_generated_files/pwm2.h"
 void PWM2_Initialize(void);
 
-# 128
+# 129
 void PWM2_LoadDutyValue(uint16_t dutyValue);
 
-# 101 "mcc_generated_files/pwm3.h"
-void PWM3_Initialize(void);
 
-# 128
-void PWM3_LoadDutyValue(uint16_t dutyValue);
+void PWM2_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/pwm1.h"
+void PWM1_Initialize(void);
+
+# 129
+void PWM1_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM1_StepDutyValue(bool direction);
 
 # 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);

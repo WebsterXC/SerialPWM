@@ -49,10 +49,9 @@
 
  #include <xc.h>
  #include "pwm2.h"
+ #include "../user.h"
 
- /**
-   Section: PWM Module APIs
- */
+ static uint16_t pwm2_current_duty_cycle;
 
  void PWM2_Initialize(void)
  {
@@ -66,16 +65,32 @@
      // PWM2DCL 1; 
      PWM2DCL = 0x40;
      
+     // Load the default 50% duty cycle.
+     PWM2_LoadDutyValue(PWM2_INITIALIZE_DUTY_VALUE);
  }
 
  void PWM2_LoadDutyValue(uint16_t dutyValue)
  {
+     // Control which values we can write to the duty cycle register.
+     if(dutyValue > DUTY_CYCLE_MAX){
+         dutyValue = DUTY_CYCLE_MAX;
+     }else if(dutyValue < DUTY_CYCLE_MIN){
+         // This is technically not possible but we include it for good measure.
+         dutyValue = DUTY_CYCLE_MIN;
+     }
      // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
      PWM2DCH = (dutyValue & 0x03FC)>>2;
      
      // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
      PWM2DCL = (dutyValue & 0x0003)<<6;
+     
+     pwm2_current_duty_cycle = dutyValue;
  }
- /**
-  End of File
- */
+ 
+ void PWM2_StepDutyValue(bool direction){
+     if(direction == true){
+         PWM2_LoadDutyValue(pwm2_current_duty_cycle + 1);
+     }else{
+         PWM2_LoadDutyValue(pwm2_current_duty_cycle - 1);
+     }
+ }

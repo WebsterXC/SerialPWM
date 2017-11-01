@@ -11,30 +11,39 @@
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>       /* For true/false definition */
 
-#include "system.h"        /* System funct/params, like osc/peripheral config */
-#include "user.h"          /* User funct/params, such as InitApp */
-
+#include "mcc_generated_files/mcc.h"
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
 
-/* i.e. uint8_t <variable_name>; */
+/* No globals. */
 
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
 void main(void)
 {
-    /* Configure the oscillator for the device */
-    ConfigureOscillator();
-
-    /* Initialize I/O and Peripherals for application */
-    InitApp();
-
+    /* Initialize the MCU resources:
+     * 
+     * Pin GPIO
+     * Oscillator (FRC 500kHz)
+     * Watchdog Timer (Disabled)
+     * PWM 1-4
+     * Timer 2
+     *
+     */
+    SYSTEM_Initialize();
 
     while(1)
     {
-        /* TODO <INSERT USER APPLICATION CODE HERE> */
+        /* Just stay in an empty while-loop.
+         * 
+         * SerialPWM is an interrupt driven design, and
+         * since all we're doing is interpreting GPIO from
+         * IOC inputs, there are no housekeeping steps that
+         * would normally go here.
+         * 
+         */
     }
 
 }

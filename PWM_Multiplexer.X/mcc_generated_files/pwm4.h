@@ -52,6 +52,7 @@
 
  #include <xc.h>
  #include <stdint.h>
+ #include <stdbool.h>
 
  #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -126,6 +127,9 @@
      </code>
  */
  void PWM4_LoadDutyValue(uint16_t dutyValue);
+ 
+ /* Wrapper function that uses _LoadDutyValue in increments of 1 (5%). */
+ void PWM4_StepDutyValue(bool direction);
  
  #ifdef __cplusplus  // Provide C++ Compatibility
 

@@ -47,6 +47,10 @@
 #include "pin_manager.h"
 #include "stdbool.h"
 
+#include "pwm1.h"
+#include "pwm2.h"
+#include "pwm3.h"
+#include "pwm4.h"
 
 void (*IOCAF4_InterruptHandler)(void);
 void (*IOCAF5_InterruptHandler)(void);
@@ -108,13 +112,13 @@ void PIN_MANAGER_Initialize(void)
 
 void PIN_MANAGER_IOC(void)
 {   
-    // interrupt on change for pin IOCAF4
+    // Interrupt on change for RA4 ()
     if(IOCAFbits.IOCAF4 == 1)
     {
         IOCAF4_ISR();  
     }                          
 
-    // interrupt on change for pin IOCAF5
+    // Interrupt on change for RA5 ()
     if(IOCAFbits.IOCAF5 == 1)
     {
         IOCAF5_ISR();  
@@ -145,12 +149,13 @@ void IOCAF4_SetInterruptHandler(void* InterruptHandler){
     IOCAF4_InterruptHandler = InterruptHandler;
 }
 
-/**
-  Default interrupt handler for IOCAF4
-*/
+/* Interrupt handler for DUTY UP. */
 void IOCAF4_DefaultInterruptHandler(void){
-    // add your IOCAF4 interrupt custom code
-    // or set custom function using IOCAF4_SetInterruptHandler()
+    /* External signal requests incrementing the duty cycle. */
+    
+    // Read the selection inputs.
+    
+    // Increment the correct duty cycle.
 }
 
 /**
@@ -175,14 +180,11 @@ void IOCAF5_SetInterruptHandler(void* InterruptHandler){
     IOCAF5_InterruptHandler = InterruptHandler;
 }
 
-/**
-  Default interrupt handler for IOCAF5
-*/
+/* Interrupt handler for DUTY DOWN. */
 void IOCAF5_DefaultInterruptHandler(void){
-    // add your IOCAF5 interrupt custom code
-    // or set custom function using IOCAF5_SetInterruptHandler()
+    /* External signal requests decrementing the duty cycle. */
+    
+    // Read the selection inputs.
+    
+    // Decrement the correct duty cycle.
 }
-
-/**
- End of File
-*/

@@ -3853,7 +3853,7 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Microchip\xc8\include\stdbool.h"
 typedef unsigned char bool;
 
-# 13 "user.h"
+# 30 "user.h"
 void InitApp(void);
 
 # 22 "user.c"

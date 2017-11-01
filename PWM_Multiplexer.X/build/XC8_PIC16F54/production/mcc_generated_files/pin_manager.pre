@@ -3793,7 +3793,133 @@ void IOCAF5_DefaultInterruptHandler(void);
 # 12 "C:\Microchip\xc8\include\stdbool.h"
 typedef unsigned char bool;
 
-# 51 "mcc_generated_files/pin_manager.c"
+# 13 "C:\Microchip\xc8\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 102 "mcc_generated_files/pwm1.h"
+void PWM1_Initialize(void);
+
+# 129
+void PWM1_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM1_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/pwm2.h"
+void PWM2_Initialize(void);
+
+# 129
+void PWM2_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM2_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/pwm3.h"
+void PWM3_Initialize(void);
+
+# 129
+void PWM3_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM3_StepDutyValue(bool direction);
+
+# 102 "mcc_generated_files/pwm4.h"
+void PWM4_Initialize(void);
+
+# 129
+void PWM4_LoadDutyValue(uint16_t dutyValue);
+
+
+void PWM4_StepDutyValue(bool direction);
+
+# 55 "mcc_generated_files/pin_manager.c"
 void (*IOCAF4_InterruptHandler)(void);
 void (*IOCAF5_InterruptHandler)(void);
 
@@ -3801,26 +3927,26 @@ void (*IOCAF5_InterruptHandler)(void);
 void PIN_MANAGER_Initialize(void)
 {
 
-# 60
+# 64
 LATA = 0x00;
 LATC = 0x00;
 
-# 66
+# 70
 TRISA = 0x3B;
 TRISC = 0x15;
 
-# 72
+# 76
 ANSELC = 0x0A;
 ANSELA = 0x07;
 
-# 78
+# 82
 WPUA = 0x3F;
 OPTION_REGbits.nWPUEN = 0;
 
-# 85
+# 89
 APFCON = 0x00;
 
-# 91
+# 95
 IOCAFbits.IOCAF4 = 0;
 IOCAFbits.IOCAF5 = 0;
 
@@ -3856,7 +3982,7 @@ IOCAF5_ISR();
 
 }
 
-# 129
+# 133
 void IOCAF4_ISR(void) {
 
 
@@ -3869,18 +3995,18 @@ IOCAF4_InterruptHandler();
 IOCAFbits.IOCAF4 = 0;
 }
 
-# 144
+# 148
 void IOCAF4_SetInterruptHandler(void* InterruptHandler){
 IOCAF4_InterruptHandler = InterruptHandler;
 }
 
-# 151
+# 155
 void IOCAF4_DefaultInterruptHandler(void){
 
 
 }
 
-# 159
+# 163
 void IOCAF5_ISR(void) {
 
 
@@ -3893,12 +4019,12 @@ IOCAF5_InterruptHandler();
 IOCAFbits.IOCAF5 = 0;
 }
 
-# 174
+# 178
 void IOCAF5_SetInterruptHandler(void* InterruptHandler){
 IOCAF5_InterruptHandler = InterruptHandler;
 }
 
-# 181
+# 185
 void IOCAF5_DefaultInterruptHandler(void){
 
 

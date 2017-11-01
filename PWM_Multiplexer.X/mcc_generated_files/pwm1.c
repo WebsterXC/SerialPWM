@@ -1,15 +1,15 @@
  /**
    PWM1 Generated Driver File
- 
+
    @Company
      Microchip Technology Inc.
- 
+
    @File Name
      pwm1.c
- 
+
    @Summary
-     This is the generated driver implementation file for the PWM1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs 
- 
+     This is the generated driver implementation file for the PWM1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+
    @Description
      This source file provides implementations for driver APIs for PWM1.
      Generation Information :
@@ -19,7 +19,7 @@
      The generated drivers are tested against the following:
          Compiler          :  XC8 1.35
          MPLAB             :  MPLAB X 3.40
- */ 
+ */
 
  /*
     (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
@@ -42,40 +42,55 @@
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
 */
- 
+
  /**
    Section: Included Files
  */
 
  #include <xc.h>
  #include "pwm1.h"
+ #include "../user.h"
 
- /**
-   Section: PWM Module APIs
- */
+ static uint16_t pwm1_current_duty_cycle;
 
  void PWM1_Initialize(void)
  {
      // Set the PWM to the options selected in the PIC10 / PIC12 / PIC16 / PIC18 MCUs .
-     // PWM1POL active_hi; PWM1OE enabled; PWM1EN enabled; 
+     // PWM1POL active_hi; PWM1OE enabled; PWM1EN enabled;
      PWM1CON = 0xC0;
-     
-     // PWM1DCH 2; 
+
+     // PWM1DCH 2;
      PWM1DCH = 0x02;
-     
+
      // PWM1DCL 1; 
      PWM1DCL = 0x40;
      
+     // Load the default 50% duty cycle.
+     PWM1_LoadDutyValue(PWM1_INITIALIZE_DUTY_VALUE);
  }
 
  void PWM1_LoadDutyValue(uint16_t dutyValue)
  {
+     // Control which values we can write to the duty cycle register.
+     if(dutyValue > DUTY_CYCLE_MAX){
+         dutyValue = DUTY_CYCLE_MAX;
+     }else if(dutyValue < DUTY_CYCLE_MIN){
+         // This is technically not possible but we include it for good measure.
+         dutyValue = DUTY_CYCLE_MIN;
+     }
      // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
      PWM1DCH = (dutyValue & 0x03FC)>>2;
-     
+
      // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
      PWM1DCL = (dutyValue & 0x0003)<<6;
+     
+     pwm1_current_duty_cycle = dutyValue;
  }
- /**
-  End of File
- */
+ 
+ void PWM1_StepDutyValue(bool direction){
+     if(direction == true){
+         PWM1_LoadDutyValue(pwm1_current_duty_cycle + 1);
+     }else{
+         PWM1_LoadDutyValue(pwm1_current_duty_cycle - 1);
+     }
+ }

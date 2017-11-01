@@ -50,11 +50,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "interrupt_manager.h"
-#include "tmr2.h"
 #include "pwm4.h"
-#include "pwm1.h"
-#include "pwm2.h"
 #include "pwm3.h"
+#include "tmr2.h"
+#include "pwm2.h"
+#include "pwm1.h"
 
 #define _XTAL_FREQ  500000
 
