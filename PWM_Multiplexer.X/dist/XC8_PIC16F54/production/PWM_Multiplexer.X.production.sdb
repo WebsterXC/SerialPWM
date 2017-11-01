@@ -25,30 +25,42 @@
 [v _IOCAF4_ISR IOCAF4_ISR `(v  1 e 1 0 ]
 "148
 [v _IOCAF4_SetInterruptHandler IOCAF4_SetInterruptHandler `(v  1 e 1 0 ]
-"155
+"153
 [v _IOCAF4_DefaultInterruptHandler IOCAF4_DefaultInterruptHandler `(v  1 e 1 0 ]
-"163
+"184
 [v _IOCAF5_ISR IOCAF5_ISR `(v  1 e 1 0 ]
-"178
+"199
 [v _IOCAF5_SetInterruptHandler IOCAF5_SetInterruptHandler `(v  1 e 1 0 ]
-"185
+"204
 [v _IOCAF5_DefaultInterruptHandler IOCAF5_DefaultInterruptHandler `(v  1 e 1 0 ]
 "56 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm1.c
 [v _PWM1_Initialize PWM1_Initialize `(v  1 e 1 0 ]
 "72
 [v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
+[v i1_PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
+"90
+[v _PWM1_StepDutyValue PWM1_StepDutyValue `(v  1 e 1 0 ]
 "56 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm2.c
 [v _PWM2_Initialize PWM2_Initialize `(v  1 e 1 0 ]
 "72
 [v _PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
+[v i1_PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
+"90
+[v _PWM2_StepDutyValue PWM2_StepDutyValue `(v  1 e 1 0 ]
 "56 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm3.c
 [v _PWM3_Initialize PWM3_Initialize `(v  1 e 1 0 ]
 "72
 [v _PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
+[v i1_PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
+"90
+[v _PWM3_StepDutyValue PWM3_StepDutyValue `(v  1 e 1 0 ]
 "56 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm4.c
 [v _PWM4_Initialize PWM4_Initialize `(v  1 e 1 0 ]
 "72
 [v _PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
+[v i1_PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
+"90
+[v _PWM4_StepDutyValue PWM4_StepDutyValue `(v  1 e 1 0 ]
 "61 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
 "81
@@ -70,7 +82,17 @@
 ]
 [u S187 . 1 `S173 1 . 1 0 `S182 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES187  1 e 1 @11 ]
-[s S347 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S213 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+]
+"492
+[u S220 . 1 `S213 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES220  1 e 1 @14 ]
+[s S386 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -79,20 +101,20 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "543
-[u S355 . 1 `S347 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES355  1 e 1 @17 ]
+[u S394 . 1 `S386 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES394  1 e 1 @17 ]
 "848
 [v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
 "868
 [v _PR2 PR2 `VEuc  1 e 1 @27 ]
 "888
 [v _T2CON T2CON `VEuc  1 e 1 @28 ]
-[s S370 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S409 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "909
-[s S374 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S413 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -100,8 +122,8 @@
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S382 . 1 `S370 1 . 1 0 `S374 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES382  1 e 1 @28 ]
+[u S421 . 1 `S409 1 . 1 0 `S413 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES421  1 e 1 @28 ]
 "959
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1009
@@ -244,7 +266,7 @@
 "72
 [v _PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
 {
-[v PWM4_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 1 ]
+[v PWM4_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
 "88
 } 0
 "56 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm3.c
@@ -255,7 +277,7 @@
 "72
 [v _PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
 {
-[v PWM3_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 1 ]
+[v PWM3_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
 "88
 } 0
 "56 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm2.c
@@ -266,7 +288,7 @@
 "72
 [v _PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
 {
-[v PWM2_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 1 ]
+[v PWM2_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
 "88
 } 0
 "56 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm1.c
@@ -277,7 +299,7 @@
 "72
 [v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
 {
-[v PWM1_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 1 ]
+[v PWM1_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
 "88
 } 0
 "59 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pin_manager.c
@@ -285,16 +307,16 @@
 {
 "111
 } 0
-"178
+"199
 [v _IOCAF5_SetInterruptHandler IOCAF5_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v IOCAF5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 1 ]
-"180
+[v IOCAF5_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 0 ]
+"201
 } 0
 "148
 [v _IOCAF4_SetInterruptHandler IOCAF4_SetInterruptHandler `(v  1 e 1 0 ]
 {
-[v IOCAF4_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 1 ]
+[v IOCAF4_SetInterruptHandler@InterruptHandler InterruptHandler `*.37v  1 p 2 0 ]
 "150
 } 0
 "79 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/mcc.c
@@ -312,23 +334,83 @@
 {
 "128
 } 0
-"163
+"184
 [v _IOCAF5_ISR IOCAF5_ISR `(v  1 e 1 0 ]
 {
-"173
+"194
 } 0
-"185
+"204
 [v _IOCAF5_DefaultInterruptHandler IOCAF5_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"188
+"207
+[v IOCAF5_DefaultInterruptHandler@dir dir `DCuc  1 s 1 dir ]
+"230
 } 0
 "133
 [v _IOCAF4_ISR IOCAF4_ISR `(v  1 e 1 0 ]
 {
 "143
 } 0
-"155
+"153
 [v _IOCAF4_DefaultInterruptHandler IOCAF4_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"158
+"156
+[v IOCAF4_DefaultInterruptHandler@dir dir `DCuc  1 s 1 dir ]
+"179
+} 0
+"90 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm4.c
+[v _PWM4_StepDutyValue PWM4_StepDutyValue `(v  1 e 1 0 ]
+{
+[v PWM4_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM4_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM4_StepDutyValue@direction direction `uc  1 a 1 4 ]
+"96
+} 0
+"72
+[v i1_PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v i1PWM4_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
+"88
+} 0
+"90 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm3.c
+[v _PWM3_StepDutyValue PWM3_StepDutyValue `(v  1 e 1 0 ]
+{
+[v PWM3_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM3_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM3_StepDutyValue@direction direction `uc  1 a 1 4 ]
+"96
+} 0
+"72
+[v i1_PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v i1PWM3_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
+"88
+} 0
+"90 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm2.c
+[v _PWM2_StepDutyValue PWM2_StepDutyValue `(v  1 e 1 0 ]
+{
+[v PWM2_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM2_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM2_StepDutyValue@direction direction `uc  1 a 1 4 ]
+"96
+} 0
+"72
+[v i1_PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v i1PWM2_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
+"88
+} 0
+"90 C:\Users\william.burgin\Documents\Samples\SerialPWM\PWM_Multiplexer.X\mcc_generated_files/pwm1.c
+[v _PWM1_StepDutyValue PWM1_StepDutyValue `(v  1 e 1 0 ]
+{
+[v PWM1_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM1_StepDutyValue@direction direction `uc  1 a 1 wreg ]
+[v PWM1_StepDutyValue@direction direction `uc  1 a 1 4 ]
+"96
+} 0
+"72
+[v i1_PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v i1PWM1_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
+"88
 } 0

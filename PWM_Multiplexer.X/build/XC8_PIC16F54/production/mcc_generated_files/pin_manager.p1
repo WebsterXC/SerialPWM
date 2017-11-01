@@ -84,6 +84,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _IOCAF4_ISR `(v ~T0 @X0 0 ef ]
 "291
 [v _IOCAF5_ISR `(v ~T0 @X0 0 ef ]
+"483 C:\Microchip\xc8\include\pic16lf1503.h
+[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . RC0 RC1 RC2 RC3 RC4 RC5 ]
+"482
+[u S30 `S31 1 ]
+[n S30 . . ]
+"492
+[v _PORTCbits `VS30 ~T0 @X0 0 e@14 ]
+"132 mcc_generated_files/pwm1.h
+[v _PWM1_StepDutyValue `(v ~T0 @X0 0 ef1`uc ]
+"132 mcc_generated_files/pwm2.h
+[v _PWM2_StepDutyValue `(v ~T0 @X0 0 ef1`uc ]
+"132 mcc_generated_files/pwm3.h
+[v _PWM3_StepDutyValue `(v ~T0 @X0 0 ef1`uc ]
+"132 mcc_generated_files/pwm4.h
+[v _PWM4_StepDutyValue `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3062,63 +3078,191 @@ Version 3.2 HI-TECH Software Intermediate Code
 "150
 [e :UE 340 ]
 }
-"155
+"153
 [v _IOCAF4_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 155: void IOCAF4_DefaultInterruptHandler(void){
+[; ;pin_manager.c: 153: void IOCAF4_DefaultInterruptHandler(void){
 [e :U _IOCAF4_DefaultInterruptHandler ]
 [f ]
-[; ;pin_manager.c: 158: }
-"158
+"156
+[v F2968 `Cuc ~T0 @X0 1 s dir ]
+[i F2968
+-> -> 1 `i `uc
+]
+[; ;pin_manager.c: 156: const bool dir = 1;
+[; ;pin_manager.c: 159: if( PORTCbits.RC0 == 0 ){
+"159
+[e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 342  ]
+{
+[; ;pin_manager.c: 161: if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+"161
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 343  ]
+{
+[; ;pin_manager.c: 163: PWM1_StepDutyValue(dir);
+"163
+[e ( _PWM1_StepDutyValue (1 F2968 ]
+"164
+}
+[; ;pin_manager.c: 164: }else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+[e $U 344  ]
+[e :U 343 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 345  ]
+{
+[; ;pin_manager.c: 166: PWM2_StepDutyValue(dir);
+"166
+[e ( _PWM2_StepDutyValue (1 F2968 ]
+"167
+}
+[; ;pin_manager.c: 167: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+[e $U 346  ]
+[e :U 345 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 347  ]
+{
+[; ;pin_manager.c: 169: PWM3_StepDutyValue(dir);
+"169
+[e ( _PWM3_StepDutyValue (1 F2968 ]
+"170
+}
+[; ;pin_manager.c: 170: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+[e $U 348  ]
+[e :U 347 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 349  ]
+{
+[; ;pin_manager.c: 172: PWM4_StepDutyValue(dir);
+"172
+[e ( _PWM4_StepDutyValue (1 F2968 ]
+"173
+}
+[; ;pin_manager.c: 173: }else{
+[e $U 350  ]
+[e :U 349 ]
+{
+"175
+}
+[e :U 350 ]
+[e :U 348 ]
+[e :U 346 ]
+[e :U 344 ]
+"176
+}
+[e :U 342 ]
+[; ;pin_manager.c: 175: }
+[; ;pin_manager.c: 176: }
+[; ;pin_manager.c: 179: }
+"179
 [e :UE 341 ]
 }
-"163
+"184
 [v _IOCAF5_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 163: void IOCAF5_ISR(void) {
+[; ;pin_manager.c: 184: void IOCAF5_ISR(void) {
 [e :U _IOCAF5_ISR ]
 [f ]
-[; ;pin_manager.c: 168: if(IOCAF5_InterruptHandler)
-"168
-[e $ ! != _IOCAF5_InterruptHandler -> -> 0 `i `*F2900 343  ]
-[; ;pin_manager.c: 169: {
-"169
+[; ;pin_manager.c: 189: if(IOCAF5_InterruptHandler)
+"189
+[e $ ! != _IOCAF5_InterruptHandler -> -> 0 `i `*F2900 352  ]
+[; ;pin_manager.c: 190: {
+"190
 {
-[; ;pin_manager.c: 170: IOCAF5_InterruptHandler();
-"170
+[; ;pin_manager.c: 191: IOCAF5_InterruptHandler();
+"191
 [e ( *U _IOCAF5_InterruptHandler ..  ]
-"171
+"192
 }
-[e :U 343 ]
-[; ;pin_manager.c: 171: }
-[; ;pin_manager.c: 172: IOCAFbits.IOCAF5 = 0;
-"172
+[e :U 352 ]
+[; ;pin_manager.c: 192: }
+[; ;pin_manager.c: 193: IOCAFbits.IOCAF5 = 0;
+"193
 [e = . . _IOCAFbits 0 5 -> -> 0 `i `uc ]
-[; ;pin_manager.c: 173: }
-"173
-[e :UE 342 ]
+[; ;pin_manager.c: 194: }
+"194
+[e :UE 351 ]
 }
-"178
+"199
 [v _IOCAF5_SetInterruptHandler `(v ~T0 @X0 1 ef1`*v ]
 {
-[; ;pin_manager.c: 178: void IOCAF5_SetInterruptHandler(void* InterruptHandler){
+[; ;pin_manager.c: 199: void IOCAF5_SetInterruptHandler(void* InterruptHandler){
 [e :U _IOCAF5_SetInterruptHandler ]
 [v _InterruptHandler `*v ~T0 @X0 1 r1 ]
 [f ]
-[; ;pin_manager.c: 179: IOCAF5_InterruptHandler = InterruptHandler;
-"179
+[; ;pin_manager.c: 200: IOCAF5_InterruptHandler = InterruptHandler;
+"200
 [e = _IOCAF5_InterruptHandler -> _InterruptHandler `*F2900 ]
-[; ;pin_manager.c: 180: }
-"180
-[e :UE 344 ]
+[; ;pin_manager.c: 201: }
+"201
+[e :UE 353 ]
 }
-"185
+"204
 [v _IOCAF5_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
 {
-[; ;pin_manager.c: 185: void IOCAF5_DefaultInterruptHandler(void){
+[; ;pin_manager.c: 204: void IOCAF5_DefaultInterruptHandler(void){
 [e :U _IOCAF5_DefaultInterruptHandler ]
 [f ]
-[; ;pin_manager.c: 188: }
-"188
-[e :UE 345 ]
+"207
+[v F2972 `Cuc ~T0 @X0 1 s dir ]
+[i F2972
+-> -> 0 `i `uc
+]
+[; ;pin_manager.c: 207: const bool dir = 0;
+[; ;pin_manager.c: 210: if( PORTCbits.RC0 == 0 ){
+"210
+[e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 355  ]
+{
+[; ;pin_manager.c: 212: if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+"212
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 356  ]
+{
+[; ;pin_manager.c: 214: PWM1_StepDutyValue(dir);
+"214
+[e ( _PWM1_StepDutyValue (1 F2972 ]
+"215
+}
+[; ;pin_manager.c: 215: }else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+[e $U 357  ]
+[e :U 356 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 358  ]
+{
+[; ;pin_manager.c: 217: PWM2_StepDutyValue(dir);
+"217
+[e ( _PWM2_StepDutyValue (1 F2972 ]
+"218
+}
+[; ;pin_manager.c: 218: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+[e $U 359  ]
+[e :U 358 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 360  ]
+{
+[; ;pin_manager.c: 220: PWM3_StepDutyValue(dir);
+"220
+[e ( _PWM3_StepDutyValue (1 F2972 ]
+"221
+}
+[; ;pin_manager.c: 221: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+[e $U 361  ]
+[e :U 360 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 362  ]
+{
+[; ;pin_manager.c: 223: PWM4_StepDutyValue(dir);
+"223
+[e ( _PWM4_StepDutyValue (1 F2972 ]
+"224
+}
+[; ;pin_manager.c: 224: }else{
+[e $U 363  ]
+[e :U 362 ]
+{
+"226
+}
+[e :U 363 ]
+[e :U 361 ]
+[e :U 359 ]
+[e :U 357 ]
+"227
+}
+[e :U 355 ]
+[; ;pin_manager.c: 226: }
+[; ;pin_manager.c: 227: }
+[; ;pin_manager.c: 230: }
+"230
+[e :UE 354 ]
 }

@@ -4000,13 +4000,36 @@ void IOCAF4_SetInterruptHandler(void* InterruptHandler){
 IOCAF4_InterruptHandler = InterruptHandler;
 }
 
-# 155
+
 void IOCAF4_DefaultInterruptHandler(void){
+
+
+const bool dir = 1;
+
+
+if( PORTCbits.RC0 == 0 ){
+
+if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+
+PWM1_StepDutyValue(dir);
+}else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+
+PWM2_StepDutyValue(dir);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+
+PWM3_StepDutyValue(dir);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+
+PWM4_StepDutyValue(dir);
+}else{
+
+}
+}
 
 
 }
 
-# 163
+# 184
 void IOCAF5_ISR(void) {
 
 
@@ -4019,14 +4042,36 @@ IOCAF5_InterruptHandler();
 IOCAFbits.IOCAF5 = 0;
 }
 
-# 178
+# 199
 void IOCAF5_SetInterruptHandler(void* InterruptHandler){
 IOCAF5_InterruptHandler = InterruptHandler;
 }
 
-# 185
+
 void IOCAF5_DefaultInterruptHandler(void){
 
 
+const bool dir = 0;
+
+
+if( PORTCbits.RC0 == 0 ){
+
+if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+
+PWM1_StepDutyValue(dir);
+}else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+
+PWM2_StepDutyValue(dir);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+
+PWM3_StepDutyValue(dir);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+
+PWM4_StepDutyValue(dir);
+}else{
+
+}
 }
 
+
+}

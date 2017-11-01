@@ -153,9 +153,29 @@ void IOCAF4_SetInterruptHandler(void* InterruptHandler){
 void IOCAF4_DefaultInterruptHandler(void){
     /* External signal requests incrementing the duty cycle. */
     
-    // Read the selection inputs.
+    const bool dir = true;
     
-    // Increment the correct duty cycle.
+    // Verify that this MCU is selected.
+    if( EN_GetValue() == 0 ){
+        // Read selection inputs
+        if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 0 ){
+            /* PWM Output 1 */
+            PWM1_StepDutyValue(dir);
+        }else if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 1 ){
+            /* PWM Output 2 */
+            PWM2_StepDutyValue(dir);
+        }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 0 ){
+            /* PWM Output 3 */
+            PWM3_StepDutyValue(dir);
+        }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 1 ){
+            /* PWM Output 4 */
+            PWM4_StepDutyValue(dir);
+        }else{
+            /* Do nothing. */
+        }
+    }
+    
+    /* End of Function. */
 }
 
 /**
@@ -182,9 +202,29 @@ void IOCAF5_SetInterruptHandler(void* InterruptHandler){
 
 /* Interrupt handler for DUTY DOWN. */
 void IOCAF5_DefaultInterruptHandler(void){
-    /* External signal requests decrementing the duty cycle. */
+    /* External signal requests incrementing the duty cycle. */
     
-    // Read the selection inputs.
+    const bool dir = false;
     
-    // Decrement the correct duty cycle.
+    // Verify that this MCU is selected.
+    if( EN_GetValue() == 0 ){
+        // Read selection inputs
+        if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 0 ){
+            /* PWM Output 1 */
+            PWM1_StepDutyValue(dir);
+        }else if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 1 ){
+            /* PWM Output 2 */
+            PWM2_StepDutyValue(dir);
+        }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 0 ){
+            /* PWM Output 3 */
+            PWM3_StepDutyValue(dir);
+        }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 1 ){
+            /* PWM Output 4 */
+            PWM4_StepDutyValue(dir);
+        }else{
+            /* Do nothing. */
+        }
+    }
+    
+    /* End of Function. */
 }
