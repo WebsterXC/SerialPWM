@@ -5,6 +5,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __init_timer2 `(v ~T0 @X0 0 ef ]
 "28 pwm.h
 [v __init_pwm `(v ~T0 @X0 0 ef ]
+"888 C:\Microchip\xc8\include\pic16f1503.h
+[v _T2CON `Vuc ~T0 @X0 0 e@28 ]
+"868
+[v _PR2 `Vuc ~T0 @X0 0 e@27 ]
+"848
+[v _TMR2 `Vuc ~T0 @X0 0 e@26 ]
+"894
+[s S55 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S55 . T2CKPS TMR2ON T2OUTPS ]
+"899
+[s S56 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S56 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"893
+[u S54 `S55 1 `S56 1 ]
+[n S54 . . . ]
+"909
+[v _T2CONbits `VS54 ~T0 @X0 0 e@28 ]
+"1691
+[v _LATA `Vuc ~T0 @X0 0 e@268 ]
+"1736
+[v _LATC `Vuc ~T0 @X0 0 e@270 ]
+"959
+[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
+"1009
+[v _TRISC `Vuc ~T0 @X0 0 e@142 ]
+"2317
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
+"2364
+[v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
+"2601
+[v _WPUA `Vuc ~T0 @X0 0 e@524 ]
+"3343
+[v _IOCAP `Vuc ~T0 @X0 0 e@913 ]
+"3459
+[v _IOCAF `Vuc ~T0 @X0 0 e@915 ]
+"355
+[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
+"365
+[s S27 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S27 . . T0IF . T0IE ]
+"354
+[u S25 `S26 1 `S27 1 ]
+[n S25 . . . ]
+"372
+[v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2877,17 +2923,59 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 35: void _init_timer2(void){
 [e :U __init_timer2 ]
 [f ]
-[; ;user.c: 37: }
-"37
+[; ;user.c: 38: T2CON = 0x00;
+"38
+[e = _T2CON -> -> 0 `i `uc ]
+[; ;user.c: 41: PR2 = 0x04;
+"41
+[e = _PR2 -> -> 4 `i `uc ]
+[; ;user.c: 44: TMR2 = 0x00;
+"44
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;user.c: 47: T2CONbits.TMR2ON = 1;
+"47
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;user.c: 48: }
+"48
 [e :UE 342 ]
 }
-"39
+"50
 [v __init_gpio `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 39: void _init_gpio(void){
+[; ;user.c: 50: void _init_gpio(void){
 [e :U __init_gpio ]
 [f ]
-[; ;user.c: 41: }
-"41
+[; ;user.c: 52: LATA = 0x00;
+"52
+[e = _LATA -> -> 0 `i `uc ]
+[; ;user.c: 53: LATC = 0x00;
+"53
+[e = _LATC -> -> 0 `i `uc ]
+[; ;user.c: 55: TRISA = 0x33;
+"55
+[e = _TRISA -> -> 51 `i `uc ]
+[; ;user.c: 56: TRISC = 0x15;
+"56
+[e = _TRISC -> -> 21 `i `uc ]
+[; ;user.c: 59: ANSELA = 0x00;
+"59
+[e = _ANSELA -> -> 0 `i `uc ]
+[; ;user.c: 60: ANSELC = 0x00;
+"60
+[e = _ANSELC -> -> 0 `i `uc ]
+[; ;user.c: 63: WPUA = 0x00;
+"63
+[e = _WPUA -> -> 0 `i `uc ]
+[; ;user.c: 64: IOCAP = 0x30;
+"64
+[e = _IOCAP -> -> 48 `i `uc ]
+[; ;user.c: 65: IOCAF = 0x00;
+"65
+[e = _IOCAF -> -> 0 `i `uc ]
+[; ;user.c: 68: INTCONbits.IOCIE = 1;
+"68
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;user.c: 69: }
+"69
 [e :UE 343 ]
 }

@@ -1,4 +1,30 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"3465 C:\Microchip\xc8\include\pic16f1503.h
+[s S185 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S185 . IOCAF0 IOCAF1 IOCAF2 IOCAF3 IOCAF4 IOCAF5 ]
+"3473
+[s S186 :6 `uc 1 ]
+[n S186 . IOCAF ]
+"3464
+[u S184 `S185 1 `S186 1 ]
+[n S184 . . . ]
+"3477
+[v _IOCAFbits `VS184 ~T0 @X0 0 e@915 ]
+"483
+[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . RC0 RC1 RC2 RC3 RC4 RC5 ]
+"482
+[u S30 `S31 1 ]
+[n S30 . . ]
+"492
+[v _PORTCbits `VS30 ~T0 @X0 0 e@14 ]
+"38 interrupts.c
+[c E2936 0 1 2 3 .. ]
+[n E2936 PWMChannel PWM_CH1 PWM_CH2 PWM_CH3 PWM_CH4  ]
+"34 pwm.h
+[v _incDutyCycle `(v ~T0 @X0 0 ef1`E2936 ]
+"35
+[v _decDutyCycle `(v ~T0 @X0 0 ef1`E2936 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2832,17 +2858,152 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;pwm.h: 20: enum PWMChannel{
+[; ;pwm.h: 21: PWM_CH1,
+[; ;pwm.h: 22: PWM_CH2,
+[; ;pwm.h: 23: PWM_CH3,
+[; ;pwm.h: 24: PWM_CH4
+[; ;pwm.h: 25: };
+[; ;pwm.h: 28: void _init_pwm(void);
+[; ;pwm.h: 34: void incDutyCycle(enum PWMChannel);
+[; ;pwm.h: 35: void decDutyCycle(enum PWMChannel);
 [v $root$_isr `(v ~T0 @X0 0 e ]
-[v F2938 `(v ~T0 @X0 1 tf ]
-"23 interrupts.c
-[v _isr `IF2938 ~T0 @X0 1 e ]
-"24
+[v F2949 `(v ~T0 @X0 1 tf ]
+"29 interrupts.c
+[v _isr `IF2949 ~T0 @X0 1 e ]
+"30
 {
-[; ;interrupts.c: 23: void interrupt isr(void)
-[; ;interrupts.c: 24: {
+[; ;interrupts.c: 29: void interrupt isr(void)
+[; ;interrupts.c: 30: {
 [e :U _isr ]
 [f ]
-[; ;interrupts.c: 50: }
+[; ;interrupts.c: 34: if(IOCAFbits.IOCAF4 == 1)
+"34
+[e $ ! == -> . . _IOCAFbits 0 4 `i -> 1 `i 342  ]
+[; ;interrupts.c: 35: {
+"35
+{
+[; ;interrupts.c: 37: if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+"37
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 343  ]
+{
+[; ;interrupts.c: 38: incDutyCycle(PWM_CH1);
+"38
+[e ( _incDutyCycle (1 . `E2936 0 ]
+"39
+}
+[; ;interrupts.c: 39: }else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+[e $U 344  ]
+[e :U 343 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 345  ]
+{
+[; ;interrupts.c: 40: incDutyCycle(PWM_CH2);
+"40
+[e ( _incDutyCycle (1 . `E2936 1 ]
+"41
+}
+[; ;interrupts.c: 41: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+[e $U 346  ]
+[e :U 345 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 347  ]
+{
+[; ;interrupts.c: 42: incDutyCycle(PWM_CH3);
+"42
+[e ( _incDutyCycle (1 . `E2936 2 ]
+"43
+}
+[; ;interrupts.c: 43: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+[e $U 348  ]
+[e :U 347 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 349  ]
+{
+[; ;interrupts.c: 44: incDutyCycle(PWM_CH4);
+"44
+[e ( _incDutyCycle (1 . `E2936 3 ]
+"45
+}
+[; ;interrupts.c: 45: }else{
+[e $U 350  ]
+[e :U 349 ]
+{
+"47
+}
+[e :U 350 ]
+[e :U 348 ]
+[e :U 346 ]
+[e :U 344 ]
+[; ;interrupts.c: 47: }
+[; ;interrupts.c: 50: IOCAFbits.IOCAF4 = 0;
 "50
+[e = . . _IOCAFbits 0 4 -> -> 0 `i `uc ]
+"51
+}
+[e :U 342 ]
+[; ;interrupts.c: 51: }
+[; ;interrupts.c: 54: if(IOCAFbits.IOCAF5 == 1)
+"54
+[e $ ! == -> . . _IOCAFbits 0 5 `i -> 1 `i 351  ]
+[; ;interrupts.c: 55: {
+"55
+{
+[; ;interrupts.c: 57: if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+"57
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 352  ]
+{
+[; ;interrupts.c: 58: decDutyCycle(PWM_CH1);
+"58
+[e ( _decDutyCycle (1 . `E2936 0 ]
+"59
+}
+[; ;interrupts.c: 59: }else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+[e $U 353  ]
+[e :U 352 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 354  ]
+{
+[; ;interrupts.c: 60: decDutyCycle(PWM_CH2);
+"60
+[e ( _decDutyCycle (1 . `E2936 1 ]
+"61
+}
+[; ;interrupts.c: 61: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+[e $U 355  ]
+[e :U 354 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 356  ]
+{
+[; ;interrupts.c: 62: decDutyCycle(PWM_CH3);
+"62
+[e ( _decDutyCycle (1 . `E2936 2 ]
+"63
+}
+[; ;interrupts.c: 63: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+[e $U 357  ]
+[e :U 356 ]
+[e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 358  ]
+{
+[; ;interrupts.c: 64: decDutyCycle(PWM_CH4);
+"64
+[e ( _decDutyCycle (1 . `E2936 3 ]
+"65
+}
+[; ;interrupts.c: 65: }else{
+[e $U 359  ]
+[e :U 358 ]
+{
+"67
+}
+[e :U 359 ]
+[e :U 357 ]
+[e :U 355 ]
+[e :U 353 ]
+[; ;interrupts.c: 67: }
+[; ;interrupts.c: 70: IOCAFbits.IOCAF5 = 0;
+"70
+[e = . . _IOCAFbits 0 5 -> -> 0 `i `uc ]
+"71
+}
+[e :U 351 ]
+[; ;interrupts.c: 71: }
+[; ;interrupts.c: 73: }
+"73
 [e :UE 341 ]
 }

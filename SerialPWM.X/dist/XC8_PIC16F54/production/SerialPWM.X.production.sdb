@@ -3,6 +3,13 @@
 [d edition pro ]
 [d chip 16F1503 ]
 [d frameptr 6 ]
+"38 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\interrupts.c
+[e E2936 PWMChannel `uc
+PWM_CH1 0
+PWM_CH2 1
+PWM_CH3 2
+PWM_CH4 3
+]
 "78 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\pwm.c
 [e E2936 PWMChannel `uc
 PWM_CH1 0
@@ -14,7 +21,7 @@ PWM_CH4 3
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Microchip\xc8\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"23 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\interrupts.c
+"29 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
 "26 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\main.c
 [v _main main `(v  1 e 1 0 ]
@@ -22,26 +29,112 @@ PWM_CH4 3
 [v __init_pwm _init_pwm `(v  1 e 1 0 ]
 "40
 [v _pwm1_writeDutyCycle pwm1_writeDutyCycle `(v  1 s 1 pwm1_writeDutyCycle ]
+[v i1_pwm1_writeDutyCycle pwm1_writeDutyCycle `(v  1 s 1 i1_pwm1_writeDutyCycle ]
 "45
 [v _pwm2_writeDutyCycle pwm2_writeDutyCycle `(v  1 s 1 pwm2_writeDutyCycle ]
+[v i1_pwm2_writeDutyCycle pwm2_writeDutyCycle `(v  1 s 1 i1_pwm2_writeDutyCycle ]
 "50
 [v _pwm3_writeDutyCycle pwm3_writeDutyCycle `(v  1 s 1 pwm3_writeDutyCycle ]
+[v i1_pwm3_writeDutyCycle pwm3_writeDutyCycle `(v  1 s 1 i1_pwm3_writeDutyCycle ]
 "55
 [v _pwm4_writeDutyCycle pwm4_writeDutyCycle `(v  1 s 1 pwm4_writeDutyCycle ]
+[v i1_pwm4_writeDutyCycle pwm4_writeDutyCycle `(v  1 s 1 i1_pwm4_writeDutyCycle ]
 "65
 [v _checkDCBounds checkDCBounds `(ui  1 s 2 checkDCBounds ]
+"78
+[v _incDutyCycle incDutyCycle `(v  1 e 1 0 ]
+"124
+[v _decDutyCycle decDutyCycle `(v  1 e 1 0 ]
 "17 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 "21 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
 "35
 [v __init_timer2 _init_timer2 `(v  1 e 1 0 ]
-"39
+"50
 [v __init_gpio _init_gpio `(v  1 e 1 0 ]
-"1311 C:\Microchip\xc8\include\pic16f1503.h
+[s S159 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"372 C:\Microchip\xc8\include\pic16f1503.h
+[s S168 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S173 . 1 `S159 1 . 1 0 `S168 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES173  1 e 1 @11 ]
+[s S41 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+]
+"492
+[u S48 . 1 `S41 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES48  1 e 1 @14 ]
+"848
+[v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
+"868
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+"888
+[v _T2CON T2CON `VEuc  1 e 1 @28 ]
+[s S122 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"909
+[s S126 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S134 . 1 `S122 1 . 1 0 `S126 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES134  1 e 1 @28 ]
+"959
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1009
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+"1311
 [v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
 "1370
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"1691
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"1736
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"2317
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2364
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"2601
+[v _WPUA WPUA `VEuc  1 e 1 @524 ]
+"3343
+[v _IOCAP IOCAP `VEuc  1 e 1 @913 ]
+"3459
+[v _IOCAF IOCAF `VEuc  1 e 1 @915 ]
+[s S19 . 1 `uc 1 IOCAF0 1 0 :1:0 
+`uc 1 IOCAF1 1 0 :1:1 
+`uc 1 IOCAF2 1 0 :1:2 
+`uc 1 IOCAF3 1 0 :1:3 
+`uc 1 IOCAF4 1 0 :1:4 
+`uc 1 IOCAF5 1 0 :1:5 
+]
+"3477
+[s S26 . 1 `uc 1 IOCAF 1 0 :6:0 
+]
+[u S28 . 1 `S19 1 . 1 0 `S26 1 . 1 0 ]
+[v _IOCAFbits IOCAFbits `VES28  1 e 1 @915 ]
 "3973
 [v _PWM1DCL PWM1DCL `VEuc  1 e 1 @1553 ]
 "4009
@@ -87,7 +180,7 @@ PWM_CH4 3
 "35
 [v __init_timer2 _init_timer2 `(v  1 e 1 0 ]
 {
-"37
+"48
 } 0
 "17 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\pwm.c
 [v __init_pwm _init_pwm `(v  1 e 1 0 ]
@@ -97,39 +190,95 @@ PWM_CH4 3
 "55
 [v _pwm4_writeDutyCycle pwm4_writeDutyCycle `(v  1 s 1 pwm4_writeDutyCycle ]
 {
-[v pwm4_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+[v pwm4_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
 "59
 } 0
 "50
 [v _pwm3_writeDutyCycle pwm3_writeDutyCycle `(v  1 s 1 pwm3_writeDutyCycle ]
 {
-[v pwm3_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+[v pwm3_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
 "54
 } 0
 "45
 [v _pwm2_writeDutyCycle pwm2_writeDutyCycle `(v  1 s 1 pwm2_writeDutyCycle ]
 {
-[v pwm2_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+[v pwm2_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
 "49
 } 0
 "40
 [v _pwm1_writeDutyCycle pwm1_writeDutyCycle `(v  1 s 1 pwm1_writeDutyCycle ]
 {
-[v pwm1_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+[v pwm1_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
 "44
 } 0
-"39 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\user.c
+"50 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\user.c
 [v __init_gpio _init_gpio `(v  1 e 1 0 ]
 {
-"41
+"69
 } 0
 "17 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 {
 "24
 } 0
-"23 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\interrupts.c
+"29 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
+"73
+} 0
+"78 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\pwm.c
+[v _incDutyCycle incDutyCycle `(v  1 e 1 0 ]
+{
+[v incDutyCycle@chan chan `E2936  1 a 1 wreg ]
+"79
+[v incDutyCycle@dutyCycle dutyCycle `ui  1 a 2 6 ]
+"78
+[v incDutyCycle@chan chan `E2936  1 a 1 wreg ]
+[v incDutyCycle@chan chan `E2936  1 a 1 5 ]
+"122
+} 0
+"124
+[v _decDutyCycle decDutyCycle `(v  1 e 1 0 ]
+{
+[v decDutyCycle@chan chan `E2936  1 a 1 wreg ]
+"125
+[v decDutyCycle@dutyCycle dutyCycle `ui  1 a 2 6 ]
+"124
+[v decDutyCycle@chan chan `E2936  1 a 1 wreg ]
+[v decDutyCycle@chan chan `E2936  1 a 1 5 ]
+"168
+} 0
+"55
+[v i1_pwm4_writeDutyCycle pwm4_writeDutyCycle `(v  1 s 1 i1_pwm4_writeDutyCycle ]
+{
+[v i1pwm4_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
+"59
+} 0
 "50
+[v i1_pwm3_writeDutyCycle pwm3_writeDutyCycle `(v  1 s 1 i1_pwm3_writeDutyCycle ]
+{
+[v i1pwm3_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
+"54
+} 0
+"45
+[v i1_pwm2_writeDutyCycle pwm2_writeDutyCycle `(v  1 s 1 i1_pwm2_writeDutyCycle ]
+{
+[v i1pwm2_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
+"49
+} 0
+"40
+[v i1_pwm1_writeDutyCycle pwm1_writeDutyCycle `(v  1 s 1 i1_pwm1_writeDutyCycle ]
+{
+[v i1pwm1_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 0 ]
+"44
+} 0
+"65
+[v _checkDCBounds checkDCBounds `(ui  1 s 2 checkDCBounds ]
+{
+"66
+[v checkDCBounds@retval retval `ui  1 a 2 3 ]
+"65
+[v checkDCBounds@dc dc `ui  1 p 2 0 ]
+[v checkDCBounds@direction direction `uc  1 p 1 2 ]
+"76
 } 0

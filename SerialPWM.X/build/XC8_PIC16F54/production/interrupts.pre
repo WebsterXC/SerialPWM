@@ -3884,10 +3884,65 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Microchip\xc8\include\stdbool.h"
 typedef unsigned char bool;
 
-# 23 "interrupts.c"
+# 20 "pwm.h"
+enum PWMChannel{
+PWM_CH1,
+PWM_CH2,
+PWM_CH3,
+PWM_CH4
+};
+
+
+void _init_pwm(void);
+
+# 34
+void incDutyCycle(enum PWMChannel);
+void decDutyCycle(enum PWMChannel);
+
+# 29 "interrupts.c"
 void interrupt isr(void)
 {
 
-# 50
+
+
+if(IOCAFbits.IOCAF4 == 1)
+{
+
+if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+incDutyCycle(PWM_CH1);
+}else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+incDutyCycle(PWM_CH2);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+incDutyCycle(PWM_CH3);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+incDutyCycle(PWM_CH4);
+}else{
+
+}
+
+
+IOCAFbits.IOCAF4 = 0;
+}
+
+
+if(IOCAFbits.IOCAF5 == 1)
+{
+
+if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0 ){
+decDutyCycle(PWM_CH1);
+}else if( PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1 ){
+decDutyCycle(PWM_CH2);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0 ){
+decDutyCycle(PWM_CH3);
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1 ){
+decDutyCycle(PWM_CH4);
+}else{
+
+}
+
+
+IOCAFbits.IOCAF5 = 0;
+}
+
 }
 
