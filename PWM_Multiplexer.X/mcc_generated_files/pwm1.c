@@ -51,7 +51,7 @@
  #include "pwm1.h"
  #include "../user.h"
 
- static uint16_t pwm1_current_duty_cycle;
+ volatile uint16_t pwm1_current_duty_cycle;
 
  void PWM1_Initialize(void)
  {
@@ -72,25 +72,29 @@
  void PWM1_LoadDutyValue(uint16_t dutyValue)
  {
      // Control which values we can write to the duty cycle register.
+     uint16_t adjDutyCycle = dutyValue;
      if(dutyValue > DUTY_CYCLE_MAX){
-         dutyValue = DUTY_CYCLE_MAX;
+         adjDutyCycle = DUTY_CYCLE_MAX;
      }else if(dutyValue < DUTY_CYCLE_MIN){
          // This is technically not possible but we include it for good measure.
-         dutyValue = DUTY_CYCLE_MIN;
+         adjDutyCycle = DUTY_CYCLE_MIN;
      }
+     
      // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
-     PWM1DCH = (dutyValue & 0x03FC)>>2;
+     PWM1DCH = (adjDutyCycle & 0x03FC)>>2;
 
      // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
-     PWM1DCL = (dutyValue & 0x0003)<<6;
+     PWM1DCL = (adjDutyCycle & 0x0003)<<6;
      
-     pwm1_current_duty_cycle = dutyValue;
+     pwm1_current_duty_cycle = adjDutyCycle;
  }
  
  void PWM1_StepDutyValue(bool direction){
      if(direction == true){
-         PWM1_LoadDutyValue(pwm1_current_duty_cycle + 1);
+         pwm1_current_duty_cycle += 1;
+         PWM1_LoadDutyValue(pwm1_current_duty_cycle);
      }else{
-         PWM1_LoadDutyValue(pwm1_current_duty_cycle - 1);
+         pwm1_current_duty_cycle -= 1;
+         PWM1_LoadDutyValue(pwm1_current_duty_cycle);
      }
  }

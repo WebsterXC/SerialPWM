@@ -10,6 +10,7 @@
 
 #include <stdint.h>        /* For uint8_t definition */
 #include <stdbool.h>       /* For true/false definition */
+#include "mcc_generated_files/pwm1.h"
 
 #include "mcc_generated_files/mcc.h"
 /******************************************************************************/
@@ -34,17 +35,43 @@ void main(void)
      */
     SYSTEM_Initialize();
 
+    bool serviced = false;
+    
     while(1)
     {
-        /* Just stay in an empty while-loop.
-         * 
-         * SerialPWM is an interrupt driven design, and
-         * since all we're doing is interpreting GPIO from
-         * IOC inputs, there are no housekeeping steps that
-         * would normally go here.
-         * 
-         */
+        
+        if( DUTYUP_PORT == 1){
+            IOCAF4_DefaultInterruptHandler();
+        }else if( DUTYDN_PORT == 1 ){
+            IOCAF5_DefaultInterruptHandler();
+        }
+        /*
+        if( DUTYDN_PORT == 0 && serviced == true ){
+            serviced = false;
+        }else if( DUTYUP_PORT == 0 && serviced == true){
+            serviced = false;
+        }
+        
+        if( DUTYDN_PORT == 1 && serviced == false ){
+            // Only if chip is enabled.
+            if( EN_PORT == 0){
+                if( PWMSEL0_PORT == 0 && PWMSEL1_PORT == 0){
+                    PWM1_StepDutyValue(false);
+                    serviced = true;
+                }
+                
+            }
+        }else if( DUTYUP_PORT == 1 && serviced == false){
+            // Only if chip is enabled.
+            if( EN_PORT == 0){
+               if( PWMSEL0_PORT == 0 && PWMSEL1_PORT == 0){
+                    PWM1_StepDutyValue(true);
+                    serviced = true;
+                }
+               
+            }
+        }
+        */
     }
-
 }
 

@@ -73,13 +73,13 @@ void PIN_MANAGER_Initialize(void)
     /**
     ANSELx registers
     */   
-    ANSELC = 0x0A;
-    ANSELA = 0x07;
+    ANSELC = 0x00;
+    ANSELA = 0x00;
 
     /**
     WPUx registers
     */ 
-    WPUA = 0x3F;
+    WPUA = 0x0B;
     OPTION_REGbits.nWPUEN = 0;
 
     
@@ -155,23 +155,26 @@ void IOCAF4_DefaultInterruptHandler(void){
     
     const bool dir = true;
     
+    //PWM1_LoadDutyValue(19);
+    
+    
     // Verify that this MCU is selected.
     if( EN_GetValue() == 0 ){
         // Read selection inputs
         if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 0 ){
-            /* PWM Output 1 */
+            // PWM Output 1 
             PWM1_StepDutyValue(dir);
         }else if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 1 ){
-            /* PWM Output 2 */
+            // PWM Output 2 
             PWM2_StepDutyValue(dir);
         }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 0 ){
-            /* PWM Output 3 */
+            // PWM Output 3 
             PWM3_StepDutyValue(dir);
         }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 1 ){
-            /* PWM Output 4 */
+            // PWM Output 4 
             PWM4_StepDutyValue(dir);
         }else{
-            /* Do nothing. */
+            // Do nothing. 
         }
     }
     
@@ -206,23 +209,26 @@ void IOCAF5_DefaultInterruptHandler(void){
     
     const bool dir = false;
     
+    //PWM1_LoadDutyValue(0);
+    
+    
     // Verify that this MCU is selected.
     if( EN_GetValue() == 0 ){
         // Read selection inputs
         if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 0 ){
-            /* PWM Output 1 */
+            // PWM Output 1
             PWM1_StepDutyValue(dir);
         }else if( PWMSEL0_GetValue() == 0 && PWMSEL1_GetValue() == 1 ){
-            /* PWM Output 2 */
+            // PWM Output 2
             PWM2_StepDutyValue(dir);
         }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 0 ){
-            /* PWM Output 3 */
+            // PWM Output 3
             PWM3_StepDutyValue(dir);
         }else if( PWMSEL0_GetValue() == 1 && PWMSEL1_GetValue() == 1 ){
-            /* PWM Output 4 */
+            // PWM Output 4
             PWM4_StepDutyValue(dir);
         }else{
-            /* Do nothing. */
+            // Do nothing.
         }
     }
     
