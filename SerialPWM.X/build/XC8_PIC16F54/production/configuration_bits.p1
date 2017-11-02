@@ -2803,3 +2803,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
+"34 configuration_bits.c
+[p x FOSC=INTOSC ]
+"35
+[p x WDTE=OFF ]
+"36
+[p x PWRTE=OFF ]
+"37
+[p x MCLRE=ON ]
+"38
+[p x CP=OFF ]
+"39
+[p x BOREN=ON ]
+"40
+[p x CLKOUTEN=OFF ]
+"43
+[p x WRT=OFF ]
+"44
+[p x STVREN=ON ]
+"45
+[p x BORV=LO ]
+"46
+[p x LPBOR=OFF ]
+"47
+[p x LVP=ON ]
