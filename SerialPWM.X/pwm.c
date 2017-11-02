@@ -8,6 +8,12 @@ volatile static uint16_t pwm2_dutyCycle;
 volatile static uint16_t pwm3_dutyCycle;
 volatile static uint16_t pwm4_dutyCycle;
 
+static void pwm1_writeDutyCycle(uint16_t);
+static void pwm2_writeDutyCycle(uint16_t);
+static void pwm3_writeDutyCycle(uint16_t);
+static void pwm4_writeDutyCycle(uint16_t);
+static uint16_t checkDCBounds(uint16_t, bool);
+
 void _init_pwm(void){
 
     /* Start from a clean config register. */
@@ -69,7 +75,7 @@ static uint16_t checkDCBounds(uint16_t dc, bool direction){
     return retval;
 }
 
-void incDutyCycle(PWMChannel chan){
+void incDutyCycle(enum PWMChannel chan){
     uint16_t dutyCycle;
 
     switch(chan){
@@ -115,7 +121,7 @@ void incDutyCycle(PWMChannel chan){
     }
 }
 
-void decDutyCycle(PWMChannel chan){
+void decDutyCycle(enum PWMChannel chan){
     uint16_t dutyCycle;
 
     switch(chan){

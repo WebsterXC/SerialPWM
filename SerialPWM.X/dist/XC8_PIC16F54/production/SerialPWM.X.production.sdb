@@ -1,0 +1,135 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1503 ]
+[d frameptr 6 ]
+"78 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\pwm.c
+[e E2936 PWMChannel `uc
+PWM_CH1 0
+PWM_CH2 1
+PWM_CH3 2
+PWM_CH4 3
+]
+"62 C:\Microchip\xc8\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Microchip\xc8\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"23 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\interrupts.c
+[v _isr isr `II(v  1 e 1 0 ]
+"26 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"17 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\pwm.c
+[v __init_pwm _init_pwm `(v  1 e 1 0 ]
+"40
+[v _pwm1_writeDutyCycle pwm1_writeDutyCycle `(v  1 s 1 pwm1_writeDutyCycle ]
+"45
+[v _pwm2_writeDutyCycle pwm2_writeDutyCycle `(v  1 s 1 pwm2_writeDutyCycle ]
+"50
+[v _pwm3_writeDutyCycle pwm3_writeDutyCycle `(v  1 s 1 pwm3_writeDutyCycle ]
+"55
+[v _pwm4_writeDutyCycle pwm4_writeDutyCycle `(v  1 s 1 pwm4_writeDutyCycle ]
+"65
+[v _checkDCBounds checkDCBounds `(ui  1 s 2 checkDCBounds ]
+"17 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+"21 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\user.c
+[v _InitApp InitApp `(v  1 e 1 0 ]
+"35
+[v __init_timer2 _init_timer2 `(v  1 e 1 0 ]
+"39
+[v __init_gpio _init_gpio `(v  1 e 1 0 ]
+"1311 C:\Microchip\xc8\include\pic16f1503.h
+[v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
+"1370
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"3973
+[v _PWM1DCL PWM1DCL `VEuc  1 e 1 @1553 ]
+"4009
+[v _PWM1DCH PWM1DCH `VEuc  1 e 1 @1554 ]
+"4079
+[v _PWM1CON PWM1CON `VEuc  1 e 1 @1555 ]
+"4155
+[v _PWM2DCL PWM2DCL `VEuc  1 e 1 @1556 ]
+"4191
+[v _PWM2DCH PWM2DCH `VEuc  1 e 1 @1557 ]
+"4261
+[v _PWM2CON PWM2CON `VEuc  1 e 1 @1558 ]
+"4337
+[v _PWM3DCL PWM3DCL `VEuc  1 e 1 @1559 ]
+"4373
+[v _PWM3DCH PWM3DCH `VEuc  1 e 1 @1560 ]
+"4443
+[v _PWM3CON PWM3CON `VEuc  1 e 1 @1561 ]
+"4519
+[v _PWM4DCL PWM4DCL `VEuc  1 e 1 @1562 ]
+"4555
+[v _PWM4DCH PWM4DCH `VEuc  1 e 1 @1563 ]
+"4625
+[v _PWM4CON PWM4CON `VEuc  1 e 1 @1564 ]
+"6 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\pwm.c
+[v _pwm1_dutyCycle pwm1_dutyCycle `VEui  1 s 2 pwm1_dutyCycle ]
+"7
+[v _pwm2_dutyCycle pwm2_dutyCycle `VEui  1 s 2 pwm2_dutyCycle ]
+"8
+[v _pwm3_dutyCycle pwm3_dutyCycle `VEui  1 s 2 pwm3_dutyCycle ]
+"9
+[v _pwm4_dutyCycle pwm4_dutyCycle `VEui  1 s 2 pwm4_dutyCycle ]
+"26 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"40
+} 0
+"21 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\user.c
+[v _InitApp InitApp `(v  1 e 1 0 ]
+{
+"33
+} 0
+"35
+[v __init_timer2 _init_timer2 `(v  1 e 1 0 ]
+{
+"37
+} 0
+"17 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\pwm.c
+[v __init_pwm _init_pwm `(v  1 e 1 0 ]
+{
+"37
+} 0
+"55
+[v _pwm4_writeDutyCycle pwm4_writeDutyCycle `(v  1 s 1 pwm4_writeDutyCycle ]
+{
+[v pwm4_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+"59
+} 0
+"50
+[v _pwm3_writeDutyCycle pwm3_writeDutyCycle `(v  1 s 1 pwm3_writeDutyCycle ]
+{
+[v pwm3_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+"54
+} 0
+"45
+[v _pwm2_writeDutyCycle pwm2_writeDutyCycle `(v  1 s 1 pwm2_writeDutyCycle ]
+{
+[v pwm2_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+"49
+} 0
+"40
+[v _pwm1_writeDutyCycle pwm1_writeDutyCycle `(v  1 s 1 pwm1_writeDutyCycle ]
+{
+[v pwm1_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
+"44
+} 0
+"39 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\user.c
+[v __init_gpio _init_gpio `(v  1 e 1 0 ]
+{
+"41
+} 0
+"17 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\system.c
+[v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
+{
+"24
+} 0
+"23 C:\Users\william.burgin\Documents\Samples\SerialPWM\SerialPWM.X\interrupts.c
+[v _isr isr `II(v  1 e 1 0 ]
+{
+"50
+} 0
