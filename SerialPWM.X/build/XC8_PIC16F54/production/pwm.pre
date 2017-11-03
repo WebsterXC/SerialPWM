@@ -3866,7 +3866,7 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
 typedef unsigned char bool;
 
-# 20 "pwm.h"
+# 18 "pwm.h"
 enum PWMChannel{
 PWM_CH1,
 PWM_CH2,
@@ -3877,7 +3877,7 @@ PWM_CH4
 
 void _init_pwm(void);
 
-# 34
+# 32
 void incDutyCycle(enum PWMChannel);
 void decDutyCycle(enum PWMChannel);
 
@@ -3888,7 +3888,7 @@ uint16_t pwm4_writeDutyCycle(uint16_t);
 
 enum PWMChannel getPWMSEL(void);
 
-# 9 "pwm.c"
+# 7 "pwm.c"
 volatile static uint16_t pwm1_dutyCycle;
 volatile static uint16_t pwm2_dutyCycle;
 volatile static uint16_t pwm3_dutyCycle;
@@ -3916,37 +3916,33 @@ pwm3_writeDutyCycle(19U);
 pwm4_writeDutyCycle(19U);
 }
 
-# 39
+# 37
 uint16_t pwm1_writeDutyCycle(uint16_t dutyCycle){
-
 PWM1DCH = (dutyCycle & 0x03FC)>>2;
 PWM1DCL = (dutyCycle & 0x0003)<<6;
 pwm1_dutyCycle = dutyCycle;
 return dutyCycle;
 }
 uint16_t pwm2_writeDutyCycle(uint16_t dutyCycle){
-
 PWM2DCH = (dutyCycle & 0x03FC)>>2;
 PWM2DCL = (dutyCycle & 0x0003)<<6;
 pwm2_dutyCycle = dutyCycle;
 return dutyCycle;
 }
 uint16_t pwm3_writeDutyCycle(uint16_t dutyCycle){
-
 PWM3DCH = (dutyCycle & 0x03FC)>>2;
 PWM3DCL = (dutyCycle & 0x0003)<<6;
 pwm3_dutyCycle = dutyCycle;
 return dutyCycle;
 }
 uint16_t pwm4_writeDutyCycle(uint16_t dutyCycle){
-
 PWM4DCH = (dutyCycle & 0x03FC)>>2;
 PWM4DCL = (dutyCycle & 0x0003)<<6;
 pwm4_dutyCycle = dutyCycle;
 return dutyCycle;
 }
 
-# 72
+# 66
 static uint16_t checkDCBounds(uint16_t dc, bool direction){
 uint16_t retval = dc;
 if( dc > 19U ){

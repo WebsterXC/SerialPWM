@@ -7,13 +7,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PWM3CON `Vuc ~T0 @X0 0 e@1561 ]
 "4625
 [v _PWM4CON `Vuc ~T0 @X0 0 e@1564 ]
-"37 pwm.h
+"35 pwm.h
 [v _pwm1_writeDutyCycle `(ui ~T0 @X0 0 ef1`ui ]
-"38
+"36
 [v _pwm2_writeDutyCycle `(ui ~T0 @X0 0 ef1`ui ]
-"39
+"37
 [v _pwm3_writeDutyCycle `(ui ~T0 @X0 0 ef1`ui ]
-"40
+"38
 [v _pwm4_writeDutyCycle `(ui ~T0 @X0 0 ef1`ui ]
 "4009 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1503.h
 [v _PWM1DCH `Vuc ~T0 @X0 0 e@1554 ]
@@ -31,7 +31,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PWM4DCH `Vuc ~T0 @X0 0 e@1563 ]
 "4519
 [v _PWM4DCL `Vuc ~T0 @X0 0 e@1562 ]
-"86 pwm.c
+"80 pwm.c
 [c E2930 0 1 2 3 .. ]
 [n E2930 PWMChannel PWM_CH1 PWM_CH2 PWM_CH3 PWM_CH4  ]
 "483 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1503.h
@@ -2869,458 +2869,458 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;pwm.h: 20: enum PWMChannel{
-[; ;pwm.h: 21: PWM_CH1,
-[; ;pwm.h: 22: PWM_CH2,
-[; ;pwm.h: 23: PWM_CH3,
-[; ;pwm.h: 24: PWM_CH4
-[; ;pwm.h: 25: };
-[; ;pwm.h: 28: void _init_pwm(void);
-[; ;pwm.h: 34: void incDutyCycle(enum PWMChannel);
-[; ;pwm.h: 35: void decDutyCycle(enum PWMChannel);
-[; ;pwm.h: 37: uint16_t pwm1_writeDutyCycle(uint16_t);
-[; ;pwm.h: 38: uint16_t pwm2_writeDutyCycle(uint16_t);
-[; ;pwm.h: 39: uint16_t pwm3_writeDutyCycle(uint16_t);
-[; ;pwm.h: 40: uint16_t pwm4_writeDutyCycle(uint16_t);
-[; ;pwm.h: 42: enum PWMChannel getPWMSEL(void);
-"9 pwm.c
+[; ;pwm.h: 18: enum PWMChannel{
+[; ;pwm.h: 19: PWM_CH1,
+[; ;pwm.h: 20: PWM_CH2,
+[; ;pwm.h: 21: PWM_CH3,
+[; ;pwm.h: 22: PWM_CH4
+[; ;pwm.h: 23: };
+[; ;pwm.h: 26: void _init_pwm(void);
+[; ;pwm.h: 32: void incDutyCycle(enum PWMChannel);
+[; ;pwm.h: 33: void decDutyCycle(enum PWMChannel);
+[; ;pwm.h: 35: uint16_t pwm1_writeDutyCycle(uint16_t);
+[; ;pwm.h: 36: uint16_t pwm2_writeDutyCycle(uint16_t);
+[; ;pwm.h: 37: uint16_t pwm3_writeDutyCycle(uint16_t);
+[; ;pwm.h: 38: uint16_t pwm4_writeDutyCycle(uint16_t);
+[; ;pwm.h: 40: enum PWMChannel getPWMSEL(void);
+"7 pwm.c
 [v _pwm1_dutyCycle `Vui ~T0 @X0 1 s ]
-[; ;pwm.c: 9: volatile static uint16_t pwm1_dutyCycle;
-"10
+[; ;pwm.c: 7: volatile static uint16_t pwm1_dutyCycle;
+"8
 [v _pwm2_dutyCycle `Vui ~T0 @X0 1 s ]
-[; ;pwm.c: 10: volatile static uint16_t pwm2_dutyCycle;
-"11
+[; ;pwm.c: 8: volatile static uint16_t pwm2_dutyCycle;
+"9
 [v _pwm3_dutyCycle `Vui ~T0 @X0 1 s ]
-[; ;pwm.c: 11: volatile static uint16_t pwm3_dutyCycle;
-"12
+[; ;pwm.c: 9: volatile static uint16_t pwm3_dutyCycle;
+"10
 [v _pwm4_dutyCycle `Vui ~T0 @X0 1 s ]
-[; ;pwm.c: 12: volatile static uint16_t pwm4_dutyCycle;
-[; ;pwm.c: 14: static uint16_t checkDCBounds(uint16_t, bool);
-"16
+[; ;pwm.c: 10: volatile static uint16_t pwm4_dutyCycle;
+[; ;pwm.c: 12: static uint16_t checkDCBounds(uint16_t, bool);
+"14
 [v __init_pwm `(v ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 16: void _init_pwm(void){
+[; ;pwm.c: 14: void _init_pwm(void){
 [e :U __init_pwm ]
 [f ]
-[; ;pwm.c: 19: PWM1CON = 0x00;
-"19
+[; ;pwm.c: 17: PWM1CON = 0x00;
+"17
 [e = _PWM1CON -> -> 0 `i `uc ]
-[; ;pwm.c: 20: PWM2CON = 0x00;
-"20
+[; ;pwm.c: 18: PWM2CON = 0x00;
+"18
 [e = _PWM2CON -> -> 0 `i `uc ]
-[; ;pwm.c: 21: PWM3CON = 0x00;
-"21
+[; ;pwm.c: 19: PWM3CON = 0x00;
+"19
 [e = _PWM3CON -> -> 0 `i `uc ]
-[; ;pwm.c: 22: PWM4CON = 0x00;
-"22
+[; ;pwm.c: 20: PWM4CON = 0x00;
+"20
 [e = _PWM4CON -> -> 0 `i `uc ]
-[; ;pwm.c: 25: PWM1CON = 0xC0;
-"25
+[; ;pwm.c: 23: PWM1CON = 0xC0;
+"23
 [e = _PWM1CON -> -> 192 `i `uc ]
-[; ;pwm.c: 26: PWM2CON = 0xC0;
-"26
+[; ;pwm.c: 24: PWM2CON = 0xC0;
+"24
 [e = _PWM2CON -> -> 192 `i `uc ]
-[; ;pwm.c: 27: PWM3CON = 0xC0;
-"27
+[; ;pwm.c: 25: PWM3CON = 0xC0;
+"25
 [e = _PWM3CON -> -> 192 `i `uc ]
-[; ;pwm.c: 28: PWM4CON = 0xC0;
-"28
+[; ;pwm.c: 26: PWM4CON = 0xC0;
+"26
 [e = _PWM4CON -> -> 192 `i `uc ]
-[; ;pwm.c: 30: pwm1_writeDutyCycle(19U);
-"30
+[; ;pwm.c: 28: pwm1_writeDutyCycle(19U);
+"28
 [e ( _pwm1_writeDutyCycle (1 -> 19 `ui ]
-[; ;pwm.c: 31: pwm2_writeDutyCycle(19U);
-"31
+[; ;pwm.c: 29: pwm2_writeDutyCycle(19U);
+"29
 [e ( _pwm2_writeDutyCycle (1 -> 19 `ui ]
-[; ;pwm.c: 32: pwm3_writeDutyCycle(19U);
-"32
+[; ;pwm.c: 30: pwm3_writeDutyCycle(19U);
+"30
 [e ( _pwm3_writeDutyCycle (1 -> 19 `ui ]
-[; ;pwm.c: 33: pwm4_writeDutyCycle(19U);
-"33
+[; ;pwm.c: 31: pwm4_writeDutyCycle(19U);
+"31
 [e ( _pwm4_writeDutyCycle (1 -> 19 `ui ]
-[; ;pwm.c: 34: }
-"34
+[; ;pwm.c: 32: }
+"32
 [e :UE 341 ]
 }
-"39
+"37
 [v _pwm1_writeDutyCycle `(ui ~T0 @X0 1 ef1`ui ]
 {
-[; ;pwm.c: 39: uint16_t pwm1_writeDutyCycle(uint16_t dutyCycle){
+[; ;pwm.c: 37: uint16_t pwm1_writeDutyCycle(uint16_t dutyCycle){
 [e :U _pwm1_writeDutyCycle ]
 [v _dutyCycle `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;pwm.c: 41: PWM1DCH = (dutyCycle & 0x03FC)>>2;
-"41
+[; ;pwm.c: 38: PWM1DCH = (dutyCycle & 0x03FC)>>2;
+"38
 [e = _PWM1DCH -> >> & _dutyCycle -> -> 1020 `i `ui -> 2 `i `uc ]
-[; ;pwm.c: 42: PWM1DCL = (dutyCycle & 0x0003)<<6;
-"42
+[; ;pwm.c: 39: PWM1DCL = (dutyCycle & 0x0003)<<6;
+"39
 [e = _PWM1DCL -> << & _dutyCycle -> -> 3 `i `ui -> 6 `i `uc ]
-[; ;pwm.c: 43: pwm1_dutyCycle = dutyCycle;
-"43
+[; ;pwm.c: 40: pwm1_dutyCycle = dutyCycle;
+"40
 [e = _pwm1_dutyCycle _dutyCycle ]
-[; ;pwm.c: 44: return dutyCycle;
-"44
+[; ;pwm.c: 41: return dutyCycle;
+"41
 [e ) _dutyCycle ]
 [e $UE 342  ]
-[; ;pwm.c: 45: }
-"45
+[; ;pwm.c: 42: }
+"42
 [e :UE 342 ]
 }
-"46
+"43
 [v _pwm2_writeDutyCycle `(ui ~T0 @X0 1 ef1`ui ]
 {
-[; ;pwm.c: 46: uint16_t pwm2_writeDutyCycle(uint16_t dutyCycle){
+[; ;pwm.c: 43: uint16_t pwm2_writeDutyCycle(uint16_t dutyCycle){
 [e :U _pwm2_writeDutyCycle ]
 [v _dutyCycle `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;pwm.c: 48: PWM2DCH = (dutyCycle & 0x03FC)>>2;
-"48
+[; ;pwm.c: 44: PWM2DCH = (dutyCycle & 0x03FC)>>2;
+"44
 [e = _PWM2DCH -> >> & _dutyCycle -> -> 1020 `i `ui -> 2 `i `uc ]
-[; ;pwm.c: 49: PWM2DCL = (dutyCycle & 0x0003)<<6;
-"49
+[; ;pwm.c: 45: PWM2DCL = (dutyCycle & 0x0003)<<6;
+"45
 [e = _PWM2DCL -> << & _dutyCycle -> -> 3 `i `ui -> 6 `i `uc ]
-[; ;pwm.c: 50: pwm2_dutyCycle = dutyCycle;
-"50
+[; ;pwm.c: 46: pwm2_dutyCycle = dutyCycle;
+"46
 [e = _pwm2_dutyCycle _dutyCycle ]
-[; ;pwm.c: 51: return dutyCycle;
-"51
+[; ;pwm.c: 47: return dutyCycle;
+"47
 [e ) _dutyCycle ]
 [e $UE 343  ]
-[; ;pwm.c: 52: }
-"52
+[; ;pwm.c: 48: }
+"48
 [e :UE 343 ]
 }
-"53
+"49
 [v _pwm3_writeDutyCycle `(ui ~T0 @X0 1 ef1`ui ]
 {
-[; ;pwm.c: 53: uint16_t pwm3_writeDutyCycle(uint16_t dutyCycle){
+[; ;pwm.c: 49: uint16_t pwm3_writeDutyCycle(uint16_t dutyCycle){
 [e :U _pwm3_writeDutyCycle ]
 [v _dutyCycle `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;pwm.c: 55: PWM3DCH = (dutyCycle & 0x03FC)>>2;
-"55
+[; ;pwm.c: 50: PWM3DCH = (dutyCycle & 0x03FC)>>2;
+"50
 [e = _PWM3DCH -> >> & _dutyCycle -> -> 1020 `i `ui -> 2 `i `uc ]
-[; ;pwm.c: 56: PWM3DCL = (dutyCycle & 0x0003)<<6;
-"56
+[; ;pwm.c: 51: PWM3DCL = (dutyCycle & 0x0003)<<6;
+"51
 [e = _PWM3DCL -> << & _dutyCycle -> -> 3 `i `ui -> 6 `i `uc ]
-[; ;pwm.c: 57: pwm3_dutyCycle = dutyCycle;
-"57
+[; ;pwm.c: 52: pwm3_dutyCycle = dutyCycle;
+"52
 [e = _pwm3_dutyCycle _dutyCycle ]
-[; ;pwm.c: 58: return dutyCycle;
-"58
+[; ;pwm.c: 53: return dutyCycle;
+"53
 [e ) _dutyCycle ]
 [e $UE 344  ]
-[; ;pwm.c: 59: }
-"59
+[; ;pwm.c: 54: }
+"54
 [e :UE 344 ]
 }
-"60
+"55
 [v _pwm4_writeDutyCycle `(ui ~T0 @X0 1 ef1`ui ]
 {
-[; ;pwm.c: 60: uint16_t pwm4_writeDutyCycle(uint16_t dutyCycle){
+[; ;pwm.c: 55: uint16_t pwm4_writeDutyCycle(uint16_t dutyCycle){
 [e :U _pwm4_writeDutyCycle ]
 [v _dutyCycle `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;pwm.c: 62: PWM4DCH = (dutyCycle & 0x03FC)>>2;
-"62
+[; ;pwm.c: 56: PWM4DCH = (dutyCycle & 0x03FC)>>2;
+"56
 [e = _PWM4DCH -> >> & _dutyCycle -> -> 1020 `i `ui -> 2 `i `uc ]
-[; ;pwm.c: 63: PWM4DCL = (dutyCycle & 0x0003)<<6;
-"63
+[; ;pwm.c: 57: PWM4DCL = (dutyCycle & 0x0003)<<6;
+"57
 [e = _PWM4DCL -> << & _dutyCycle -> -> 3 `i `ui -> 6 `i `uc ]
-[; ;pwm.c: 64: pwm4_dutyCycle = dutyCycle;
-"64
+[; ;pwm.c: 58: pwm4_dutyCycle = dutyCycle;
+"58
 [e = _pwm4_dutyCycle _dutyCycle ]
-[; ;pwm.c: 65: return dutyCycle;
-"65
+[; ;pwm.c: 59: return dutyCycle;
+"59
 [e ) _dutyCycle ]
 [e $UE 345  ]
-[; ;pwm.c: 66: }
-"66
+[; ;pwm.c: 60: }
+"60
 [e :UE 345 ]
 }
-"72
+"66
 [v _checkDCBounds `(ui ~T0 @X0 1 sf2`ui`uc ]
 {
-[; ;pwm.c: 72: static uint16_t checkDCBounds(uint16_t dc, bool direction){
+[; ;pwm.c: 66: static uint16_t checkDCBounds(uint16_t dc, bool direction){
 [e :U _checkDCBounds ]
 [v _dc `ui ~T0 @X0 1 r1 ]
 [v _direction `uc ~T0 @X0 1 r2 ]
 [f ]
-"73
+"67
 [v _retval `ui ~T0 @X0 1 a ]
-[; ;pwm.c: 73: uint16_t retval = dc;
+[; ;pwm.c: 67: uint16_t retval = dc;
 [e = _retval _dc ]
-[; ;pwm.c: 74: if( dc > 19U ){
-"74
+[; ;pwm.c: 68: if( dc > 19U ){
+"68
 [e $ ! > _dc -> 19 `ui 347  ]
 {
-[; ;pwm.c: 75: if(direction == 1){
-"75
+[; ;pwm.c: 69: if(direction == 1){
+"69
 [e $ ! == -> _direction `i -> 1 `i 348  ]
 {
-[; ;pwm.c: 76: retval = 19U;
-"76
+[; ;pwm.c: 70: retval = 19U;
+"70
 [e = _retval -> 19 `ui ]
-"77
+"71
 }
-[; ;pwm.c: 77: }else{
+[; ;pwm.c: 71: }else{
 [e $U 349  ]
 [e :U 348 ]
 {
-[; ;pwm.c: 78: retval = 0U;
-"78
+[; ;pwm.c: 72: retval = 0U;
+"72
 [e = _retval -> 0 `ui ]
-"79
+"73
 }
 [e :U 349 ]
-"80
+"74
 }
 [e :U 347 ]
-[; ;pwm.c: 79: }
-[; ;pwm.c: 80: }
-[; ;pwm.c: 82: return retval;
-"82
+[; ;pwm.c: 73: }
+[; ;pwm.c: 74: }
+[; ;pwm.c: 76: return retval;
+"76
 [e ) _retval ]
 [e $UE 346  ]
-[; ;pwm.c: 83: }
-"83
+[; ;pwm.c: 77: }
+"77
 [e :UE 346 ]
 }
-"86
+"80
 [v _incDutyCycle `(v ~T0 @X0 1 ef1`E2930 ]
 {
-[; ;pwm.c: 86: void incDutyCycle(enum PWMChannel chan){
+[; ;pwm.c: 80: void incDutyCycle(enum PWMChannel chan){
 [e :U _incDutyCycle ]
 [v _chan `E2930 ~T0 @X0 1 r1 ]
 [f ]
-"87
+"81
 [v _dutyCycle `ui ~T0 @X0 1 a ]
-[; ;pwm.c: 87: uint16_t dutyCycle;
-[; ;pwm.c: 89: switch(chan){
-"89
+[; ;pwm.c: 81: uint16_t dutyCycle;
+[; ;pwm.c: 83: switch(chan){
+"83
 [e $U 352  ]
 {
-[; ;pwm.c: 90: case PWM_CH1:
-"90
+[; ;pwm.c: 84: case PWM_CH1:
+"84
 [e :U 353 ]
-[; ;pwm.c: 92: dutyCycle = checkDCBounds(pwm1_dutyCycle + 1U, 1);
-"92
+[; ;pwm.c: 86: dutyCycle = checkDCBounds(pwm1_dutyCycle + 1U, 1);
+"86
 [e = _dutyCycle ( _checkDCBounds (2 , + _pwm1_dutyCycle -> 1 `ui -> -> 1 `i `uc ]
-[; ;pwm.c: 95: pwm1_writeDutyCycle(dutyCycle);
-"95
-[e ( _pwm1_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 97: break;
-"97
-[e $U 351  ]
-[; ;pwm.c: 99: case PWM_CH2:
-"99
-[e :U 354 ]
-[; ;pwm.c: 101: dutyCycle = checkDCBounds(pwm2_dutyCycle + 1U, 1);
-"101
-[e = _dutyCycle ( _checkDCBounds (2 , + _pwm2_dutyCycle -> 1 `ui -> -> 1 `i `uc ]
-[; ;pwm.c: 104: pwm2_writeDutyCycle(dutyCycle);
-"104
-[e ( _pwm2_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 106: break;
-"106
-[e $U 351  ]
-[; ;pwm.c: 108: case PWM_CH3:
-"108
-[e :U 355 ]
-[; ;pwm.c: 110: dutyCycle = checkDCBounds(pwm3_dutyCycle + 1U, 1);
-"110
-[e = _dutyCycle ( _checkDCBounds (2 , + _pwm3_dutyCycle -> 1 `ui -> -> 1 `i `uc ]
-[; ;pwm.c: 113: pwm3_writeDutyCycle(dutyCycle);
-"113
-[e ( _pwm3_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 115: break;
-"115
-[e $U 351  ]
-[; ;pwm.c: 117: case PWM_CH4:
-"117
-[e :U 356 ]
-[; ;pwm.c: 119: dutyCycle = checkDCBounds(pwm4_dutyCycle + 1U, 1);
-"119
-[e = _dutyCycle ( _checkDCBounds (2 , + _pwm4_dutyCycle -> 1 `ui -> -> 1 `i `uc ]
-[; ;pwm.c: 122: pwm4_writeDutyCycle(dutyCycle);
-"122
-[e ( _pwm4_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 124: break;
-"124
-[e $U 351  ]
-[; ;pwm.c: 126: default:
-"126
-[e :U 357 ]
-[; ;pwm.c: 128: break;
-"128
-[e $U 351  ]
-"129
-}
-[; ;pwm.c: 129: }
-[e $U 351  ]
+[; ;pwm.c: 89: pwm1_writeDutyCycle(dutyCycle);
 "89
+[e ( _pwm1_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 91: break;
+"91
+[e $U 351  ]
+[; ;pwm.c: 93: case PWM_CH2:
+"93
+[e :U 354 ]
+[; ;pwm.c: 95: dutyCycle = checkDCBounds(pwm2_dutyCycle + 1U, 1);
+"95
+[e = _dutyCycle ( _checkDCBounds (2 , + _pwm2_dutyCycle -> 1 `ui -> -> 1 `i `uc ]
+[; ;pwm.c: 98: pwm2_writeDutyCycle(dutyCycle);
+"98
+[e ( _pwm2_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 100: break;
+"100
+[e $U 351  ]
+[; ;pwm.c: 102: case PWM_CH3:
+"102
+[e :U 355 ]
+[; ;pwm.c: 104: dutyCycle = checkDCBounds(pwm3_dutyCycle + 1U, 1);
+"104
+[e = _dutyCycle ( _checkDCBounds (2 , + _pwm3_dutyCycle -> 1 `ui -> -> 1 `i `uc ]
+[; ;pwm.c: 107: pwm3_writeDutyCycle(dutyCycle);
+"107
+[e ( _pwm3_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 109: break;
+"109
+[e $U 351  ]
+[; ;pwm.c: 111: case PWM_CH4:
+"111
+[e :U 356 ]
+[; ;pwm.c: 113: dutyCycle = checkDCBounds(pwm4_dutyCycle + 1U, 1);
+"113
+[e = _dutyCycle ( _checkDCBounds (2 , + _pwm4_dutyCycle -> 1 `ui -> -> 1 `i `uc ]
+[; ;pwm.c: 116: pwm4_writeDutyCycle(dutyCycle);
+"116
+[e ( _pwm4_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 118: break;
+"118
+[e $U 351  ]
+[; ;pwm.c: 120: default:
+"120
+[e :U 357 ]
+[; ;pwm.c: 122: break;
+"122
+[e $U 351  ]
+"123
+}
+[; ;pwm.c: 123: }
+[e $U 351  ]
+"83
 [e :U 352 ]
 [e [\ _chan , $ . `E2930 0 353
  , $ . `E2930 1 354
  , $ . `E2930 2 355
  , $ . `E2930 3 356
  357 ]
-"129
+"123
 [e :U 351 ]
-[; ;pwm.c: 130: }
-"130
+[; ;pwm.c: 124: }
+"124
 [e :UE 350 ]
 }
-"132
+"126
 [v _decDutyCycle `(v ~T0 @X0 1 ef1`E2930 ]
 {
-[; ;pwm.c: 132: void decDutyCycle(enum PWMChannel chan){
+[; ;pwm.c: 126: void decDutyCycle(enum PWMChannel chan){
 [e :U _decDutyCycle ]
 [v _chan `E2930 ~T0 @X0 1 r1 ]
 [f ]
-"133
+"127
 [v _dutyCycle `ui ~T0 @X0 1 a ]
-[; ;pwm.c: 133: uint16_t dutyCycle;
-[; ;pwm.c: 135: switch(chan){
-"135
+[; ;pwm.c: 127: uint16_t dutyCycle;
+[; ;pwm.c: 129: switch(chan){
+"129
 [e $U 360  ]
 {
-[; ;pwm.c: 136: case PWM_CH1:
-"136
+[; ;pwm.c: 130: case PWM_CH1:
+"130
 [e :U 361 ]
-[; ;pwm.c: 138: dutyCycle = checkDCBounds(pwm1_dutyCycle - 1U, 0);
-"138
+[; ;pwm.c: 132: dutyCycle = checkDCBounds(pwm1_dutyCycle - 1U, 0);
+"132
 [e = _dutyCycle ( _checkDCBounds (2 , - _pwm1_dutyCycle -> 1 `ui -> -> 0 `i `uc ]
-[; ;pwm.c: 141: pwm1_writeDutyCycle(dutyCycle);
-"141
-[e ( _pwm1_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 143: break;
-"143
-[e $U 359  ]
-[; ;pwm.c: 145: case PWM_CH2:
-"145
-[e :U 362 ]
-[; ;pwm.c: 147: dutyCycle = checkDCBounds(pwm2_dutyCycle - 1U, 0);
-"147
-[e = _dutyCycle ( _checkDCBounds (2 , - _pwm2_dutyCycle -> 1 `ui -> -> 0 `i `uc ]
-[; ;pwm.c: 150: pwm2_writeDutyCycle(dutyCycle);
-"150
-[e ( _pwm2_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 152: break;
-"152
-[e $U 359  ]
-[; ;pwm.c: 154: case PWM_CH3:
-"154
-[e :U 363 ]
-[; ;pwm.c: 156: dutyCycle = checkDCBounds(pwm3_dutyCycle - 1U, 0);
-"156
-[e = _dutyCycle ( _checkDCBounds (2 , - _pwm3_dutyCycle -> 1 `ui -> -> 0 `i `uc ]
-[; ;pwm.c: 159: pwm3_writeDutyCycle(dutyCycle);
-"159
-[e ( _pwm3_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 161: break;
-"161
-[e $U 359  ]
-[; ;pwm.c: 163: case PWM_CH4:
-"163
-[e :U 364 ]
-[; ;pwm.c: 165: dutyCycle = checkDCBounds(pwm4_dutyCycle - 1U, 0);
-"165
-[e = _dutyCycle ( _checkDCBounds (2 , - _pwm4_dutyCycle -> 1 `ui -> -> 0 `i `uc ]
-[; ;pwm.c: 168: pwm4_writeDutyCycle(dutyCycle);
-"168
-[e ( _pwm4_writeDutyCycle (1 _dutyCycle ]
-[; ;pwm.c: 170: break;
-"170
-[e $U 359  ]
-[; ;pwm.c: 172: default:
-"172
-[e :U 365 ]
-[; ;pwm.c: 174: break;
-"174
-[e $U 359  ]
-"175
-}
-[; ;pwm.c: 175: }
-[e $U 359  ]
+[; ;pwm.c: 135: pwm1_writeDutyCycle(dutyCycle);
 "135
+[e ( _pwm1_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 137: break;
+"137
+[e $U 359  ]
+[; ;pwm.c: 139: case PWM_CH2:
+"139
+[e :U 362 ]
+[; ;pwm.c: 141: dutyCycle = checkDCBounds(pwm2_dutyCycle - 1U, 0);
+"141
+[e = _dutyCycle ( _checkDCBounds (2 , - _pwm2_dutyCycle -> 1 `ui -> -> 0 `i `uc ]
+[; ;pwm.c: 144: pwm2_writeDutyCycle(dutyCycle);
+"144
+[e ( _pwm2_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 146: break;
+"146
+[e $U 359  ]
+[; ;pwm.c: 148: case PWM_CH3:
+"148
+[e :U 363 ]
+[; ;pwm.c: 150: dutyCycle = checkDCBounds(pwm3_dutyCycle - 1U, 0);
+"150
+[e = _dutyCycle ( _checkDCBounds (2 , - _pwm3_dutyCycle -> 1 `ui -> -> 0 `i `uc ]
+[; ;pwm.c: 153: pwm3_writeDutyCycle(dutyCycle);
+"153
+[e ( _pwm3_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 155: break;
+"155
+[e $U 359  ]
+[; ;pwm.c: 157: case PWM_CH4:
+"157
+[e :U 364 ]
+[; ;pwm.c: 159: dutyCycle = checkDCBounds(pwm4_dutyCycle - 1U, 0);
+"159
+[e = _dutyCycle ( _checkDCBounds (2 , - _pwm4_dutyCycle -> 1 `ui -> -> 0 `i `uc ]
+[; ;pwm.c: 162: pwm4_writeDutyCycle(dutyCycle);
+"162
+[e ( _pwm4_writeDutyCycle (1 _dutyCycle ]
+[; ;pwm.c: 164: break;
+"164
+[e $U 359  ]
+[; ;pwm.c: 166: default:
+"166
+[e :U 365 ]
+[; ;pwm.c: 168: break;
+"168
+[e $U 359  ]
+"169
+}
+[; ;pwm.c: 169: }
+[e $U 359  ]
+"129
 [e :U 360 ]
 [e [\ _chan , $ . `E2930 0 361
  , $ . `E2930 1 362
  , $ . `E2930 2 363
  , $ . `E2930 3 364
  365 ]
-"175
+"169
 [e :U 359 ]
-[; ;pwm.c: 176: }
-"176
+[; ;pwm.c: 170: }
+"170
 [e :UE 358 ]
 }
-"178
+"172
 [v _getPWMSEL `(E2930 ~T0 @X0 1 ef ]
 {
-[; ;pwm.c: 178: enum PWMChannel getPWMSEL(void){
+[; ;pwm.c: 172: enum PWMChannel getPWMSEL(void){
 [e :U _getPWMSEL ]
 [f ]
-[; ;pwm.c: 180: if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0){
-"180
+[; ;pwm.c: 174: if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0){
+"174
 [e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 367  ]
 {
-[; ;pwm.c: 181: return PWM_CH1;
-"181
+[; ;pwm.c: 175: return PWM_CH1;
+"175
 [e ) . `E2930 0 ]
 [e $UE 366  ]
-"182
+"176
 }
-[; ;pwm.c: 182: }else if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1){
+[; ;pwm.c: 176: }else if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1){
 [e $U 368  ]
 [e :U 367 ]
 [e $ ! && == -> . . _PORTCbits 0 4 `i -> 0 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 369  ]
 {
-[; ;pwm.c: 183: return PWM_CH2;
-"183
+[; ;pwm.c: 177: return PWM_CH2;
+"177
 [e ) . `E2930 1 ]
 [e $UE 366  ]
-"184
+"178
 }
-[; ;pwm.c: 184: }else if(PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0){
+[; ;pwm.c: 178: }else if(PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0){
 [e $U 370  ]
 [e :U 369 ]
 [e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 0 `i 371  ]
 {
-[; ;pwm.c: 185: return PWM_CH3;
-"185
+[; ;pwm.c: 179: return PWM_CH3;
+"179
 [e ) . `E2930 2 ]
 [e $UE 366  ]
-"186
+"180
 }
-[; ;pwm.c: 186: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1){
+[; ;pwm.c: 180: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1){
 [e $U 372  ]
 [e :U 371 ]
 [e $ ! && == -> . . _PORTCbits 0 4 `i -> 1 `i == -> . . _PORTCbits 0 2 `i -> 1 `i 373  ]
 {
-[; ;pwm.c: 187: return PWM_CH4;
-"187
+[; ;pwm.c: 181: return PWM_CH4;
+"181
 [e ) . `E2930 3 ]
 [e $UE 366  ]
-"188
+"182
 }
-[; ;pwm.c: 188: }else{
+[; ;pwm.c: 182: }else{
 [e $U 374  ]
 [e :U 373 ]
 {
-"190
+"184
 }
 [e :U 374 ]
 [e :U 372 ]
 [e :U 370 ]
 [e :U 368 ]
-[; ;pwm.c: 190: }
-[; ;pwm.c: 192: return PWM_CH1;
-"192
+[; ;pwm.c: 184: }
+[; ;pwm.c: 186: return PWM_CH1;
+"186
 [e ) . `E2930 0 ]
 [e $UE 366  ]
-[; ;pwm.c: 193: }
-"193
+[; ;pwm.c: 187: }
+"187
 [e :UE 366 ]
 }

@@ -3,14 +3,14 @@
 [d edition pro ]
 [d chip 16F1503 ]
 [d frameptr 6 ]
-"51 C:\Code\SerialPWM\SerialPWM.X\main.c
+"47 C:\Code\SerialPWM\SerialPWM.X\main.c
 [e E2938 PWMChannel `uc
 PWM_CH1 0
 PWM_CH2 1
 PWM_CH3 2
 PWM_CH4 3
 ]
-"86 C:\Code\SerialPWM\SerialPWM.X\pwm.c
+"80 C:\Code\SerialPWM\SerialPWM.X\pwm.c
 [e E2930 PWMChannel `uc
 PWM_CH1 0
 PWM_CH2 1
@@ -21,35 +21,35 @@ PWM_CH4 3
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"24 C:\Code\SerialPWM\SerialPWM.X\interrupts.c
+"20 C:\Code\SerialPWM\SerialPWM.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
-"30 C:\Code\SerialPWM\SerialPWM.X\main.c
+"26 C:\Code\SerialPWM\SerialPWM.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"16 C:\Code\SerialPWM\SerialPWM.X\pwm.c
+"14 C:\Code\SerialPWM\SerialPWM.X\pwm.c
 [v __init_pwm _init_pwm `(v  1 e 1 0 ]
-"39
+"37
 [v _pwm1_writeDutyCycle pwm1_writeDutyCycle `(ui  1 e 2 0 ]
-"46
+"43
 [v _pwm2_writeDutyCycle pwm2_writeDutyCycle `(ui  1 e 2 0 ]
-"53
+"49
 [v _pwm3_writeDutyCycle pwm3_writeDutyCycle `(ui  1 e 2 0 ]
-"60
+"55
 [v _pwm4_writeDutyCycle pwm4_writeDutyCycle `(ui  1 e 2 0 ]
-"72
+"66
 [v _checkDCBounds checkDCBounds `(ui  1 s 2 checkDCBounds ]
-"86
+"80
 [v _incDutyCycle incDutyCycle `(v  1 e 1 0 ]
-"132
+"126
 [v _decDutyCycle decDutyCycle `(v  1 e 1 0 ]
-"178
+"172
 [v _getPWMSEL getPWMSEL `(E2938  1 e 1 0 ]
 "17 C:\Code\SerialPWM\SerialPWM.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
-"21 C:\Code\SerialPWM\SerialPWM.X\user.c
+"13 C:\Code\SerialPWM\SerialPWM.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
-"35
+"27
 [v __init_timer2 _init_timer2 `(v  1 e 1 0 ]
-"50
+"42
 [v __init_gpio _init_gpio `(v  1 e 1 0 ]
 [s S33 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
@@ -134,111 +134,111 @@ PWM_CH4 3
 [v _PWM4DCH PWM4DCH `VEuc  1 e 1 @1563 ]
 "4625
 [v _PWM4CON PWM4CON `VEuc  1 e 1 @1564 ]
-"9 C:\Code\SerialPWM\SerialPWM.X\pwm.c
+"7 C:\Code\SerialPWM\SerialPWM.X\pwm.c
 [v _pwm1_dutyCycle pwm1_dutyCycle `VEui  1 s 2 pwm1_dutyCycle ]
-"10
+"8
 [v _pwm2_dutyCycle pwm2_dutyCycle `VEui  1 s 2 pwm2_dutyCycle ]
-"11
+"9
 [v _pwm3_dutyCycle pwm3_dutyCycle `VEui  1 s 2 pwm3_dutyCycle ]
-"12
+"10
 [v _pwm4_dutyCycle pwm4_dutyCycle `VEui  1 s 2 pwm4_dutyCycle ]
-"30 C:\Code\SerialPWM\SerialPWM.X\main.c
+"26 C:\Code\SerialPWM\SerialPWM.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"38
+"34
 [v main@commandUP commandUP `uc  1 s 1 commandUP ]
-"39
+"35
 [v main@commandDN commandDN `uc  1 s 1 commandDN ]
-"60
+"56
 } 0
-"86 C:\Code\SerialPWM\SerialPWM.X\pwm.c
+"80 C:\Code\SerialPWM\SerialPWM.X\pwm.c
 [v _incDutyCycle incDutyCycle `(v  1 e 1 0 ]
 {
 [v incDutyCycle@chan chan `E2930  1 a 1 wreg ]
-"87
+"81
 [v incDutyCycle@dutyCycle dutyCycle `ui  1 a 2 7 ]
-"86
+"80
 [v incDutyCycle@chan chan `E2930  1 a 1 wreg ]
 [v incDutyCycle@chan chan `E2930  1 a 1 6 ]
-"130
+"124
 } 0
-"178
+"172
 [v _getPWMSEL getPWMSEL `(E2938  1 e 1 0 ]
 {
-"193
+"187
 } 0
-"132
+"126
 [v _decDutyCycle decDutyCycle `(v  1 e 1 0 ]
 {
 [v decDutyCycle@chan chan `E2930  1 a 1 wreg ]
-"133
+"127
 [v decDutyCycle@dutyCycle dutyCycle `ui  1 a 2 7 ]
-"132
+"126
 [v decDutyCycle@chan chan `E2930  1 a 1 wreg ]
 [v decDutyCycle@chan chan `E2930  1 a 1 6 ]
-"176
+"170
 } 0
-"72
+"66
 [v _checkDCBounds checkDCBounds `(ui  1 s 2 checkDCBounds ]
 {
-"73
+"67
 [v checkDCBounds@retval retval `ui  1 a 2 4 ]
-"72
+"66
 [v checkDCBounds@dc dc `ui  1 p 2 1 ]
 [v checkDCBounds@direction direction `uc  1 p 1 3 ]
-"83
+"77
 } 0
-"21 C:\Code\SerialPWM\SerialPWM.X\user.c
+"13 C:\Code\SerialPWM\SerialPWM.X\user.c
 [v _InitApp InitApp `(v  1 e 1 0 ]
 {
-"33
+"25
 } 0
-"35
+"27
 [v __init_timer2 _init_timer2 `(v  1 e 1 0 ]
 {
-"48
+"40
 } 0
-"16 C:\Code\SerialPWM\SerialPWM.X\pwm.c
+"14 C:\Code\SerialPWM\SerialPWM.X\pwm.c
 [v __init_pwm _init_pwm `(v  1 e 1 0 ]
 {
-"34
+"32
 } 0
-"60
+"55
 [v _pwm4_writeDutyCycle pwm4_writeDutyCycle `(ui  1 e 2 0 ]
 {
 [v pwm4_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
-"66
+"60
 } 0
-"53
+"49
 [v _pwm3_writeDutyCycle pwm3_writeDutyCycle `(ui  1 e 2 0 ]
 {
 [v pwm3_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
-"59
+"54
 } 0
-"46
+"43
 [v _pwm2_writeDutyCycle pwm2_writeDutyCycle `(ui  1 e 2 0 ]
 {
 [v pwm2_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
-"52
+"48
 } 0
-"39
+"37
 [v _pwm1_writeDutyCycle pwm1_writeDutyCycle `(ui  1 e 2 0 ]
 {
 [v pwm1_writeDutyCycle@dutyCycle dutyCycle `ui  1 p 2 1 ]
-"45
+"42
 } 0
-"50 C:\Code\SerialPWM\SerialPWM.X\user.c
+"42 C:\Code\SerialPWM\SerialPWM.X\user.c
 [v __init_gpio _init_gpio `(v  1 e 1 0 ]
 {
-"71
+"63
 } 0
 "17 C:\Code\SerialPWM\SerialPWM.X\system.c
 [v _ConfigureOscillator ConfigureOscillator `(v  1 e 1 0 ]
 {
 "24
 } 0
-"24 C:\Code\SerialPWM\SerialPWM.X\interrupts.c
+"20 C:\Code\SerialPWM\SerialPWM.X\interrupts.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"28
+"24
 } 0

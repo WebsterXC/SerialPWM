@@ -3866,10 +3866,10 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
 typedef unsigned char bool;
 
-# 13 "system.h"
+# 9 "system.h"
 void ConfigureOscillator(void);
 
-# 11 "user.h"
+# 2 "user.h"
 void InitApp(void);
 
 
@@ -3878,7 +3878,7 @@ void _init_timer2(void);
 
 void _init_gpio(void);
 
-# 20 "pwm.h"
+# 18 "pwm.h"
 enum PWMChannel{
 PWM_CH1,
 PWM_CH2,
@@ -3889,7 +3889,7 @@ PWM_CH4
 
 void _init_pwm(void);
 
-# 34
+# 32
 void incDutyCycle(enum PWMChannel);
 void decDutyCycle(enum PWMChannel);
 
@@ -3900,7 +3900,7 @@ uint16_t pwm4_writeDutyCycle(uint16_t);
 
 enum PWMChannel getPWMSEL(void);
 
-# 30 "main.c"
+# 26 "main.c"
 void main(void)
 {
 

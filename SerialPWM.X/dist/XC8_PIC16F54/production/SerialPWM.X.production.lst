@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.42 build -159332390 
-                                                                                               Thu Nov 02 22:17:00 2017
+                                                                                               Thu Nov 02 22:21:39 2017
 
 Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130522
      1                           	processor	16F1503
@@ -1152,7 +1152,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1138 ;;
   1139 ;; *************** function _main *****************
   1140 ;; Defined at:
-  1141 ;;		line 30 in file "main.c"
+  1141 ;;		line 26 in file "main.c"
   1142 ;; Parameters:    Size  Location     Type
   1143 ;;		None
   1144 ;; Auto vars:     Size  Location     Type
@@ -1187,43 +1187,43 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1173                           ;psect for function _main
   1174  00F3                     _main:	
   1175                           
-  1176                           ;main.c: 33: ConfigureOscillator();
+  1176                           ;main.c: 29: ConfigureOscillator();
   1177                           
   1178                           ;incstack = 0
   1179                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
   1180  00F3  21C3               	fcall	_ConfigureOscillator
   1181                           
-  1182                           ;main.c: 36: InitApp();
+  1182                           ;main.c: 32: InitApp();
   1183  00F4  21C8               	fcall	_InitApp
   1184  00F5                     l801:	
-  1185                           ;main.c: 38: static bool commandUP = 1;
-  1186                           ;main.c: 39: static bool commandDN = 1;
-  1187                           ;main.c: 41: while(1)
+  1185                           ;main.c: 34: static bool commandUP = 1;
+  1186                           ;main.c: 35: static bool commandDN = 1;
+  1187                           ;main.c: 37: while(1)
   1188                           
   1189                           
-  1190                           ;main.c: 42: {
-  1191                           ;main.c: 43: if( PORTAbits.RA5 == 1 ){
+  1190                           ;main.c: 38: {
+  1191                           ;main.c: 39: if( PORTAbits.RA5 == 1 ){
   1192  00F5  0020               	movlb	0	; select bank0
   1193  00F6  1E8C               	btfss	12,5	;volatile
   1194  00F7  28FA               	goto	l29
   1195                           
-  1196                           ;main.c: 44: commandDN = 1;
+  1196                           ;main.c: 40: commandDN = 1;
   1197  00F8  01FB               	clrf	main@commandDN
   1198  00F9  0AFB               	incf	main@commandDN,f
   1199  00FA                     l29:	
   1200                           
-  1201                           ;main.c: 45: }
-  1202                           ;main.c: 46: if( PORTAbits.RA4 == 1 ){
+  1201                           ;main.c: 41: }
+  1202                           ;main.c: 42: if( PORTAbits.RA4 == 1 ){
   1203  00FA  1E0C               	btfss	12,4	;volatile
   1204  00FB  28FE               	goto	l30
   1205                           
-  1206                           ;main.c: 47: commandUP = 1;
+  1206                           ;main.c: 43: commandUP = 1;
   1207  00FC  01FC               	clrf	main@commandUP
   1208  00FD  0AFC               	incf	main@commandUP,f
   1209  00FE                     l30:	
   1210                           
-  1211                           ;main.c: 48: }
-  1212                           ;main.c: 50: if( PORTAbits.RA5 == 0 && commandDN == 1 && PORTCbits.RC0 == 0){
+  1211                           ;main.c: 44: }
+  1212                           ;main.c: 46: if( PORTAbits.RA5 == 0 && commandDN == 1 && PORTCbits.RC0 == 0){
   1213  00FE  1A8C               	btfsc	12,5	;volatile
   1214  00FF  2907               	goto	l815
   1215  0100  037B               	decf	main@commandDN,w
@@ -1231,16 +1231,16 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1217  0102  180E               	btfsc	14,0	;volatile
   1218  0103  2907               	goto	l815
   1219                           
-  1220                           ;main.c: 51: decDutyCycle(getPWMSEL());
+  1220                           ;main.c: 47: decDutyCycle(getPWMSEL());
   1221  0104  2197               	fcall	_getPWMSEL
   1222  0105  2075               	fcall	_decDutyCycle
   1223                           
-  1224                           ;main.c: 52: commandDN = 0;
+  1224                           ;main.c: 48: commandDN = 0;
   1225  0106  01FB               	clrf	main@commandDN
   1226  0107                     l815:	
   1227                           
-  1228                           ;main.c: 53: }
-  1229                           ;main.c: 54: if( PORTAbits.RA4 == 0 && commandUP == 1 && PORTCbits.RC0 == 0){
+  1228                           ;main.c: 49: }
+  1229                           ;main.c: 50: if( PORTAbits.RA4 == 0 && commandUP == 1 && PORTCbits.RC0 == 0){
   1230  0107  0020               	movlb	0	; select bank0
   1231  0108  1A0C               	btfsc	12,4	;volatile
   1232  0109  28F5               	goto	l801
@@ -1249,11 +1249,11 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1235  010C  180E               	btfsc	14,0	;volatile
   1236  010D  28F5               	goto	l801
   1237                           
-  1238                           ;main.c: 55: incDutyCycle(getPWMSEL());
+  1238                           ;main.c: 51: incDutyCycle(getPWMSEL());
   1239  010E  2197               	fcall	_getPWMSEL
   1240  010F  2015               	fcall	_incDutyCycle
   1241                           
-  1242                           ;main.c: 56: commandUP = 0;
+  1242                           ;main.c: 52: commandUP = 0;
   1243  0110  01FC               	clrf	main@commandUP
   1244  0111  28F5               	goto	l801
   1245  0112                     __end_of_main:	
@@ -1262,7 +1262,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1248  0015                     __ptext1:	
   1249 ;; *************** function _incDutyCycle *****************
   1250 ;; Defined at:
-  1251 ;;		line 86 in file "pwm.c"
+  1251 ;;		line 80 in file "pwm.c"
   1252 ;; Parameters:    Size  Location     Type
   1253 ;;  chan            1    wreg     enum E2930
   1254 ;; Auto vars:     Size  Location     Type
@@ -1304,14 +1304,14 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1290                           ;incDutyCycle@chan stored from wreg
   1291  0015  00F6               	movwf	incDutyCycle@chan
   1292                           
-  1293                           ;pwm.c: 87: uint16_t dutyCycle;
-  1294                           ;pwm.c: 89: switch(chan){
+  1293                           ;pwm.c: 81: uint16_t dutyCycle;
+  1294                           ;pwm.c: 83: switch(chan){
   1295  0016  2866               	goto	l797
   1296  0017                     l787:	
-  1297                           ;pwm.c: 90: case PWM_CH1:
+  1297                           ;pwm.c: 84: case PWM_CH1:
   1298                           
   1299                           
-  1300                           ;pwm.c: 92: dutyCycle = checkDCBounds(pwm1_dutyCycle + 1U, 1);
+  1300                           ;pwm.c: 86: dutyCycle = checkDCBounds(pwm1_dutyCycle + 1U, 1);
   1301  0017  0879               	movf	_pwm1_dutyCycle,w	;volatile
   1302  0018  3E01               	addlw	1
   1303  0019  00F1               	movwf	checkDCBounds@dc
@@ -1326,20 +1326,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1312  0022  0871               	movf	?_checkDCBounds,w
   1313  0023  00F7               	movwf	incDutyCycle@dutyCycle
   1314                           
-  1315                           ;pwm.c: 95: pwm1_writeDutyCycle(dutyCycle);
+  1315                           ;pwm.c: 89: pwm1_writeDutyCycle(dutyCycle);
   1316  0024  0878               	movf	incDutyCycle@dutyCycle+1,w
   1317  0025  00F2               	movwf	pwm1_writeDutyCycle@dutyCycle+1
   1318  0026  0877               	movf	incDutyCycle@dutyCycle,w
   1319  0027  00F1               	movwf	pwm1_writeDutyCycle@dutyCycle
   1320  0028  217D               	fcall	_pwm1_writeDutyCycle
   1321                           
-  1322                           ;pwm.c: 97: break;
+  1322                           ;pwm.c: 91: break;
   1323  0029  0008               	return
   1324  002A                     l789:	
-  1325                           ;pwm.c: 99: case PWM_CH2:
+  1325                           ;pwm.c: 93: case PWM_CH2:
   1326                           
   1327                           
-  1328                           ;pwm.c: 101: dutyCycle = checkDCBounds(pwm2_dutyCycle + 1U, 1);
+  1328                           ;pwm.c: 95: dutyCycle = checkDCBounds(pwm2_dutyCycle + 1U, 1);
   1329  002A  0020               	movlb	0	; select bank0
   1330  002B  0824               	movf	_pwm2_dutyCycle,w	;volatile
   1331  002C  3E01               	addlw	1
@@ -1355,20 +1355,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1341  0036  0871               	movf	?_checkDCBounds,w
   1342  0037  00F7               	movwf	incDutyCycle@dutyCycle
   1343                           
-  1344                           ;pwm.c: 104: pwm2_writeDutyCycle(dutyCycle);
+  1344                           ;pwm.c: 98: pwm2_writeDutyCycle(dutyCycle);
   1345  0038  0878               	movf	incDutyCycle@dutyCycle+1,w
   1346  0039  00F2               	movwf	pwm2_writeDutyCycle@dutyCycle+1
   1347  003A  0877               	movf	incDutyCycle@dutyCycle,w
   1348  003B  00F1               	movwf	pwm2_writeDutyCycle@dutyCycle
   1349  003C  2148               	fcall	_pwm2_writeDutyCycle
   1350                           
-  1351                           ;pwm.c: 106: break;
+  1351                           ;pwm.c: 100: break;
   1352  003D  0008               	return
   1353  003E                     l791:	
-  1354                           ;pwm.c: 108: case PWM_CH3:
+  1354                           ;pwm.c: 102: case PWM_CH3:
   1355                           
   1356                           
-  1357                           ;pwm.c: 110: dutyCycle = checkDCBounds(pwm3_dutyCycle + 1U, 1);
+  1357                           ;pwm.c: 104: dutyCycle = checkDCBounds(pwm3_dutyCycle + 1U, 1);
   1358  003E  0020               	movlb	0	; select bank0
   1359  003F  0822               	movf	_pwm3_dutyCycle,w	;volatile
   1360  0040  3E01               	addlw	1
@@ -1384,20 +1384,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1370  004A  0871               	movf	?_checkDCBounds,w
   1371  004B  00F7               	movwf	incDutyCycle@dutyCycle
   1372                           
-  1373                           ;pwm.c: 113: pwm3_writeDutyCycle(dutyCycle);
+  1373                           ;pwm.c: 107: pwm3_writeDutyCycle(dutyCycle);
   1374  004C  0878               	movf	incDutyCycle@dutyCycle+1,w
   1375  004D  00F2               	movwf	pwm3_writeDutyCycle@dutyCycle+1
   1376  004E  0877               	movf	incDutyCycle@dutyCycle,w
   1377  004F  00F1               	movwf	pwm3_writeDutyCycle@dutyCycle
   1378  0050  212D               	fcall	_pwm3_writeDutyCycle
   1379                           
-  1380                           ;pwm.c: 115: break;
+  1380                           ;pwm.c: 109: break;
   1381  0051  0008               	return
   1382  0052                     l793:	
-  1383                           ;pwm.c: 117: case PWM_CH4:
+  1383                           ;pwm.c: 111: case PWM_CH4:
   1384                           
   1385                           
-  1386                           ;pwm.c: 119: dutyCycle = checkDCBounds(pwm4_dutyCycle + 1U, 1);
+  1386                           ;pwm.c: 113: dutyCycle = checkDCBounds(pwm4_dutyCycle + 1U, 1);
   1387  0052  0020               	movlb	0	; select bank0
   1388  0053  0820               	movf	_pwm4_dutyCycle,w	;volatile
   1389  0054  3E01               	addlw	1
@@ -1413,20 +1413,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1399  005E  0871               	movf	?_checkDCBounds,w
   1400  005F  00F7               	movwf	incDutyCycle@dutyCycle
   1401                           
-  1402                           ;pwm.c: 122: pwm4_writeDutyCycle(dutyCycle);
+  1402                           ;pwm.c: 116: pwm4_writeDutyCycle(dutyCycle);
   1403  0060  0878               	movf	incDutyCycle@dutyCycle+1,w
   1404  0061  00F2               	movwf	pwm4_writeDutyCycle@dutyCycle+1
   1405  0062  0877               	movf	incDutyCycle@dutyCycle,w
   1406  0063  00F1               	movwf	pwm4_writeDutyCycle@dutyCycle
   1407  0064  2112               	fcall	_pwm4_writeDutyCycle
   1408                           
-  1409                           ;pwm.c: 129: }
+  1409                           ;pwm.c: 123: }
   1410                           
-  1411                           ;pwm.c: 128: break;
+  1411                           ;pwm.c: 122: break;
   1412                           
-  1413                           ;pwm.c: 126: default:
+  1413                           ;pwm.c: 120: default:
   1414                           
-  1415                           ;pwm.c: 124: break;
+  1415                           ;pwm.c: 118: break;
   1416  0065  0008               	return
   1417  0066                     l797:	
   1418  0066  0876               	movf	incDutyCycle@chan,w
@@ -1460,7 +1460,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1446  0197                     __ptext2:	
   1447 ;; *************** function _getPWMSEL *****************
   1448 ;; Defined at:
-  1449 ;;		line 178 in file "pwm.c"
+  1449 ;;		line 172 in file "pwm.c"
   1450 ;; Parameters:    Size  Location     Type
   1451 ;;		None
   1452 ;; Auto vars:     Size  Location     Type
@@ -1492,7 +1492,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1478                           ;psect for function _getPWMSEL
   1479  0197                     _getPWMSEL:	
   1480                           
-  1481                           ;pwm.c: 180: if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0){
+  1481                           ;pwm.c: 174: if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0){
   1482                           
   1483                           ;incstack = 0
   1484                           ; Regs used in _getPWMSEL: [wreg]
@@ -1501,45 +1501,45 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1487  0199  190E               	btfsc	14,2	;volatile
   1488  019A  299D               	goto	l165
   1489                           
-  1490                           ;pwm.c: 181: return PWM_CH1;
+  1490                           ;pwm.c: 175: return PWM_CH1;
   1491  019B  3000               	movlw	0
   1492  019C  0008               	return
   1493  019D                     l165:	
-  1494                           ;pwm.c: 182: }else if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1){
+  1494                           ;pwm.c: 176: }else if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1){
   1495                           
   1496  019D  1E0E               	btfss	14,4	;volatile
   1497  019E  1D0E               	btfss	14,2	;volatile
   1498  019F  29A2               	goto	l168
   1499                           
-  1500                           ;pwm.c: 183: return PWM_CH2;
+  1500                           ;pwm.c: 177: return PWM_CH2;
   1501  01A0  3001               	movlw	1
   1502  01A1  0008               	return
   1503  01A2                     l168:	
-  1504                           ;pwm.c: 184: }else if(PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0){
+  1504                           ;pwm.c: 178: }else if(PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0){
   1505                           
   1506  01A2  1A0E               	btfsc	14,4	;volatile
   1507  01A3  190E               	btfsc	14,2	;volatile
   1508  01A4  29A7               	goto	l170
   1509                           
-  1510                           ;pwm.c: 185: return PWM_CH3;
+  1510                           ;pwm.c: 179: return PWM_CH3;
   1511  01A5  3002               	movlw	2
   1512  01A6  0008               	return
   1513  01A7                     l170:	
-  1514                           ;pwm.c: 186: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1){
+  1514                           ;pwm.c: 180: }else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1){
   1515                           
   1516  01A7  1A0E               	btfsc	14,4	;volatile
   1517  01A8  1D0E               	btfss	14,2	;volatile
   1518  01A9  29AC               	goto	l657
   1519                           
-  1520                           ;pwm.c: 187: return PWM_CH4;
+  1520                           ;pwm.c: 181: return PWM_CH4;
   1521  01AA  3003               	movlw	3
   1522  01AB  0008               	return
   1523  01AC                     l657:	
-  1524                           ;pwm.c: 188: }else{
+  1524                           ;pwm.c: 182: }else{
   1525                           
   1526                           
-  1527                           ;pwm.c: 190: }
-  1528                           ;pwm.c: 192: return PWM_CH1;
+  1527                           ;pwm.c: 184: }
+  1528                           ;pwm.c: 186: return PWM_CH1;
   1529  01AC  3000               	movlw	0
   1530  01AD  0008               	return
   1531  01AE                     __end_of_getPWMSEL:	
@@ -1548,7 +1548,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1534  0075                     __ptext3:	
   1535 ;; *************** function _decDutyCycle *****************
   1536 ;; Defined at:
-  1537 ;;		line 132 in file "pwm.c"
+  1537 ;;		line 126 in file "pwm.c"
   1538 ;; Parameters:    Size  Location     Type
   1539 ;;  chan            1    wreg     enum E2930
   1540 ;; Auto vars:     Size  Location     Type
@@ -1590,14 +1590,14 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1576                           ;decDutyCycle@chan stored from wreg
   1577  0075  00F6               	movwf	decDutyCycle@chan
   1578                           
-  1579                           ;pwm.c: 133: uint16_t dutyCycle;
-  1580                           ;pwm.c: 135: switch(chan){
+  1579                           ;pwm.c: 127: uint16_t dutyCycle;
+  1580                           ;pwm.c: 129: switch(chan){
   1581  0076  28C2               	goto	l783
   1582  0077                     l773:	
-  1583                           ;pwm.c: 136: case PWM_CH1:
+  1583                           ;pwm.c: 130: case PWM_CH1:
   1584                           
   1585                           
-  1586                           ;pwm.c: 138: dutyCycle = checkDCBounds(pwm1_dutyCycle - 1U, 0);
+  1586                           ;pwm.c: 132: dutyCycle = checkDCBounds(pwm1_dutyCycle - 1U, 0);
   1587  0077  0879               	movf	_pwm1_dutyCycle,w	;volatile
   1588  0078  3EFF               	addlw	255
   1589  0079  00F1               	movwf	checkDCBounds@dc
@@ -1611,20 +1611,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1597  0081  0871               	movf	?_checkDCBounds,w
   1598  0082  00F7               	movwf	decDutyCycle@dutyCycle
   1599                           
-  1600                           ;pwm.c: 141: pwm1_writeDutyCycle(dutyCycle);
+  1600                           ;pwm.c: 135: pwm1_writeDutyCycle(dutyCycle);
   1601  0083  0878               	movf	decDutyCycle@dutyCycle+1,w
   1602  0084  00F2               	movwf	pwm1_writeDutyCycle@dutyCycle+1
   1603  0085  0877               	movf	decDutyCycle@dutyCycle,w
   1604  0086  00F1               	movwf	pwm1_writeDutyCycle@dutyCycle
   1605  0087  217D               	fcall	_pwm1_writeDutyCycle
   1606                           
-  1607                           ;pwm.c: 143: break;
+  1607                           ;pwm.c: 137: break;
   1608  0088  0008               	return
   1609  0089                     l775:	
-  1610                           ;pwm.c: 145: case PWM_CH2:
+  1610                           ;pwm.c: 139: case PWM_CH2:
   1611                           
   1612                           
-  1613                           ;pwm.c: 147: dutyCycle = checkDCBounds(pwm2_dutyCycle - 1U, 0);
+  1613                           ;pwm.c: 141: dutyCycle = checkDCBounds(pwm2_dutyCycle - 1U, 0);
   1614  0089  0020               	movlb	0	; select bank0
   1615  008A  0824               	movf	_pwm2_dutyCycle,w	;volatile
   1616  008B  3EFF               	addlw	255
@@ -1639,20 +1639,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1625  0094  0871               	movf	?_checkDCBounds,w
   1626  0095  00F7               	movwf	decDutyCycle@dutyCycle
   1627                           
-  1628                           ;pwm.c: 150: pwm2_writeDutyCycle(dutyCycle);
+  1628                           ;pwm.c: 144: pwm2_writeDutyCycle(dutyCycle);
   1629  0096  0878               	movf	decDutyCycle@dutyCycle+1,w
   1630  0097  00F2               	movwf	pwm2_writeDutyCycle@dutyCycle+1
   1631  0098  0877               	movf	decDutyCycle@dutyCycle,w
   1632  0099  00F1               	movwf	pwm2_writeDutyCycle@dutyCycle
   1633  009A  2148               	fcall	_pwm2_writeDutyCycle
   1634                           
-  1635                           ;pwm.c: 152: break;
+  1635                           ;pwm.c: 146: break;
   1636  009B  0008               	return
   1637  009C                     l777:	
-  1638                           ;pwm.c: 154: case PWM_CH3:
+  1638                           ;pwm.c: 148: case PWM_CH3:
   1639                           
   1640                           
-  1641                           ;pwm.c: 156: dutyCycle = checkDCBounds(pwm3_dutyCycle - 1U, 0);
+  1641                           ;pwm.c: 150: dutyCycle = checkDCBounds(pwm3_dutyCycle - 1U, 0);
   1642  009C  0020               	movlb	0	; select bank0
   1643  009D  0822               	movf	_pwm3_dutyCycle,w	;volatile
   1644  009E  3EFF               	addlw	255
@@ -1667,20 +1667,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1653  00A7  0871               	movf	?_checkDCBounds,w
   1654  00A8  00F7               	movwf	decDutyCycle@dutyCycle
   1655                           
-  1656                           ;pwm.c: 159: pwm3_writeDutyCycle(dutyCycle);
+  1656                           ;pwm.c: 153: pwm3_writeDutyCycle(dutyCycle);
   1657  00A9  0878               	movf	decDutyCycle@dutyCycle+1,w
   1658  00AA  00F2               	movwf	pwm3_writeDutyCycle@dutyCycle+1
   1659  00AB  0877               	movf	decDutyCycle@dutyCycle,w
   1660  00AC  00F1               	movwf	pwm3_writeDutyCycle@dutyCycle
   1661  00AD  212D               	fcall	_pwm3_writeDutyCycle
   1662                           
-  1663                           ;pwm.c: 161: break;
+  1663                           ;pwm.c: 155: break;
   1664  00AE  0008               	return
   1665  00AF                     l779:	
-  1666                           ;pwm.c: 163: case PWM_CH4:
+  1666                           ;pwm.c: 157: case PWM_CH4:
   1667                           
   1668                           
-  1669                           ;pwm.c: 165: dutyCycle = checkDCBounds(pwm4_dutyCycle - 1U, 0);
+  1669                           ;pwm.c: 159: dutyCycle = checkDCBounds(pwm4_dutyCycle - 1U, 0);
   1670  00AF  0020               	movlb	0	; select bank0
   1671  00B0  0820               	movf	_pwm4_dutyCycle,w	;volatile
   1672  00B1  3EFF               	addlw	255
@@ -1695,20 +1695,20 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1681  00BA  0871               	movf	?_checkDCBounds,w
   1682  00BB  00F7               	movwf	decDutyCycle@dutyCycle
   1683                           
-  1684                           ;pwm.c: 168: pwm4_writeDutyCycle(dutyCycle);
+  1684                           ;pwm.c: 162: pwm4_writeDutyCycle(dutyCycle);
   1685  00BC  0878               	movf	decDutyCycle@dutyCycle+1,w
   1686  00BD  00F2               	movwf	pwm4_writeDutyCycle@dutyCycle+1
   1687  00BE  0877               	movf	decDutyCycle@dutyCycle,w
   1688  00BF  00F1               	movwf	pwm4_writeDutyCycle@dutyCycle
   1689  00C0  2112               	fcall	_pwm4_writeDutyCycle
   1690                           
-  1691                           ;pwm.c: 175: }
+  1691                           ;pwm.c: 169: }
   1692                           
-  1693                           ;pwm.c: 174: break;
+  1693                           ;pwm.c: 168: break;
   1694                           
-  1695                           ;pwm.c: 172: default:
+  1695                           ;pwm.c: 166: default:
   1696                           
-  1697                           ;pwm.c: 170: break;
+  1697                           ;pwm.c: 164: break;
   1698  00C1  0008               	return
   1699  00C2                     l783:	
   1700  00C2  0876               	movf	decDutyCycle@chan,w
@@ -1742,7 +1742,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1728  0163                     __ptext4:	
   1729 ;; *************** function _checkDCBounds *****************
   1730 ;; Defined at:
-  1731 ;;		line 72 in file "pwm.c"
+  1731 ;;		line 66 in file "pwm.c"
   1732 ;; Parameters:    Size  Location     Type
   1733 ;;  dc              2    1[COMMON] unsigned int 
   1734 ;;  direction       1    3[COMMON] unsigned char 
@@ -1776,7 +1776,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1762                           ;psect for function _checkDCBounds
   1763  0163                     _checkDCBounds:	
   1764                           
-  1765                           ;pwm.c: 73: uint16_t retval = dc;
+  1765                           ;pwm.c: 67: uint16_t retval = dc;
   1766                           
   1767                           ;incstack = 0
   1768                           ; Regs used in _checkDCBounds: [wreg+status,2+status,0]
@@ -1785,7 +1785,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1771  0165  0871               	movf	checkDCBounds@dc,w
   1772  0166  00F4               	movwf	checkDCBounds@retval
   1773                           
-  1774                           ;pwm.c: 74: if( dc > 19U ){
+  1774                           ;pwm.c: 68: if( dc > 19U ){
   1775  0167  3000               	movlw	0
   1776  0168  0272               	subwf	checkDCBounds@dc+1,w
   1777  0169  3014               	movlw	20
@@ -1794,29 +1794,29 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1780  016C  1C03               	skipc
   1781  016D  2978               	goto	l765
   1782                           
-  1783                           ;pwm.c: 75: if(direction == 1){
+  1783                           ;pwm.c: 69: if(direction == 1){
   1784  016E  0373               	decf	checkDCBounds@direction,w
   1785  016F  1D03               	btfss	3,2
   1786  0170  2976               	goto	l763
   1787                           
-  1788                           ;pwm.c: 76: retval = 19U;
+  1788                           ;pwm.c: 70: retval = 19U;
   1789  0171  3013               	movlw	19
   1790  0172  00F4               	movwf	checkDCBounds@retval
   1791  0173  3000               	movlw	0
   1792  0174  00F5               	movwf	checkDCBounds@retval+1
   1793                           
-  1794                           ;pwm.c: 77: }else{
+  1794                           ;pwm.c: 71: }else{
   1795  0175  2978               	goto	l765
   1796  0176                     l763:	
   1797                           
-  1798                           ;pwm.c: 78: retval = 0U;
+  1798                           ;pwm.c: 72: retval = 0U;
   1799  0176  01F4               	clrf	checkDCBounds@retval
   1800  0177  01F5               	clrf	checkDCBounds@retval+1
   1801  0178                     l765:	
   1802                           
-  1803                           ;pwm.c: 79: }
-  1804                           ;pwm.c: 80: }
-  1805                           ;pwm.c: 82: return retval;
+  1803                           ;pwm.c: 73: }
+  1804                           ;pwm.c: 74: }
+  1805                           ;pwm.c: 76: return retval;
   1806  0178  0875               	movf	checkDCBounds@retval+1,w
   1807  0179  00F2               	movwf	?_checkDCBounds+1
   1808  017A  0874               	movf	checkDCBounds@retval,w
@@ -1828,7 +1828,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1814  01C8                     __ptext5:	
   1815 ;; *************** function _InitApp *****************
   1816 ;; Defined at:
-  1817 ;;		line 21 in file "user.c"
+  1817 ;;		line 13 in file "user.c"
   1818 ;; Parameters:    Size  Location     Type
   1819 ;;		None
   1820 ;; Auto vars:     Size  Location     Type
@@ -1862,16 +1862,16 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1848                           ;psect for function _InitApp
   1849  01C8                     _InitApp:	
   1850                           
-  1851                           ;user.c: 25: _init_gpio();
+  1851                           ;user.c: 17: _init_gpio();
   1852                           
   1853                           ;incstack = 0
   1854                           ; Regs used in _InitApp: [wreg+status,2+status,0+pclath+cstack]
   1855  01C8  21AE               	fcall	__init_gpio
   1856                           
-  1857                           ;user.c: 28: _init_timer2();
+  1857                           ;user.c: 20: _init_timer2();
   1858  01C9  21BC               	fcall	__init_timer2
   1859                           
-  1860                           ;user.c: 29: _init_pwm();
+  1860                           ;user.c: 21: _init_pwm();
   1861  01CA  20D1               	fcall	__init_pwm
   1862  01CB  0008               	return
   1863  01CC                     __end_of_InitApp:	
@@ -1880,7 +1880,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1866  01BC                     __ptext6:	
   1867 ;; *************** function __init_timer2 *****************
   1868 ;; Defined at:
-  1869 ;;		line 35 in file "user.c"
+  1869 ;;		line 27 in file "user.c"
   1870 ;; Parameters:    Size  Location     Type
   1871 ;;		None
   1872 ;; Auto vars:     Size  Location     Type
@@ -1912,21 +1912,21 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1898                           ;psect for function __init_timer2
   1899  01BC                     __init_timer2:	
   1900                           
-  1901                           ;user.c: 38: T2CON = 0x00;
+  1901                           ;user.c: 30: T2CON = 0x00;
   1902                           
   1903                           ;incstack = 0
   1904                           ; Regs used in __init_timer2: [wreg+status,2]
   1905  01BC  0020               	movlb	0	; select bank0
   1906  01BD  019C               	clrf	28	;volatile
   1907                           
-  1908                           ;user.c: 41: PR2 = 0x04;
+  1908                           ;user.c: 33: PR2 = 0x04;
   1909  01BE  3004               	movlw	4
   1910  01BF  009B               	movwf	27	;volatile
   1911                           
-  1912                           ;user.c: 44: TMR2 = 0x00;
+  1912                           ;user.c: 36: TMR2 = 0x00;
   1913  01C0  019A               	clrf	26	;volatile
   1914                           
-  1915                           ;user.c: 47: T2CONbits.TMR2ON = 1;
+  1915                           ;user.c: 39: T2CONbits.TMR2ON = 1;
   1916  01C1  151C               	bsf	28,2	;volatile
   1917  01C2  0008               	return
   1918  01C3                     __end_of__init_timer2:	
@@ -1935,7 +1935,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1921  00D1                     __ptext7:	
   1922 ;; *************** function __init_pwm *****************
   1923 ;; Defined at:
-  1924 ;;		line 16 in file "pwm.c"
+  1924 ;;		line 14 in file "pwm.c"
   1925 ;; Parameters:    Size  Location     Type
   1926 ;;		None
   1927 ;; Auto vars:     Size  Location     Type
@@ -1970,60 +1970,60 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   1956                           ;psect for function __init_pwm
   1957  00D1                     __init_pwm:	
   1958                           
-  1959                           ;pwm.c: 19: PWM1CON = 0x00;
+  1959                           ;pwm.c: 17: PWM1CON = 0x00;
   1960                           
   1961                           ;incstack = 0
   1962                           ; Regs used in __init_pwm: [wreg+status,2+status,0+pclath+cstack]
   1963  00D1  002C               	movlb	12	; select bank12
   1964  00D2  0193               	clrf	19	;volatile
   1965                           
-  1966                           ;pwm.c: 20: PWM2CON = 0x00;
+  1966                           ;pwm.c: 18: PWM2CON = 0x00;
   1967  00D3  0196               	clrf	22	;volatile
   1968                           
-  1969                           ;pwm.c: 21: PWM3CON = 0x00;
+  1969                           ;pwm.c: 19: PWM3CON = 0x00;
   1970  00D4  0199               	clrf	25	;volatile
   1971                           
-  1972                           ;pwm.c: 22: PWM4CON = 0x00;
+  1972                           ;pwm.c: 20: PWM4CON = 0x00;
   1973  00D5  019C               	clrf	28	;volatile
   1974                           
-  1975                           ;pwm.c: 25: PWM1CON = 0xC0;
+  1975                           ;pwm.c: 23: PWM1CON = 0xC0;
   1976  00D6  30C0               	movlw	192
   1977  00D7  0093               	movwf	19	;volatile
   1978                           
-  1979                           ;pwm.c: 26: PWM2CON = 0xC0;
+  1979                           ;pwm.c: 24: PWM2CON = 0xC0;
   1980  00D8  30C0               	movlw	192
   1981  00D9  0096               	movwf	22	;volatile
   1982                           
-  1983                           ;pwm.c: 27: PWM3CON = 0xC0;
+  1983                           ;pwm.c: 25: PWM3CON = 0xC0;
   1984  00DA  30C0               	movlw	192
   1985  00DB  0099               	movwf	25	;volatile
   1986                           
-  1987                           ;pwm.c: 28: PWM4CON = 0xC0;
+  1987                           ;pwm.c: 26: PWM4CON = 0xC0;
   1988  00DC  30C0               	movlw	192
   1989  00DD  009C               	movwf	28	;volatile
   1990                           
-  1991                           ;pwm.c: 30: pwm1_writeDutyCycle(19U);
+  1991                           ;pwm.c: 28: pwm1_writeDutyCycle(19U);
   1992  00DE  3013               	movlw	19
   1993  00DF  00F1               	movwf	pwm1_writeDutyCycle@dutyCycle
   1994  00E0  3000               	movlw	0
   1995  00E1  00F2               	movwf	pwm1_writeDutyCycle@dutyCycle+1
   1996  00E2  217D               	fcall	_pwm1_writeDutyCycle
   1997                           
-  1998                           ;pwm.c: 31: pwm2_writeDutyCycle(19U);
+  1998                           ;pwm.c: 29: pwm2_writeDutyCycle(19U);
   1999  00E3  3013               	movlw	19
   2000  00E4  00F1               	movwf	pwm2_writeDutyCycle@dutyCycle
   2001  00E5  3000               	movlw	0
   2002  00E6  00F2               	movwf	pwm2_writeDutyCycle@dutyCycle+1
   2003  00E7  2148               	fcall	_pwm2_writeDutyCycle
   2004                           
-  2005                           ;pwm.c: 32: pwm3_writeDutyCycle(19U);
+  2005                           ;pwm.c: 30: pwm3_writeDutyCycle(19U);
   2006  00E8  3013               	movlw	19
   2007  00E9  00F1               	movwf	pwm3_writeDutyCycle@dutyCycle
   2008  00EA  3000               	movlw	0
   2009  00EB  00F2               	movwf	pwm3_writeDutyCycle@dutyCycle+1
   2010  00EC  212D               	fcall	_pwm3_writeDutyCycle
   2011                           
-  2012                           ;pwm.c: 33: pwm4_writeDutyCycle(19U);
+  2012                           ;pwm.c: 31: pwm4_writeDutyCycle(19U);
   2013  00ED  3013               	movlw	19
   2014  00EE  00F1               	movwf	pwm4_writeDutyCycle@dutyCycle
   2015  00EF  3000               	movlw	0
@@ -2036,7 +2036,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2022  0112                     __ptext8:	
   2023 ;; *************** function _pwm4_writeDutyCycle *****************
   2024 ;; Defined at:
-  2025 ;;		line 60 in file "pwm.c"
+  2025 ;;		line 55 in file "pwm.c"
   2026 ;; Parameters:    Size  Location     Type
   2027 ;;  dutyCycle       2    1[COMMON] unsigned int 
   2028 ;; Auto vars:     Size  Location     Type
@@ -2070,7 +2070,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2056                           ;psect for function _pwm4_writeDutyCycle
   2057  0112                     _pwm4_writeDutyCycle:	
   2058                           
-  2059                           ;pwm.c: 62: PWM4DCH = (dutyCycle & 0x03FC)>>2;
+  2059                           ;pwm.c: 56: PWM4DCH = (dutyCycle & 0x03FC)>>2;
   2060                           
   2061                           ;incstack = 0
   2062                           ; Regs used in _pwm4_writeDutyCycle: [wreg+status,2+status,0]
@@ -2086,7 +2086,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2072  011B  002C               	movlb	12	; select bank12
   2073  011C  009B               	movwf	27	;volatile
   2074                           
-  2075                           ;pwm.c: 63: PWM4DCL = (dutyCycle & 0x0003)<<6;
+  2075                           ;pwm.c: 57: PWM4DCL = (dutyCycle & 0x0003)<<6;
   2076  011D  0871               	movf	pwm4_writeDutyCycle@dutyCycle,w
   2077  011E  3903               	andlw	3
   2078  011F  00F3               	movwf	??_pwm4_writeDutyCycle
@@ -2099,7 +2099,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2085  0125  3573               	lslf	??_pwm4_writeDutyCycle,w
   2086  0126  009A               	movwf	26	;volatile
   2087                           
-  2088                           ;pwm.c: 64: pwm4_dutyCycle = dutyCycle;
+  2088                           ;pwm.c: 58: pwm4_dutyCycle = dutyCycle;
   2089  0127  0872               	movf	pwm4_writeDutyCycle@dutyCycle+1,w
   2090  0128  0020               	movlb	0	; select bank0
   2091  0129  00A1               	movwf	_pwm4_dutyCycle+1	;volatile
@@ -2107,7 +2107,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2093  012B  00A0               	movwf	_pwm4_dutyCycle	;volatile
   2094  012C  0008               	return
   2095  012D                     __end_of_pwm4_writeDutyCycle:	
-  2096                           ;pwm.c: 65: return dutyCycle;
+  2096                           ;pwm.c: 59: return dutyCycle;
   2097                           ;	Return value of _pwm4_writeDutyCycle is never used
   2098                           
   2099                           
@@ -2115,7 +2115,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2101  012D                     __ptext9:	
   2102 ;; *************** function _pwm3_writeDutyCycle *****************
   2103 ;; Defined at:
-  2104 ;;		line 53 in file "pwm.c"
+  2104 ;;		line 49 in file "pwm.c"
   2105 ;; Parameters:    Size  Location     Type
   2106 ;;  dutyCycle       2    1[COMMON] unsigned int 
   2107 ;; Auto vars:     Size  Location     Type
@@ -2149,7 +2149,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2135                           ;psect for function _pwm3_writeDutyCycle
   2136  012D                     _pwm3_writeDutyCycle:	
   2137                           
-  2138                           ;pwm.c: 55: PWM3DCH = (dutyCycle & 0x03FC)>>2;
+  2138                           ;pwm.c: 50: PWM3DCH = (dutyCycle & 0x03FC)>>2;
   2139                           
   2140                           ;incstack = 0
   2141                           ; Regs used in _pwm3_writeDutyCycle: [wreg+status,2+status,0]
@@ -2165,7 +2165,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2151  0136  002C               	movlb	12	; select bank12
   2152  0137  0098               	movwf	24	;volatile
   2153                           
-  2154                           ;pwm.c: 56: PWM3DCL = (dutyCycle & 0x0003)<<6;
+  2154                           ;pwm.c: 51: PWM3DCL = (dutyCycle & 0x0003)<<6;
   2155  0138  0871               	movf	pwm3_writeDutyCycle@dutyCycle,w
   2156  0139  3903               	andlw	3
   2157  013A  00F3               	movwf	??_pwm3_writeDutyCycle
@@ -2178,7 +2178,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2164  0140  3573               	lslf	??_pwm3_writeDutyCycle,w
   2165  0141  0097               	movwf	23	;volatile
   2166                           
-  2167                           ;pwm.c: 57: pwm3_dutyCycle = dutyCycle;
+  2167                           ;pwm.c: 52: pwm3_dutyCycle = dutyCycle;
   2168  0142  0872               	movf	pwm3_writeDutyCycle@dutyCycle+1,w
   2169  0143  0020               	movlb	0	; select bank0
   2170  0144  00A3               	movwf	_pwm3_dutyCycle+1	;volatile
@@ -2186,7 +2186,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2172  0146  00A2               	movwf	_pwm3_dutyCycle	;volatile
   2173  0147  0008               	return
   2174  0148                     __end_of_pwm3_writeDutyCycle:	
-  2175                           ;pwm.c: 58: return dutyCycle;
+  2175                           ;pwm.c: 53: return dutyCycle;
   2176                           ;	Return value of _pwm3_writeDutyCycle is never used
   2177                           
   2178                           
@@ -2194,7 +2194,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2180  0148                     __ptext10:	
   2181 ;; *************** function _pwm2_writeDutyCycle *****************
   2182 ;; Defined at:
-  2183 ;;		line 46 in file "pwm.c"
+  2183 ;;		line 43 in file "pwm.c"
   2184 ;; Parameters:    Size  Location     Type
   2185 ;;  dutyCycle       2    1[COMMON] unsigned int 
   2186 ;; Auto vars:     Size  Location     Type
@@ -2228,7 +2228,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2214                           ;psect for function _pwm2_writeDutyCycle
   2215  0148                     _pwm2_writeDutyCycle:	
   2216                           
-  2217                           ;pwm.c: 48: PWM2DCH = (dutyCycle & 0x03FC)>>2;
+  2217                           ;pwm.c: 44: PWM2DCH = (dutyCycle & 0x03FC)>>2;
   2218                           
   2219                           ;incstack = 0
   2220                           ; Regs used in _pwm2_writeDutyCycle: [wreg+status,2+status,0]
@@ -2244,7 +2244,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2230  0151  002C               	movlb	12	; select bank12
   2231  0152  0095               	movwf	21	;volatile
   2232                           
-  2233                           ;pwm.c: 49: PWM2DCL = (dutyCycle & 0x0003)<<6;
+  2233                           ;pwm.c: 45: PWM2DCL = (dutyCycle & 0x0003)<<6;
   2234  0153  0871               	movf	pwm2_writeDutyCycle@dutyCycle,w
   2235  0154  3903               	andlw	3
   2236  0155  00F3               	movwf	??_pwm2_writeDutyCycle
@@ -2257,7 +2257,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2243  015B  3573               	lslf	??_pwm2_writeDutyCycle,w
   2244  015C  0094               	movwf	20	;volatile
   2245                           
-  2246                           ;pwm.c: 50: pwm2_dutyCycle = dutyCycle;
+  2246                           ;pwm.c: 46: pwm2_dutyCycle = dutyCycle;
   2247  015D  0872               	movf	pwm2_writeDutyCycle@dutyCycle+1,w
   2248  015E  0020               	movlb	0	; select bank0
   2249  015F  00A5               	movwf	_pwm2_dutyCycle+1	;volatile
@@ -2265,7 +2265,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2251  0161  00A4               	movwf	_pwm2_dutyCycle	;volatile
   2252  0162  0008               	return
   2253  0163                     __end_of_pwm2_writeDutyCycle:	
-  2254                           ;pwm.c: 51: return dutyCycle;
+  2254                           ;pwm.c: 47: return dutyCycle;
   2255                           ;	Return value of _pwm2_writeDutyCycle is never used
   2256                           
   2257                           
@@ -2273,7 +2273,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2259  017D                     __ptext11:	
   2260 ;; *************** function _pwm1_writeDutyCycle *****************
   2261 ;; Defined at:
-  2262 ;;		line 39 in file "pwm.c"
+  2262 ;;		line 37 in file "pwm.c"
   2263 ;; Parameters:    Size  Location     Type
   2264 ;;  dutyCycle       2    1[COMMON] unsigned int 
   2265 ;; Auto vars:     Size  Location     Type
@@ -2307,7 +2307,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2293                           ;psect for function _pwm1_writeDutyCycle
   2294  017D                     _pwm1_writeDutyCycle:	
   2295                           
-  2296                           ;pwm.c: 41: PWM1DCH = (dutyCycle & 0x03FC)>>2;
+  2296                           ;pwm.c: 38: PWM1DCH = (dutyCycle & 0x03FC)>>2;
   2297                           
   2298                           ;incstack = 0
   2299                           ; Regs used in _pwm1_writeDutyCycle: [wreg+status,2+status,0]
@@ -2323,7 +2323,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2309  0186  002C               	movlb	12	; select bank12
   2310  0187  0092               	movwf	18	;volatile
   2311                           
-  2312                           ;pwm.c: 42: PWM1DCL = (dutyCycle & 0x0003)<<6;
+  2312                           ;pwm.c: 39: PWM1DCL = (dutyCycle & 0x0003)<<6;
   2313  0188  0871               	movf	pwm1_writeDutyCycle@dutyCycle,w
   2314  0189  3903               	andlw	3
   2315  018A  00F3               	movwf	??_pwm1_writeDutyCycle
@@ -2336,14 +2336,14 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2322  0190  3573               	lslf	??_pwm1_writeDutyCycle,w
   2323  0191  0091               	movwf	17	;volatile
   2324                           
-  2325                           ;pwm.c: 43: pwm1_dutyCycle = dutyCycle;
+  2325                           ;pwm.c: 40: pwm1_dutyCycle = dutyCycle;
   2326  0192  0872               	movf	pwm1_writeDutyCycle@dutyCycle+1,w
   2327  0193  00FA               	movwf	_pwm1_dutyCycle+1	;volatile
   2328  0194  0871               	movf	pwm1_writeDutyCycle@dutyCycle,w
   2329  0195  00F9               	movwf	_pwm1_dutyCycle	;volatile
   2330  0196  0008               	return
   2331  0197                     __end_of_pwm1_writeDutyCycle:	
-  2332                           ;pwm.c: 44: return dutyCycle;
+  2332                           ;pwm.c: 41: return dutyCycle;
   2333                           ;	Return value of _pwm1_writeDutyCycle is never used
   2334                           
   2335                           
@@ -2351,7 +2351,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2337  01AE                     __ptext12:	
   2338 ;; *************** function __init_gpio *****************
   2339 ;; Defined at:
-  2340 ;;		line 50 in file "user.c"
+  2340 ;;		line 42 in file "user.c"
   2341 ;; Parameters:    Size  Location     Type
   2342 ;;		None
   2343 ;; Auto vars:     Size  Location     Type
@@ -2383,33 +2383,33 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2369                           ;psect for function __init_gpio
   2370  01AE                     __init_gpio:	
   2371                           
-  2372                           ;user.c: 52: LATA = 0x00;
+  2372                           ;user.c: 44: LATA = 0x00;
   2373                           
   2374                           ;incstack = 0
   2375                           ; Regs used in __init_gpio: [wreg+status,2]
   2376  01AE  0022               	movlb	2	; select bank2
   2377  01AF  018C               	clrf	12	;volatile
   2378                           
-  2379                           ;user.c: 53: LATC = 0x00;
+  2379                           ;user.c: 45: LATC = 0x00;
   2380  01B0  018E               	clrf	14	;volatile
   2381                           
-  2382                           ;user.c: 55: TRISA = 0x33;
+  2382                           ;user.c: 47: TRISA = 0x33;
   2383  01B1  3033               	movlw	51
   2384  01B2  0021               	movlb	1	; select bank1
   2385  01B3  008C               	movwf	12	;volatile
   2386                           
-  2387                           ;user.c: 56: TRISC = 0x15;
+  2387                           ;user.c: 48: TRISC = 0x15;
   2388  01B4  3015               	movlw	21
   2389  01B5  008E               	movwf	14	;volatile
   2390                           
-  2391                           ;user.c: 59: ANSELA = 0x00;
+  2391                           ;user.c: 51: ANSELA = 0x00;
   2392  01B6  0023               	movlb	3	; select bank3
   2393  01B7  018C               	clrf	12	;volatile
   2394                           
-  2395                           ;user.c: 60: ANSELC = 0x00;
+  2395                           ;user.c: 52: ANSELC = 0x00;
   2396  01B8  018E               	clrf	14	;volatile
   2397                           
-  2398                           ;user.c: 63: WPUA = 0x00;
+  2398                           ;user.c: 55: WPUA = 0x00;
   2399  01B9  0024               	movlb	4	; select bank4
   2400  01BA  018C               	clrf	12	;volatile
   2401  01BB  0008               	return
@@ -2468,7 +2468,7 @@ Microchip Technology Omniscient Code Generator v1.42 (Free mode) build 201704130
   2454  0004                     __pintentry:	
   2455 ;; *************** function _isr *****************
   2456 ;; Defined at:
-  2457 ;;		line 24 in file "interrupts.c"
+  2457 ;;		line 20 in file "interrupts.c"
   2458 ;; Parameters:    Size  Location     Type
   2459 ;;		None
   2460 ;; Auto vars:     Size  Location     Type
@@ -2745,7 +2745,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.42 build -159332390 
-Symbol Table                                                                                   Thu Nov 02 22:17:00 2017
+Symbol Table                                                                                   Thu Nov 02 22:21:39 2017
 
                  __CFG_CP$OFF 0000                            l30 00FE                            l29 00FA  
                  __CFG_LVP$ON 0000                           l152 0074                           l162 00D0  

@@ -1,5 +1,3 @@
-/* */
-
 #include <xc.h>
 #include "pwm.h"
 
@@ -37,28 +35,24 @@ void _init_pwm(void){
  * channel's duty cycle after updating it with dutyCycle.
  */
 uint16_t pwm1_writeDutyCycle(uint16_t dutyCycle){
-    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM1DCH = (dutyCycle & 0x03FC)>>2;
     PWM1DCL = (dutyCycle & 0x0003)<<6;
     pwm1_dutyCycle = dutyCycle;
     return dutyCycle;
 }
 uint16_t pwm2_writeDutyCycle(uint16_t dutyCycle){
-    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM2DCH = (dutyCycle & 0x03FC)>>2;
     PWM2DCL = (dutyCycle & 0x0003)<<6;
     pwm2_dutyCycle = dutyCycle;
     return dutyCycle;
 }
 uint16_t pwm3_writeDutyCycle(uint16_t dutyCycle){
-    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM3DCH = (dutyCycle & 0x03FC)>>2;
     PWM3DCL = (dutyCycle & 0x0003)<<6;
     pwm3_dutyCycle = dutyCycle;
     return dutyCycle;
 }
 uint16_t pwm4_writeDutyCycle(uint16_t dutyCycle){
-    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM4DCH = (dutyCycle & 0x03FC)>>2;
     PWM4DCL = (dutyCycle & 0x0003)<<6;
     pwm4_dutyCycle = dutyCycle;

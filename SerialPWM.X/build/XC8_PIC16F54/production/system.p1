@@ -2830,7 +2830,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 13: void ConfigureOscillator(void);
+[; ;system.h: 9: void ConfigureOscillator(void);
 "17 system.c
 [v _ConfigureOscillator `(v ~T0 @X0 1 ef ]
 "18

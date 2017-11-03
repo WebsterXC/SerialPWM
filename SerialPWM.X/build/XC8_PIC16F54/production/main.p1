@@ -1,8 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"13 system.h
+"9 system.h
 [v _ConfigureOscillator `(v ~T0 @X0 0 ef ]
-"11 user.h
+"2 user.h
 [v _InitApp `(v ~T0 @X0 0 ef ]
 "433 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1503.h
 [s S29 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -20,14 +20,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S30 . . ]
 "492
 [v _PORTCbits `VS30 ~T0 @X0 0 e@14 ]
-"51 main.c
+"47 main.c
 [c E2938 0 1 2 3 .. ]
 [n E2938 PWMChannel PWM_CH1 PWM_CH2 PWM_CH3 PWM_CH4  ]
-"35 pwm.h
+"33 pwm.h
 [v _decDutyCycle `(v ~T0 @X0 0 ef1`E2938 ]
-"42
+"40
 [v _getPWMSEL `(E2938 ~T0 @X0 0 ef ]
-"34
+"32
 [v _incDutyCycle `(v ~T0 @X0 0 ef1`E2938 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -2856,115 +2856,115 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;system.h: 13: void ConfigureOscillator(void);
-[; ;user.h: 11: void InitApp(void);
-[; ;user.h: 14: void _init_timer2(void);
-[; ;user.h: 17: void _init_gpio(void);
-[; ;pwm.h: 20: enum PWMChannel{
-[; ;pwm.h: 21: PWM_CH1,
-[; ;pwm.h: 22: PWM_CH2,
-[; ;pwm.h: 23: PWM_CH3,
-[; ;pwm.h: 24: PWM_CH4
-[; ;pwm.h: 25: };
-[; ;pwm.h: 28: void _init_pwm(void);
-[; ;pwm.h: 34: void incDutyCycle(enum PWMChannel);
-[; ;pwm.h: 35: void decDutyCycle(enum PWMChannel);
-[; ;pwm.h: 37: uint16_t pwm1_writeDutyCycle(uint16_t);
-[; ;pwm.h: 38: uint16_t pwm2_writeDutyCycle(uint16_t);
-[; ;pwm.h: 39: uint16_t pwm3_writeDutyCycle(uint16_t);
-[; ;pwm.h: 40: uint16_t pwm4_writeDutyCycle(uint16_t);
-[; ;pwm.h: 42: enum PWMChannel getPWMSEL(void);
+[; ;system.h: 9: void ConfigureOscillator(void);
+[; ;user.h: 2: void InitApp(void);
+[; ;user.h: 5: void _init_timer2(void);
+[; ;user.h: 8: void _init_gpio(void);
+[; ;pwm.h: 18: enum PWMChannel{
+[; ;pwm.h: 19: PWM_CH1,
+[; ;pwm.h: 20: PWM_CH2,
+[; ;pwm.h: 21: PWM_CH3,
+[; ;pwm.h: 22: PWM_CH4
+[; ;pwm.h: 23: };
+[; ;pwm.h: 26: void _init_pwm(void);
+[; ;pwm.h: 32: void incDutyCycle(enum PWMChannel);
+[; ;pwm.h: 33: void decDutyCycle(enum PWMChannel);
+[; ;pwm.h: 35: uint16_t pwm1_writeDutyCycle(uint16_t);
+[; ;pwm.h: 36: uint16_t pwm2_writeDutyCycle(uint16_t);
+[; ;pwm.h: 37: uint16_t pwm3_writeDutyCycle(uint16_t);
+[; ;pwm.h: 38: uint16_t pwm4_writeDutyCycle(uint16_t);
+[; ;pwm.h: 40: enum PWMChannel getPWMSEL(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"30 main.c
+"26 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"31
+"27
 {
-[; ;main.c: 30: void main(void)
-[; ;main.c: 31: {
+[; ;main.c: 26: void main(void)
+[; ;main.c: 27: {
 [e :U _main ]
 [f ]
-[; ;main.c: 33: ConfigureOscillator();
-"33
+[; ;main.c: 29: ConfigureOscillator();
+"29
 [e ( _ConfigureOscillator ..  ]
-[; ;main.c: 36: InitApp();
-"36
+[; ;main.c: 32: InitApp();
+"32
 [e ( _InitApp ..  ]
-"38
+"34
 [v F2961 `uc ~T0 @X0 1 s commandUP ]
 [i F2961
 -> -> 1 `i `uc
 ]
-"39
+"35
 [v F2962 `uc ~T0 @X0 1 s commandDN ]
 [i F2962
 -> -> 1 `i `uc
 ]
-[; ;main.c: 38: static bool commandUP = 1;
-[; ;main.c: 39: static bool commandDN = 1;
-[; ;main.c: 41: while(1)
-"41
+[; ;main.c: 34: static bool commandUP = 1;
+[; ;main.c: 35: static bool commandDN = 1;
+[; ;main.c: 37: while(1)
+"37
 [e :U 343 ]
-[; ;main.c: 42: {
-"42
+[; ;main.c: 38: {
+"38
 {
-[; ;main.c: 43: if( PORTAbits.RA5 == 1 ){
-"43
+[; ;main.c: 39: if( PORTAbits.RA5 == 1 ){
+"39
 [e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 345  ]
 {
-[; ;main.c: 44: commandDN = 1;
-"44
+[; ;main.c: 40: commandDN = 1;
+"40
 [e = F2962 -> -> 1 `i `uc ]
-"45
+"41
 }
 [e :U 345 ]
-[; ;main.c: 45: }
-[; ;main.c: 46: if( PORTAbits.RA4 == 1 ){
-"46
+[; ;main.c: 41: }
+[; ;main.c: 42: if( PORTAbits.RA4 == 1 ){
+"42
 [e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 346  ]
 {
-[; ;main.c: 47: commandUP = 1;
-"47
+[; ;main.c: 43: commandUP = 1;
+"43
 [e = F2961 -> -> 1 `i `uc ]
-"48
+"44
 }
 [e :U 346 ]
-[; ;main.c: 48: }
-[; ;main.c: 50: if( PORTAbits.RA5 == 0 && commandDN == 1 && PORTCbits.RC0 == 0){
-"50
+[; ;main.c: 44: }
+[; ;main.c: 46: if( PORTAbits.RA5 == 0 && commandDN == 1 && PORTCbits.RC0 == 0){
+"46
 [e $ ! && && == -> . . _PORTAbits 0 5 `i -> 0 `i == -> F2962 `i -> 1 `i == -> . . _PORTCbits 0 0 `i -> 0 `i 347  ]
 {
-[; ;main.c: 51: decDutyCycle(getPWMSEL());
-"51
+[; ;main.c: 47: decDutyCycle(getPWMSEL());
+"47
 [e ( _decDutyCycle (1 ( _getPWMSEL ..  ]
-[; ;main.c: 52: commandDN = 0;
-"52
+[; ;main.c: 48: commandDN = 0;
+"48
 [e = F2962 -> -> 0 `i `uc ]
-"53
+"49
 }
 [e :U 347 ]
-[; ;main.c: 53: }
-[; ;main.c: 54: if( PORTAbits.RA4 == 0 && commandUP == 1 && PORTCbits.RC0 == 0){
-"54
+[; ;main.c: 49: }
+[; ;main.c: 50: if( PORTAbits.RA4 == 0 && commandUP == 1 && PORTCbits.RC0 == 0){
+"50
 [e $ ! && && == -> . . _PORTAbits 0 4 `i -> 0 `i == -> F2961 `i -> 1 `i == -> . . _PORTCbits 0 0 `i -> 0 `i 348  ]
 {
-[; ;main.c: 55: incDutyCycle(getPWMSEL());
-"55
+[; ;main.c: 51: incDutyCycle(getPWMSEL());
+"51
 [e ( _incDutyCycle (1 ( _getPWMSEL ..  ]
-[; ;main.c: 56: commandUP = 0;
-"56
+[; ;main.c: 52: commandUP = 0;
+"52
 [e = F2961 -> -> 0 `i `uc ]
-"57
+"53
 }
 [e :U 348 ]
-"58
+"54
 }
 [e :U 342 ]
-"41
+"37
 [e $U 343  ]
 [e :U 344 ]
-[; ;main.c: 57: }
-[; ;main.c: 58: }
-[; ;main.c: 60: }
-"60
+[; ;main.c: 53: }
+[; ;main.c: 54: }
+[; ;main.c: 56: }
+"56
 [e :UE 341 ]
 }

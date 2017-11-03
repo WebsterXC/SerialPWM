@@ -1,9 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"17 user.h
+"8 user.h
 [v __init_gpio `(v ~T0 @X0 0 ef ]
-"14
+"5
 [v __init_timer2 `(v ~T0 @X0 0 ef ]
-"28 pwm.h
+"26 pwm.h
 [v __init_pwm `(v ~T0 @X0 0 ef ]
 "888 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1503.h
 [v _T2CON `Vuc ~T0 @X0 0 e@28 ]
@@ -2863,94 +2863,94 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;user.h: 11: void InitApp(void);
-[; ;user.h: 14: void _init_timer2(void);
-[; ;user.h: 17: void _init_gpio(void);
-[; ;pwm.h: 20: enum PWMChannel{
-[; ;pwm.h: 21: PWM_CH1,
-[; ;pwm.h: 22: PWM_CH2,
-[; ;pwm.h: 23: PWM_CH3,
-[; ;pwm.h: 24: PWM_CH4
-[; ;pwm.h: 25: };
-[; ;pwm.h: 28: void _init_pwm(void);
-[; ;pwm.h: 34: void incDutyCycle(enum PWMChannel);
-[; ;pwm.h: 35: void decDutyCycle(enum PWMChannel);
-[; ;pwm.h: 37: uint16_t pwm1_writeDutyCycle(uint16_t);
-[; ;pwm.h: 38: uint16_t pwm2_writeDutyCycle(uint16_t);
-[; ;pwm.h: 39: uint16_t pwm3_writeDutyCycle(uint16_t);
-[; ;pwm.h: 40: uint16_t pwm4_writeDutyCycle(uint16_t);
-[; ;pwm.h: 42: enum PWMChannel getPWMSEL(void);
-"21 user.c
+[; ;user.h: 2: void InitApp(void);
+[; ;user.h: 5: void _init_timer2(void);
+[; ;user.h: 8: void _init_gpio(void);
+[; ;pwm.h: 18: enum PWMChannel{
+[; ;pwm.h: 19: PWM_CH1,
+[; ;pwm.h: 20: PWM_CH2,
+[; ;pwm.h: 21: PWM_CH3,
+[; ;pwm.h: 22: PWM_CH4
+[; ;pwm.h: 23: };
+[; ;pwm.h: 26: void _init_pwm(void);
+[; ;pwm.h: 32: void incDutyCycle(enum PWMChannel);
+[; ;pwm.h: 33: void decDutyCycle(enum PWMChannel);
+[; ;pwm.h: 35: uint16_t pwm1_writeDutyCycle(uint16_t);
+[; ;pwm.h: 36: uint16_t pwm2_writeDutyCycle(uint16_t);
+[; ;pwm.h: 37: uint16_t pwm3_writeDutyCycle(uint16_t);
+[; ;pwm.h: 38: uint16_t pwm4_writeDutyCycle(uint16_t);
+[; ;pwm.h: 40: enum PWMChannel getPWMSEL(void);
+"13 user.c
 [v _InitApp `(v ~T0 @X0 1 ef ]
-"22
+"14
 {
-[; ;user.c: 21: void InitApp(void)
-[; ;user.c: 22: {
+[; ;user.c: 13: void InitApp(void)
+[; ;user.c: 14: {
 [e :U _InitApp ]
 [f ]
-[; ;user.c: 25: _init_gpio();
-"25
+[; ;user.c: 17: _init_gpio();
+"17
 [e ( __init_gpio ..  ]
-[; ;user.c: 28: _init_timer2();
-"28
+[; ;user.c: 20: _init_timer2();
+"20
 [e ( __init_timer2 ..  ]
-[; ;user.c: 29: _init_pwm();
-"29
+[; ;user.c: 21: _init_pwm();
+"21
 [e ( __init_pwm ..  ]
-[; ;user.c: 33: }
-"33
+[; ;user.c: 25: }
+"25
 [e :UE 341 ]
 }
-"35
+"27
 [v __init_timer2 `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 35: void _init_timer2(void){
+[; ;user.c: 27: void _init_timer2(void){
 [e :U __init_timer2 ]
 [f ]
-[; ;user.c: 38: T2CON = 0x00;
-"38
+[; ;user.c: 30: T2CON = 0x00;
+"30
 [e = _T2CON -> -> 0 `i `uc ]
-[; ;user.c: 41: PR2 = 0x04;
-"41
+[; ;user.c: 33: PR2 = 0x04;
+"33
 [e = _PR2 -> -> 4 `i `uc ]
-[; ;user.c: 44: TMR2 = 0x00;
-"44
+[; ;user.c: 36: TMR2 = 0x00;
+"36
 [e = _TMR2 -> -> 0 `i `uc ]
-[; ;user.c: 47: T2CONbits.TMR2ON = 1;
-"47
+[; ;user.c: 39: T2CONbits.TMR2ON = 1;
+"39
 [e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;user.c: 48: }
-"48
+[; ;user.c: 40: }
+"40
 [e :UE 342 ]
 }
-"50
+"42
 [v __init_gpio `(v ~T0 @X0 1 ef ]
 {
-[; ;user.c: 50: void _init_gpio(void){
+[; ;user.c: 42: void _init_gpio(void){
 [e :U __init_gpio ]
 [f ]
-[; ;user.c: 52: LATA = 0x00;
-"52
+[; ;user.c: 44: LATA = 0x00;
+"44
 [e = _LATA -> -> 0 `i `uc ]
-[; ;user.c: 53: LATC = 0x00;
-"53
+[; ;user.c: 45: LATC = 0x00;
+"45
 [e = _LATC -> -> 0 `i `uc ]
-[; ;user.c: 55: TRISA = 0x33;
-"55
+[; ;user.c: 47: TRISA = 0x33;
+"47
 [e = _TRISA -> -> 51 `i `uc ]
-[; ;user.c: 56: TRISC = 0x15;
-"56
+[; ;user.c: 48: TRISC = 0x15;
+"48
 [e = _TRISC -> -> 21 `i `uc ]
-[; ;user.c: 59: ANSELA = 0x00;
-"59
+[; ;user.c: 51: ANSELA = 0x00;
+"51
 [e = _ANSELA -> -> 0 `i `uc ]
-[; ;user.c: 60: ANSELC = 0x00;
-"60
+[; ;user.c: 52: ANSELC = 0x00;
+"52
 [e = _ANSELC -> -> 0 `i `uc ]
-[; ;user.c: 63: WPUA = 0x00;
-"63
+[; ;user.c: 55: WPUA = 0x00;
+"55
 [e = _WPUA -> -> 0 `i `uc ]
-[; ;user.c: 71: }
-"71
+[; ;user.c: 63: }
+"63
 [e :UE 343 ]
 }
