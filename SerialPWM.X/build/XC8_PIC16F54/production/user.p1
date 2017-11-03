@@ -36,17 +36,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
 "2601
 [v _WPUA `Vuc ~T0 @X0 0 e@524 ]
-"1177
-[s S68 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S68 . PS PSA TMR0SE TMR0CS INTEDG nWPUEN ]
-"1185
-[s S69 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S69 . PS0 PS1 PS2 . T0SE T0CS ]
-"1176
-[u S67 `S68 1 `S69 1 ]
-[n S67 . . . ]
-"1194
-[v _OPTION_REGbits `VS67 ~T0 @X0 0 e@149 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2961,9 +2950,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 55: WPUA = 0x30;
 "55
 [e = _WPUA -> -> 48 `i `uc ]
-[; ;user.c: 56: OPTION_REGbits.nWPUEN = 0;
-"56
-[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
 [; ;user.c: 63: }
 "63
 [e :UE 343 ]

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-/* Initialize each channel at 50% duty cycle. */
+/* Initialize each channel at 100% duty cycle. */
 #define INIT_DUTY_CYCLE     19U
 
 /* Define min and max values based on PR2. */

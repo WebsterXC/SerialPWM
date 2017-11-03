@@ -78,7 +78,7 @@ __size_of_pwm4_writeDutyCycle 0 0 ABS 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
 stackhi 206F 0 ABS 0
-__end_of_ConfigureOscillator 1CB 0 CODE 0
+__end_of_ConfigureOscillator 1C9 0 CODE 0
 stacklo 2006 0 ABS 0
 __Hinit D 0 CODE 0
 __Linit D 0 CODE 0
@@ -187,8 +187,8 @@ __ptext1 15 0 CODE 0
 __ptext2 197 0 CODE 0
 __ptext3 75 0 CODE 0
 __ptext4 163 0 CODE 0
-__ptext5 1CB 0 CODE 0
-__ptext6 1BF 0 CODE 0
+__ptext5 1C9 0 CODE 0
+__ptext6 1BD 0 CODE 0
 __ptext7 D1 0 CODE 0
 __ptext8 112 0 CODE 0
 __ptext9 12D 0 CODE 0
@@ -196,7 +196,7 @@ __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __HdataCOMMON 0 0 ABS 0
 __LdataCOMMON 0 0 ABS 0
-__end_of_InitApp 1CF 0 CODE 0
+__end_of_InitApp 1CD 0 CODE 0
 __pdataCOMMON 7B 0 COMMON 1
 __end_of_pwm3_writeDutyCycle 148 0 CODE 0
 __size_of__init_pwm 0 0 ABS 0
@@ -211,7 +211,7 @@ __Lstack 0 0 STACK 2
 __end_of_pwm4_writeDutyCycle 12D 0 CODE 0
 __Hspace_0 8009 0 ABS 0
 __Lspace_0 0 0 ABS 0
-_InitApp 1CB 0 CODE 0
+_InitApp 1C9 0 CODE 0
 __end_of_isr D 0 CODE 0
 __Hspace_1 7D 0 ABS 0
 __Lspace_1 0 0 ABS 0
@@ -220,7 +220,7 @@ _checkDCBounds 163 0 CODE 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
 __Hcinit 15 0 CODE 0
-__end_of__init_timer2 1C6 0 CODE 0
+__end_of__init_timer2 1C4 0 CODE 0
 __Lcinit E 0 CODE 0
 pwm1_writeDutyCycle@dutyCycle 71 0 COMMON 1
 pwm2_writeDutyCycle@dutyCycle 71 0 COMMON 1
@@ -230,7 +230,7 @@ __size_of_ConfigureOscillator 0 0 ABS 0
 __Hspace_3 0 0 ABS 0
 __Lspace_3 0 0 ABS 0
 __size_of_main 0 0 ABS 0
-__end_of__init_gpio 1BF 0 CODE 0
+__end_of__init_gpio 1BD 0 CODE 0
 __CFG_BORV$LO 0 0 ABS 0
 _getPWMSEL 197 0 CODE 0
 __init_gpio 1AE 0 CODE 0
@@ -259,7 +259,7 @@ __Lbank14 0 0 BANK14 1
 __Hbank24 0 0 BANK24 1
 __Lbank24 0 0 BANK24 1
 __ptext10 148 0 CODE 0
-__init_timer2 1BF 0 CODE 0
+__init_timer2 1BD 0 CODE 0
 __Hbank15 0 0 BANK15 1
 __Lbank15 0 0 BANK15 1
 __Hbank25 0 0 BANK25 1
@@ -274,7 +274,7 @@ __Hbank17 0 0 BANK17 1
 __Lbank17 0 0 BANK17 1
 __Hbank27 0 0 BANK27 1
 __Lbank27 0 0 BANK27 1
-__ptext13 1C6 0 CODE 0
+__ptext13 1C4 0 CODE 0
 __Hbank18 0 0 BANK18 1
 __Lbank18 0 0 BANK18 1
 __Hbank28 0 0 BANK28 1
@@ -318,37 +318,36 @@ __size_of_pwm2_writeDutyCycle 0 0 ABS 0
 __pmaintext F3 0 CODE 0
 __CFG_MCLRE$ON 0 0 ABS 0
 main@commandUP 7C 0 COMMON 1
-_OPTION_REGbits 95 0 ABS 0
 __HidataCOMMON 0 0 ABS 0
 __LidataCOMMON 0 0 ABS 0
 __CFG_FOSC$INTOSC 0 0 ABS 0
-__pidataCOMMON 1CF 0 CODE 0
+__pidataCOMMON 1CD 0 CODE 0
 __initialization E 0 CODE 0
 _pwm1_dutyCycle 79 0 COMMON 1
 _pwm2_dutyCycle 24 0 BANK0 1
 _pwm3_dutyCycle 22 0 BANK0 1
 _pwm4_dutyCycle 20 0 BANK0 1
 __CFG_CP$OFF 0 0 ABS 0
-_ConfigureOscillator 1C6 0 CODE 0
+_ConfigureOscillator 1C4 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
-intentry 8 3A1 CODE 8 0
+intentry 8 39D CODE 8 0
 config 1000E 10011 CONFIG 1000E 0
 cstackCOMMON 70 7C COMMON 70 1
 nvBANK0 20 25 BANK0 20 1
 %locals
 dist/XC8_PIC16F54/production\SerialPWM.X.production.obj
-C:\Users\Will\AppData\Local\Temp\sihc.
-1906 E 0 CODE 0
-1909 E 0 CODE 0
-1929 E 0 CODE 0
-1930 F 0 CODE 0
-1931 10 0 CODE 0
-1932 11 0 CODE 0
+C:\Users\Will\AppData\Local\Temp\sd0g.
+1904 E 0 CODE 0
+1907 E 0 CODE 0
+1927 E 0 CODE 0
+1928 F 0 CODE 0
+1929 10 0 CODE 0
+1930 11 0 CODE 0
+1936 12 0 CODE 0
 1938 12 0 CODE 0
-1940 12 0 CODE 0
-1941 13 0 CODE 0
-1942 14 0 CODE 0
+1939 13 0 CODE 0
+1940 14 0 CODE 0
 main.c
 26 F3 0 CODE 0
 29 F3 0 CODE 0
@@ -418,17 +417,17 @@ pwm.c
 72 176 0 CODE 0
 76 178 0 CODE 0
 user.c
-13 1CB 0 CODE 0
-17 1CB 0 CODE 0
-20 1CC 0 CODE 0
-21 1CD 0 CODE 0
-25 1CE 0 CODE 0
-27 1BF 0 CODE 0
-30 1BF 0 CODE 0
-33 1C1 0 CODE 0
-36 1C3 0 CODE 0
-39 1C4 0 CODE 0
-40 1C5 0 CODE 0
+13 1C9 0 CODE 0
+17 1C9 0 CODE 0
+20 1CA 0 CODE 0
+21 1CB 0 CODE 0
+25 1CC 0 CODE 0
+27 1BD 0 CODE 0
+30 1BD 0 CODE 0
+33 1BF 0 CODE 0
+36 1C1 0 CODE 0
+39 1C2 0 CODE 0
+40 1C3 0 CODE 0
 pwm.c
 14 D1 0 CODE 0
 17 D1 0 CODE 0
@@ -469,13 +468,12 @@ user.c
 51 1B6 0 CODE 0
 52 1B8 0 CODE 0
 55 1B9 0 CODE 0
-56 1BC 0 CODE 0
-63 1BE 0 CODE 0
+63 1BC 0 CODE 0
 system.c
-17 1C6 0 CODE 0
-20 1C6 0 CODE 0
-23 1C9 0 CODE 0
-24 1CA 0 CODE 0
+17 1C4 0 CODE 0
+20 1C4 0 CODE 0
+23 1C7 0 CODE 0
+24 1C8 0 CODE 0
 interrupts.c
 20 4 0 CODE 0
 24 9 0 CODE 0

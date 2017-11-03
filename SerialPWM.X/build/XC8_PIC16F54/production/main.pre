@@ -3921,11 +3921,11 @@ if( PORTAbits.RA4 == 1 ){
 commandUP = 1;
 }
 
-if( PORTAbits.RA5 == 0 && commandDN == 1 && PORTCbits.RC0 == 0){
+if( PORTAbits.RA5 == 1 && commandDN == 1 && PORTCbits.RC0 == 0){
 decDutyCycle(getPWMSEL());
 commandDN = 0;
 }
-if( PORTAbits.RA4 == 0 && commandUP == 1 && PORTCbits.RC0 == 0){
+if( PORTAbits.RA4 == 1 && commandUP == 1 && PORTCbits.RC0 == 0){
 incDutyCycle(getPWMSEL());
 commandUP = 0;
 }

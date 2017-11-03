@@ -3941,7 +3941,6 @@ ANSELC = 0x00;
 
 
 WPUA = 0x30;
-OPTION_REGbits.nWPUEN = 0;
 
 # 63
 }
