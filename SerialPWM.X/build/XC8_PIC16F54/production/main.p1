@@ -2929,9 +2929,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 346 ]
 [; ;main.c: 44: }
-[; ;main.c: 46: if( PORTAbits.RA5 == 1 && commandDN == 1 && PORTCbits.RC0 == 0){
+[; ;main.c: 46: if( PORTAbits.RA5 == 0 && commandDN == 1 && PORTCbits.RC0 == 0){
 "46
-[e $ ! && && == -> . . _PORTAbits 0 5 `i -> 1 `i == -> F2962 `i -> 1 `i == -> . . _PORTCbits 0 0 `i -> 0 `i 347  ]
+[e $ ! && && == -> . . _PORTAbits 0 5 `i -> 0 `i == -> F2962 `i -> 1 `i == -> . . _PORTCbits 0 0 `i -> 0 `i 347  ]
 {
 [; ;main.c: 47: decDutyCycle(getPWMSEL());
 "47
@@ -2943,9 +2943,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 347 ]
 [; ;main.c: 49: }
-[; ;main.c: 50: if( PORTAbits.RA4 == 1 && commandUP == 1 && PORTCbits.RC0 == 0){
+[; ;main.c: 50: if( PORTAbits.RA4 == 0 && commandUP == 1 && PORTCbits.RC0 == 0){
 "50
-[e $ ! && && == -> . . _PORTAbits 0 4 `i -> 1 `i == -> F2961 `i -> 1 `i == -> . . _PORTCbits 0 0 `i -> 0 `i 348  ]
+[e $ ! && && == -> . . _PORTAbits 0 4 `i -> 0 `i == -> F2961 `i -> 1 `i == -> . . _PORTCbits 0 0 `i -> 0 `i 348  ]
 {
 [; ;main.c: 51: incDutyCycle(getPWMSEL());
 "51

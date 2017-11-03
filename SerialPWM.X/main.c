@@ -43,11 +43,11 @@ void main(void)
           commandUP = true;
         }
 
-        if( DUTYDN == 1 && commandDN == true && INHIBIT == 0){
+        if( DUTYDN == 0 && commandDN == true && INHIBIT == 0){
             decDutyCycle(getPWMSEL());
             commandDN = false;
         }
-        if( DUTYUP == 1 && commandUP == true && INHIBIT == 0){
+        if( DUTYUP == 0 && commandUP == true && INHIBIT == 0){
             incDutyCycle(getPWMSEL());
             commandUP = false;
         }

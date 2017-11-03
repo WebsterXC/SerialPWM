@@ -53,7 +53,7 @@ void _init_gpio(void){
 
     /* Disabled positive-edge IOC on RA4 and RA5. Disable WPU function. */
     WPUA = 0x30;
-    //OPTION_REGbits.nWPUEN = 0;
+    OPTION_REGbits.nWPUEN = 0;
 
     //IOCAP = 0x30;
     //IOCAF = 0x00;       // Clear interrupt flags.
