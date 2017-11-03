@@ -1,17 +1,17 @@
 
 # 1 "pwm.c"
 
-# 26 "C:\Microchip\xc8\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Microchip\xc8\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "C:\Microchip\xc8\include\pic16f1503.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1503.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -3769,15 +3769,15 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 28 "C:\Microchip\xc8\include\pic.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
-# 78
+# 77
 extern unsigned int flash_read(unsigned short addr);
 
 
-# 152
+# 151
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -3786,84 +3786,66 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 193
-extern __bank0 unsigned char __resetbits;
-extern __bank0 __bit __powerdown;
-extern __bank0 __bit __timeout;
+# 192
+extern unsigned char __resetbits;
+extern __bit __powerdown;
+extern __bit __timeout;
 
-# 13 "C:\Microchip\xc8\include\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
 typedef signed int int16_t;
 
-# 28
-typedef signed short long int int24_t;
-
-# 36
+# 38
 typedef signed long int int32_t;
 
-# 43
+# 45
 typedef unsigned char uint8_t;
 
-# 49
+# 51
 typedef unsigned int uint16_t;
 
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
+# 67
 typedef unsigned long int uint32_t;
 
-# 71
+# 75
 typedef signed char int_least8_t;
 
-# 78
+# 82
 typedef signed int int_least16_t;
 
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
+# 104
 typedef signed long int int_least32_t;
 
-# 105
+# 111
 typedef unsigned char uint_least8_t;
 
-# 111
+# 117
 typedef unsigned int uint_least16_t;
 
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
+# 136
 typedef unsigned long int uint_least32_t;
 
-# 137
+# 145
 typedef signed char int_fast8_t;
 
-# 144
+# 152
 typedef signed int int_fast16_t;
 
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
+# 174
 typedef signed long int int_fast32_t;
 
-# 171
+# 181
 typedef unsigned char uint_fast8_t;
 
-# 177
+# 187
 typedef unsigned int uint_fast16_t;
 
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
+# 206
 typedef unsigned long int uint_fast32_t;
 
-# 200
+# 212
 typedef int32_t intmax_t;
 
 
@@ -3881,7 +3863,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "C:\Microchip\xc8\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
 typedef unsigned char bool;
 
 # 20 "pwm.h"
@@ -3899,16 +3881,19 @@ void _init_pwm(void);
 void incDutyCycle(enum PWMChannel);
 void decDutyCycle(enum PWMChannel);
 
-# 6 "pwm.c"
+uint16_t pwm1_writeDutyCycle(uint16_t);
+uint16_t pwm2_writeDutyCycle(uint16_t);
+uint16_t pwm3_writeDutyCycle(uint16_t);
+uint16_t pwm4_writeDutyCycle(uint16_t);
+
+enum PWMChannel getPWMSEL(void);
+
+# 9 "pwm.c"
 volatile static uint16_t pwm1_dutyCycle;
 volatile static uint16_t pwm2_dutyCycle;
 volatile static uint16_t pwm3_dutyCycle;
 volatile static uint16_t pwm4_dutyCycle;
 
-static void pwm1_writeDutyCycle(uint16_t);
-static void pwm2_writeDutyCycle(uint16_t);
-static void pwm3_writeDutyCycle(uint16_t);
-static void pwm4_writeDutyCycle(uint16_t);
 static uint16_t checkDCBounds(uint16_t, bool);
 
 void _init_pwm(void){
@@ -3920,42 +3905,48 @@ PWM3CON = 0x00;
 PWM4CON = 0x00;
 
 
-
-
 PWM1CON = 0xC0;
 PWM2CON = 0xC0;
 PWM3CON = 0xC0;
 PWM4CON = 0xC0;
 
-pwm1_writeDutyCycle(9U);
-pwm2_writeDutyCycle(9U);
-pwm3_writeDutyCycle(9U);
-pwm4_writeDutyCycle(9U);
+pwm1_writeDutyCycle(19U);
+pwm2_writeDutyCycle(19U);
+pwm3_writeDutyCycle(19U);
+pwm4_writeDutyCycle(19U);
 }
 
+# 39
+uint16_t pwm1_writeDutyCycle(uint16_t dutyCycle){
 
-static void pwm1_writeDutyCycle(uint16_t dutyCycle){
 PWM1DCH = (dutyCycle & 0x03FC)>>2;
 PWM1DCL = (dutyCycle & 0x0003)<<6;
 pwm1_dutyCycle = dutyCycle;
+return dutyCycle;
 }
-static void pwm2_writeDutyCycle(uint16_t dutyCycle){
+uint16_t pwm2_writeDutyCycle(uint16_t dutyCycle){
+
 PWM2DCH = (dutyCycle & 0x03FC)>>2;
 PWM2DCL = (dutyCycle & 0x0003)<<6;
 pwm2_dutyCycle = dutyCycle;
+return dutyCycle;
 }
-static void pwm3_writeDutyCycle(uint16_t dutyCycle){
+uint16_t pwm3_writeDutyCycle(uint16_t dutyCycle){
+
 PWM3DCH = (dutyCycle & 0x03FC)>>2;
 PWM3DCL = (dutyCycle & 0x0003)<<6;
 pwm3_dutyCycle = dutyCycle;
+return dutyCycle;
 }
-static void pwm4_writeDutyCycle(uint16_t dutyCycle){
+uint16_t pwm4_writeDutyCycle(uint16_t dutyCycle){
+
 PWM4DCH = (dutyCycle & 0x03FC)>>2;
 PWM4DCL = (dutyCycle & 0x0003)<<6;
 pwm4_dutyCycle = dutyCycle;
+return dutyCycle;
 }
 
-# 65
+# 72
 static uint16_t checkDCBounds(uint16_t dc, bool direction){
 uint16_t retval = dc;
 if( dc > 19U ){
@@ -3968,6 +3959,7 @@ retval = 0U;
 
 return retval;
 }
+
 
 void incDutyCycle(enum PWMChannel chan){
 uint16_t dutyCycle;
@@ -4059,4 +4051,21 @@ default:
 
 break;
 }
+}
+
+enum PWMChannel getPWMSEL(void){
+
+if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 0){
+return PWM_CH1;
+}else if(PORTCbits.RC4 == 0 && PORTCbits.RC2 == 1){
+return PWM_CH2;
+}else if(PORTCbits.RC4 == 1 && PORTCbits.RC2 == 0){
+return PWM_CH3;
+}else if( PORTCbits.RC4 == 1 && PORTCbits.RC2 == 1){
+return PWM_CH4;
+}else{
+
+}
+
+return PWM_CH1;
 }

@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 /* Initialize each channel at 50% duty cycle. */
-#define INIT_DUTY_CYCLE     9U
+#define INIT_DUTY_CYCLE     19U
 
 /* Define min and max values based on PR2. */
 #define MIN_DUTY_CYCLE      0U
@@ -33,5 +33,12 @@ void _init_pwm(void);
  * to step the duty cycle. */
 void incDutyCycle(enum PWMChannel);
 void decDutyCycle(enum PWMChannel);
+
+uint16_t pwm1_writeDutyCycle(uint16_t);
+uint16_t pwm2_writeDutyCycle(uint16_t);
+uint16_t pwm3_writeDutyCycle(uint16_t);
+uint16_t pwm4_writeDutyCycle(uint16_t);
+
+enum PWMChannel getPWMSEL(void);
 
 #endif

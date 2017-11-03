@@ -5,7 +5,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v __init_timer2 `(v ~T0 @X0 0 ef ]
 "28 pwm.h
 [v __init_pwm `(v ~T0 @X0 0 ef ]
-"888 C:\Microchip\xc8\include\pic16f1503.h
+"888 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1503.h
 [v _T2CON `Vuc ~T0 @X0 0 e@28 ]
 "868
 [v _PR2 `Vuc ~T0 @X0 0 e@27 ]
@@ -36,26 +36,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ANSELC `Vuc ~T0 @X0 0 e@398 ]
 "2601
 [v _WPUA `Vuc ~T0 @X0 0 e@524 ]
-"3343
-[v _IOCAP `Vuc ~T0 @X0 0 e@913 ]
-"3459
-[v _IOCAF `Vuc ~T0 @X0 0 e@915 ]
-"355
-[s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
-"365
-[s S27 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S27 . . T0IF . T0IE ]
-"354
-[u S25 `S26 1 `S27 1 ]
-[n S25 . . . ]
-"372
-[v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1503.h: 50: extern volatile unsigned char INDF0 @ 0x000;
-"52 C:\Microchip\xc8\include\pic16f1503.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1503.h
 [; ;pic16f1503.h: 52: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1503.h: 55: typedef union {
@@ -2847,42 +2832,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f1503.h: 8041: extern volatile __bit nT1SYNC @ (((unsigned) &T1CON)*8) + 2;
 [; ;pic16f1503.h: 8043: extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 [; ;pic16f1503.h: 8045: extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
-[; ;pic.h: 29: extern void __nop(void);
-[; ;pic.h: 78: extern unsigned int flash_read(unsigned short addr);
-[; ;pic.h: 153: extern __nonreentrant void _delay(unsigned long);
-[; ;pic.h: 155: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic.h: 158: extern __nonreentrant void _delay3(unsigned char);
-[; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
-[; ;pic.h: 194: extern __bank0 __bit __powerdown;
-[; ;pic.h: 195: extern __bank0 __bit __timeout;
+[; ;pic.h: 28: extern void __nop(void);
+[; ;pic.h: 77: extern unsigned int flash_read(unsigned short addr);
+[; ;pic.h: 152: extern __nonreentrant void _delay(unsigned long);
+[; ;pic.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic.h: 157: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic.h: 192: extern unsigned char __resetbits;
+[; ;pic.h: 193: extern __bit __powerdown;
+[; ;pic.h: 194: extern __bit __timeout;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdint.h: 38: typedef signed long int int32_t;
+[; ;stdint.h: 45: typedef unsigned char uint8_t;
+[; ;stdint.h: 51: typedef unsigned int uint16_t;
+[; ;stdint.h: 67: typedef unsigned long int uint32_t;
+[; ;stdint.h: 75: typedef signed char int_least8_t;
+[; ;stdint.h: 82: typedef signed int int_least16_t;
+[; ;stdint.h: 104: typedef signed long int int_least32_t;
+[; ;stdint.h: 111: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 117: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 136: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 145: typedef signed char int_fast8_t;
+[; ;stdint.h: 152: typedef signed int int_fast16_t;
+[; ;stdint.h: 174: typedef signed long int int_fast32_t;
+[; ;stdint.h: 181: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 187: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 206: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 212: typedef int32_t intmax_t;
+[; ;stdint.h: 217: typedef uint32_t uintmax_t;
+[; ;stdint.h: 222: typedef int16_t intptr_t;
+[; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;user.h: 11: void InitApp(void);
 [; ;user.h: 14: void _init_timer2(void);
@@ -2896,6 +2875,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pwm.h: 28: void _init_pwm(void);
 [; ;pwm.h: 34: void incDutyCycle(enum PWMChannel);
 [; ;pwm.h: 35: void decDutyCycle(enum PWMChannel);
+[; ;pwm.h: 37: uint16_t pwm1_writeDutyCycle(uint16_t);
+[; ;pwm.h: 38: uint16_t pwm2_writeDutyCycle(uint16_t);
+[; ;pwm.h: 39: uint16_t pwm3_writeDutyCycle(uint16_t);
+[; ;pwm.h: 40: uint16_t pwm4_writeDutyCycle(uint16_t);
+[; ;pwm.h: 42: enum PWMChannel getPWMSEL(void);
 "21 user.c
 [v _InitApp `(v ~T0 @X0 1 ef ]
 "22
@@ -2966,16 +2950,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user.c: 63: WPUA = 0x00;
 "63
 [e = _WPUA -> -> 0 `i `uc ]
-[; ;user.c: 64: IOCAP = 0x30;
-"64
-[e = _IOCAP -> -> 48 `i `uc ]
-[; ;user.c: 65: IOCAF = 0x00;
-"65
-[e = _IOCAF -> -> 0 `i `uc ]
-[; ;user.c: 68: INTCONbits.IOCIE = 1;
-"68
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;user.c: 69: }
-"69
+[; ;user.c: 71: }
+"71
 [e :UE 343 ]
 }

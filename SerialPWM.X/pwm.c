@@ -3,15 +3,14 @@
 #include <xc.h>
 #include "pwm.h"
 
+#define PWMSEL0 PORTCbits.RC4
+#define PWMSEL1 PORTCbits.RC2
+
 volatile static uint16_t pwm1_dutyCycle;
 volatile static uint16_t pwm2_dutyCycle;
 volatile static uint16_t pwm3_dutyCycle;
 volatile static uint16_t pwm4_dutyCycle;
 
-static void pwm1_writeDutyCycle(uint16_t);
-static void pwm2_writeDutyCycle(uint16_t);
-static void pwm3_writeDutyCycle(uint16_t);
-static void pwm4_writeDutyCycle(uint16_t);
 static uint16_t checkDCBounds(uint16_t, bool);
 
 void _init_pwm(void){
@@ -21,8 +20,6 @@ void _init_pwm(void){
     PWM2CON = 0x00;
     PWM3CON = 0x00;
     PWM4CON = 0x00;
-
-    /* Initialize Timer2. */
 
     /* Configure and enable PWM1-4. */
     PWM1CON = 0xC0;
@@ -36,26 +33,36 @@ void _init_pwm(void){
     pwm4_writeDutyCycle(INIT_DUTY_CYCLE);
 }
 
-/* Helper methods to write registers and update local variables. */
-static void pwm1_writeDutyCycle(uint16_t dutyCycle){
+/* Helper methods to write registers and update local variables. Returns the
+ * channel's duty cycle after updating it with dutyCycle.
+ */
+uint16_t pwm1_writeDutyCycle(uint16_t dutyCycle){
+    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM1DCH = (dutyCycle & 0x03FC)>>2;
     PWM1DCL = (dutyCycle & 0x0003)<<6;
     pwm1_dutyCycle = dutyCycle;
+    return dutyCycle;
 }
-static void pwm2_writeDutyCycle(uint16_t dutyCycle){
+uint16_t pwm2_writeDutyCycle(uint16_t dutyCycle){
+    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM2DCH = (dutyCycle & 0x03FC)>>2;
     PWM2DCL = (dutyCycle & 0x0003)<<6;
     pwm2_dutyCycle = dutyCycle;
+    return dutyCycle;
 }
-static void pwm3_writeDutyCycle(uint16_t dutyCycle){
+uint16_t pwm3_writeDutyCycle(uint16_t dutyCycle){
+    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM3DCH = (dutyCycle & 0x03FC)>>2;
     PWM3DCL = (dutyCycle & 0x0003)<<6;
     pwm3_dutyCycle = dutyCycle;
+    return dutyCycle;
 }
-static void pwm4_writeDutyCycle(uint16_t dutyCycle){
+uint16_t pwm4_writeDutyCycle(uint16_t dutyCycle){
+    //uint16_t dutyCycle = checkDCBounds(dc);
     PWM4DCH = (dutyCycle & 0x03FC)>>2;
     PWM4DCL = (dutyCycle & 0x0003)<<6;
     pwm4_dutyCycle = dutyCycle;
+    return dutyCycle;
 }
 
 /* Returns a duty cycle within the correct bounds. Depending on if
@@ -66,14 +73,15 @@ static uint16_t checkDCBounds(uint16_t dc, bool direction){
     uint16_t retval = dc;
     if( dc > MAX_DUTY_CYCLE ){
         if(direction == true){
-            retval = MAX_DUTY_CYCLE;        // Overflow
+           retval = MAX_DUTY_CYCLE;        // Overflow
         }else{
-            retval = MIN_DUTY_CYCLE;        // Underflow
+           retval = MIN_DUTY_CYCLE;       // Underflow
         }
     }
 
     return retval;
 }
+
 
 void incDutyCycle(enum PWMChannel chan){
     uint16_t dutyCycle;
@@ -116,7 +124,7 @@ void incDutyCycle(enum PWMChannel chan){
             break;
 
         default:
-            /* Do nothing. */
+
             break;
     }
 }
@@ -162,7 +170,24 @@ void decDutyCycle(enum PWMChannel chan){
             break;
 
         default:
-            /* Do nothing. */
+
             break;
     }
+}
+
+enum PWMChannel getPWMSEL(void){
+  /* Read PWMSEL0 and PWMSEL1 */
+  if(PWMSEL0 == 0 && PWMSEL1 == 0){
+    return PWM_CH1;
+  }else if(PWMSEL0 == 0 && PWMSEL1 == 1){
+    return PWM_CH2;
+  }else if(PWMSEL0 == 1 && PWMSEL1 == 0){
+    return PWM_CH3;
+  }else if( PWMSEL0 == 1 && PWMSEL1 == 1){
+    return PWM_CH4;
+  }else{
+    /* Do nothing. */
+  }
+
+  return PWM_CH1;
 }

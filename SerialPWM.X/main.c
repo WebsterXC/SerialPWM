@@ -13,12 +13,16 @@
 
 #include "system.h"        /* System funct/params, like osc/peripheral config */
 #include "user.h"          /* User funct/params, such as InitApp */
+#include "pwm.h"
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
 /******************************************************************************/
 
-/* i.e. uint8_t <variable_name>; */
+#define DUTYUP  PORTAbits.RA4
+#define DUTYDN  PORTAbits.RA5
+#define INHIBIT PORTCbits.RC0
+
 
 /******************************************************************************/
 /* Main Program                                                               */
@@ -31,11 +35,26 @@ void main(void)
     /* Initialize I/O and Peripherals for application */
     InitApp();
 
+    static bool commandUP = true;
+    static bool commandDN = true;
 
     while(1)
     {
-        /* TODO <INSERT USER APPLICATION CODE HERE> */
+        if( DUTYDN == 1 ){
+          commandDN = true;
+        }
+        if( DUTYUP == 1 ){
+          commandUP = true;
+        }
+
+        if( DUTYDN == 0 && commandDN == true && INHIBIT == 0){
+            decDutyCycle(getPWMSEL());
+            commandDN = false;
+        }
+        if( DUTYUP == 0 && commandUP == true && INHIBIT == 0){
+            incDutyCycle(getPWMSEL());
+            commandUP = false;
+        }
     }
 
 }
-

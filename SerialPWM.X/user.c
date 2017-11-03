@@ -59,11 +59,13 @@ void _init_gpio(void){
     ANSELA = 0x00;
     ANSELC = 0x00;
 
-    /* Enable positive-edge IOC on RA4 and RA5. Disable WPU function. */
+    /* Disabled positive-edge IOC on RA4 and RA5. Disable WPU function. */
     WPUA = 0x00;
-    IOCAP = 0x30;
-    IOCAF = 0x00;       // Clear interrupt flags.
+    //OPTION_REGbits.nWPUEN = 0;
+
+    //IOCAP = 0x30;
+    //IOCAF = 0x00;       // Clear interrupt flags.
 
     /* Enable global interrupts. */
-    INTCONbits.IOCIE = 1;
+    //INTCONbits.IOCIE = 1;
 }

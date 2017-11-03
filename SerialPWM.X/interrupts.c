@@ -11,11 +11,6 @@
 #include <stdint.h>         /* For uint8_t definition */
 #include <stdbool.h>        /* For true/false definition */
 
-#include "pwm.h"
-
-/* Aliases for PWMSEL inputs. */
-#define PWMSEL0 PORTCbits.RC4
-#define PWMSEL1 PORTCbits.RC2
 
 /******************************************************************************/
 /* Interrupt Routines                                                         */
@@ -28,47 +23,7 @@
 
 void interrupt isr(void)
 {
-    /* Check which pin caused the interrupt. */
 
-    // Interrupt on change for RA4 (DUTYUP)
-    if(IOCAFbits.IOCAF4 == 1)
-    {
-        /* Read the PWMSEL inputs. */
-        if( PWMSEL0 == 0 && PWMSEL1 == 0 ){
-            incDutyCycle(PWM_CH1);
-        }else if( PWMSEL0 == 0 && PWMSEL1 == 1 ){
-            incDutyCycle(PWM_CH2);
-        }else if( PWMSEL0 == 1 && PWMSEL1 == 0 ){
-            incDutyCycle(PWM_CH3);
-        }else if( PWMSEL0 == 1 && PWMSEL1 == 1 ){
-            incDutyCycle(PWM_CH4);
-        }else{
-            /* Do nothing. */
-        }
-
-        /* Reset interrupt flag. */
-        IOCAFbits.IOCAF4 = 0;
-    }
-
-    // Interrupt on change for RA5 (DUTYDN)
-    if(IOCAFbits.IOCAF5 == 1)
-    {
-        /* Read the PWMSEL inputs. */
-        if( PWMSEL0 == 0 && PWMSEL1 == 0 ){
-            decDutyCycle(PWM_CH1);
-        }else if( PWMSEL0 == 0 && PWMSEL1 == 1 ){
-            decDutyCycle(PWM_CH2);
-        }else if( PWMSEL0 == 1 && PWMSEL1 == 0 ){
-            decDutyCycle(PWM_CH3);
-        }else if( PWMSEL0 == 1 && PWMSEL1 == 1 ){
-            decDutyCycle(PWM_CH4);
-        }else{
-            /* Do nothing. */
-        }
-
-        /* Reset interrupt flag. */
-        IOCAFbits.IOCAF5 = 0;
-    }
 
 }   //ISR
 #endif
