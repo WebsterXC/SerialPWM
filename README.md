@@ -36,6 +36,8 @@ Datasheet-like documentation* and a visual pinout can be found in the /docs dire
 | 13 | RA0 | ICSPCLK | Dedicated programming line (clock). |
 | 14 | VSS | VSS | MCU ground connection. |
 
+#### PWM Channel Select ####
+
 | PWMSEL0 | PWMSEL1 | PWM Channel Selected |
 | 0 | 0 | PWM1 |
 | 0 | 1 | PWM2 |
