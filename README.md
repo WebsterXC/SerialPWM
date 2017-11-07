@@ -39,6 +39,7 @@ Datasheet-like documentation* and a visual pinout can be found in the /docs dire
 #### PWM Channel Select ####
 
 | PWMSEL0 | PWMSEL1 | PWM Channel Selected |
+| --------- | --------- | ---------------------- |
 | 0 | 0 | PWM1 |
 | 0 | 1 | PWM2 |
 | 1 | 0 | PWM3 |
