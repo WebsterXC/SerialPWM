@@ -15,9 +15,10 @@ in a matter of minutes.
 For a visual pinout, please refer to the /docs directory.
 
 #### Inputs ####
-SerialPWM uses an interrupt-driven, GPIO interface to control the duty cycle
+SerialPWM uses an I/O sampled, GPIO interface to control the duty cycle
 of the PWM channels. It also offers logic to mask input commands, allowing
-the end-user to cascade several of these on the same board.
+the end-user to cascade several of these on the same board. Future enhancements
+are planned to enable an interrupt-driven interface.
 
 * **PWM_INH (/ Pin 10)** => Chip inhibit, active-low. When high, the device will
 ignore all commands on the DUTY and PWMSEL pins. This allows multiple devices
